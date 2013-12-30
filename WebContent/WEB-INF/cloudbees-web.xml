@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Plik konfiguracyjny serwera pod własną bazę danych -->
+
+<cloudbees-web-app xmlns="http://www.cloudbees.com/xml/webapp/1">
+
+	<resource name="jdbc/crmdb" auth="Container" type="javax.sql.DataSource">
+		<param name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<param name="username" value="kalix_crmdb" />
+		<param name="password" value="kalii1" />
+		<param name="url" value="jdbc:mysql://kalix.linuxpl.info:3306/kalix_crmdb" />
+
+		<!-- Connection Pool settings -->
+		<param name="maxActive" value="5" />
+		<param name="maxIdle" value="2" />
+		<param name="maxWait" value="10000" />
+		<param name="removeAbandoned" value="true" />
+		<param name="removeAbandonedTimeout" value="60" />
+		<param name="logAbandoned" value="true" />
+
+		<!-- Purge invalid connections -->
+		<param name="validationQuery" value="SELECT 1" />
+		<param name="testOnBorrow" value="true" />
+	</resource>
+
+</cloudbees-web-app>
