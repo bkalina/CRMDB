@@ -5,11 +5,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class TeamController {
+public class WelcomeController {
 
-	@RequestMapping("/mojzespol")
-	public String showPanel(Model model){
+	@RequestMapping("/")
+	public String showWelcome(Model model){
 		model.addAttribute("id", "1");
-		return "team/team";
+		return "welcome";
 	}
 }

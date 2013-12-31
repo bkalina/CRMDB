@@ -10,6 +10,6 @@ public class NumbersController {
 	@RequestMapping("/telefony")
 	public String showNumbers(Model model){
 		model.addAttribute("id", "1");
-		return "numbers";
+		return "number/numbers";
 	}
 }

@@ -7,9 +7,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class PanelController {
 
-	@RequestMapping("/")
+	@RequestMapping("/panel")
 	public String showPanel(Model model){
 		model.addAttribute("id", "1");
-		return "panel";
+		return "panel/panel";
 	}
+	
 }

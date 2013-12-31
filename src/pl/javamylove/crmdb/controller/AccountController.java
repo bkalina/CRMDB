@@ -10,6 +10,6 @@ public class AccountController {
 	@RequestMapping("/mojekonto")
 	public String showAccount(Model model){
 		model.addAttribute("id", "1");
-		return "account";
+		return "account/account";
 	}
 }

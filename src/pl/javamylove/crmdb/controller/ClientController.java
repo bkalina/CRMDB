@@ -10,6 +10,6 @@ public class ClientController {
 	@RequestMapping("/klienci")
 	public String showClients(Model model){
 		model.addAttribute("id", "1");
-		return "clients";
+		return "client/clients";
 	}
 }
