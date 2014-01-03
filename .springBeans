@@ -8,6 +8,7 @@
 	<enableImports><![CDATA[false]]></enableImports>
 	<configs>
 		<config>WebContent/WEB-INF/crmdb-servlet.xml</config>
+		<config>src/pl/javamylove/crmdb/config/dao-config.xml</config>
 	</configs>
 	<configSets>
 	</configSets>

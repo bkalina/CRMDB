@@ -24,29 +24,32 @@
 				href="${pageContext.request.contextPath}/panel">CRM DB</a>
 		</div>
 	</nav>
-	<div style="width:100%; margin:0 auto;">
-	
-	<div class="col-lg-4"
-		style="width: 200px; padding: 0px; position: absolute; z-index: 100; top:50%; left:50%; margin:-100px 0 0 -100px;">
-		<div class="panel panel-primary">
-			<div class="panel-heading">
-				<h3 class="panel-title">Logowanie</h3>
-			</div>
-			<div class="panel-body">
-				<div class="form-group">
-					<label>Email</label> <input class="form-control">
+	<div style="width: 100%; margin: 0 auto;">
+
+		<div class="col-lg-4"
+			style="width: 200px; padding: 0px; position: absolute; z-index: 100; top: 50%; left: 50%; margin: -100px 0 0 -100px;">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h3 class="panel-title">Logowanie</h3>
 				</div>
-				<div class="form-group">
-					<label>Has³o</label> <input class="form-control">
-				</div>
-				<div style="text-align: center;">
-					<a href="${pageContext.request.contextPath}/panel">
-						<button type="button" class="btn btn-primary">Zaloguj</button>
-					</a>
+				<div class="panel-body">
+					<div class="input-group margin-bottom-sm">
+						<span class="input-group-addon"><i
+							class="fa fa-envelope-o fa-fw"></i></span> <input class="form-control"
+							type="text" placeholder="Email">
+					</div>
+					<div class="input-group">
+						<span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+						<input class="form-control" type="password" placeholder="Has³o">
+					</div></br>
+					<div style="text-align: center;">
+						<a href="${pageContext.request.contextPath}/panel">
+							<button type="button" class="btn btn-primary">Zaloguj</button>
+						</a>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 	</div>
 
 	<!-- JAVASCRIPT -->

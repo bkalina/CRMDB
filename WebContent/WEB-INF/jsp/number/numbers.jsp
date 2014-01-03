@@ -3,18 +3,21 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="datatables"
+	uri="http://github.com/dandelion/datatables"%>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
 <jsp:include page="../default/headTag.jsp" />
 <title>CRMDB - Telefony</title>
+<script
+	src="${pageContext.request.contextPath}/static/js/DT_bootstrap.js"></script>
+	<script
+	src="${pageContext.request.contextPath}/static/js/jquery.dataTables.js"></script>
 </head>
 
 <body>
 
-	<sql:query var="rs" dataSource="jdbc/crmdb">
-select t.numer, t.operator, t.dlugosc_umowy, t.koniec_umowy, CONCAT(k.imie, ' ', k.nazwisko) as wlasciciel from telefon t join klient k on t.klient_id=k.id where k.pracownik_id=${id}
-</sql:query>
 
 	<div id="wrapper">
 
@@ -31,32 +34,28 @@ select t.numer, t.operator, t.dlugosc_umowy, t.koniec_umowy, CONCAT(k.imie, ' ',
 				<div class="page-header"></div>
 			</div>
 
-			<div class="table-responsive">
-				<table
-					class="table table-bordered table-hover table-striped tablesorter">
-					<thead>
-						<tr>
-							<th style="width: 50px;">Operator<i class="fa fa-sort" ></i></th>
-							<th >Koniec<i class="fa fa-sort"></i></th>
-							<th >Numer telefonu<i class="fa fa-sort"></i></th>
-							<th >D³ugo¶æ<i class="fa fa-sort"></i></th>
-							<th >W³a¶ciciel<i class="fa fa-sort"></i></th>
-						</tr>
-					</thead>
-					<tbody>
-					<c:forEach var="row" items="${rs.rows}">
-						<tr>
-							<td>${row.operator}</td>
-							<td>${row.koniec_umowy}</td>
-							<td>${row.numer}</td>
-							<td>${row.dlugosc_umowy}</td>
-							<td>${row.wlasciciel}</td>
-						</tr>
-					</c:forEach>
-					</tbody>
-				</table>
-			</div>
+			<div class="panel panel-default">
+				<%
+					int iter = 1;
+				%>
+				<div class="panel-body">
+					<div class="table-responsive">
 
+						<datatables:table data="${numbersList}"
+							cssClass="table table-hover table-striped" id="numery" filter="true" >
+							<datatables:column title="Lp."></datatables:column>
+							<datatables:column title="Operator" property="operator" />
+							<datatables:column title="Koniec" property="koniec_umowy" />
+							<datatables:column title="Numer telefonu" property="numer" />
+							<datatables:column title="Us³uga" property="typ_uslugi" />
+							<datatables:column title="D³ugo¶æ" property="dlugosc_umowy" />
+							<datatables:column title="">
+								<a href="#"><i class="fa fa-pencil-square-o fa-2x"></i></a>
+							</datatables:column>
+						</datatables:table>
+					</div>
+				</div>
+			</div>
 		</div>
 		<!-- /#page-wrapper -->
 	</div>

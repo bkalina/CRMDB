@@ -19,5 +19,4 @@
 	</bean>
 	<mvc:resources location="/resources/" mapping="/static/**" />
 	
-	<mvc:resources mapping="/webjars/**" location="/WEB-INF/lib/"/>
 </beans>

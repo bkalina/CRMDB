@@ -22,13 +22,13 @@
 				href="${pageContext.request.contextPath}/panel"><i
 					class="fa fa-dashboard"></i> Panel</a></li>
 			<li><a href="${pageContext.request.contextPath}/terminarz"><i
-					class="fa fa-edit"></i> Terminarz</a></li>
+					class="fa fa-calendar"></i> Terminarz</a></li>
 			<li><a href="${pageContext.request.contextPath}/telefony"><i
-					class="fa fa-bar-chart-o"></i> Telefony</a></li>
+					class="fa fa-phone-square"></i> Telefony</a></li>
 			<li><a href="${pageContext.request.contextPath}/klienci"><i
-					class="fa fa-table"></i> Klienci</a></li>
+					class="fa fa-male"></i> Klienci</a></li>
 			<li><a href="${pageContext.request.contextPath}/mojzespol"><i
-					class="fa fa-edit"></i> Mój zespó³</a></li>
+					class="fa fa-users"></i> Mój zespó³</a></li>
 		</ul>
 		<!-- / SIDEBAR MENU -->
 

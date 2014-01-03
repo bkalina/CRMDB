@@ -34,7 +34,7 @@
 						<div class="panel-heading">
 							<div class="row">
 								<div class="col-xs-6">
-									<i class="fa fa-comments fa-5x"></i>
+									<i class="fa fa-phone-square fa-5x"></i>
 								</div>
 								<div class="col-xs-6 text-right">
 									<p class="announcement-heading">456</p>
@@ -60,7 +60,7 @@
 						<div class="panel-heading">
 							<div class="row">
 								<div class="col-xs-6">
-									<i class="fa fa-comments fa-5x"></i>
+									<i class="fa fa-male fa-5x"></i>
 								</div>
 								<div class="col-xs-6 text-right">
 									<p class="announcement-heading">320</p>
@@ -86,7 +86,7 @@
 						<div class="panel-heading">
 							<div class="row">
 								<div class="col-xs-6">
-									<i class="fa fa-tasks fa-5x"></i>
+									<i class="fa fa-briefcase fa-5x"></i>
 								</div>
 								<div class="col-xs-6 text-right">
 									<p class="announcement-heading">18</p>
@@ -112,7 +112,7 @@
 						<div class="panel-heading">
 							<div class="row">
 								<div class="col-xs-6">
-									<i class="fa fa-comments fa-5x"></i>
+									<i class="fa fa-calendar fa-5x"></i>
 								</div>
 								<div class="col-xs-6 text-right">
 									<p class="announcement-heading">56</p>
