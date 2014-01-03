@@ -24,8 +24,8 @@ public class PhoneNumbersController {
 
 	@RequestMapping("/telefony")
 	public String showPhoneNumbers(Model model, HttpSession session){
+		System.out.println("Id: " + session.getAttribute("id"));
 		System.out.println("pnController: showNumber()");
-		System.out.println(session.getAttribute("id"));
 		List<PhoneNumber> pnList = pnService.getNumbersList();
 		model.addAttribute("numbersList", pnList);
 		return "number/numbers";

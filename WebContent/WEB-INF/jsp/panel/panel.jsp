@@ -37,7 +37,7 @@
 									<i class="fa fa-phone-square fa-5x"></i>
 								</div>
 								<div class="col-xs-6 text-right">
-									<p class="announcement-heading">456</p>
+									<p class="announcement-heading">${count.nrCount}</p>
 									<p class="announcement-text">Numerów w bazie!</p>
 								</div>
 							</div>
@@ -63,7 +63,7 @@
 									<i class="fa fa-male fa-5x"></i>
 								</div>
 								<div class="col-xs-6 text-right">
-									<p class="announcement-heading">320</p>
+									<p class="announcement-heading">${count.klientCount}</p>
 									<p class="announcement-text">Klientów w bazie!</p>
 								</div>
 							</div>
@@ -89,7 +89,7 @@
 									<i class="fa fa-briefcase fa-5x"></i>
 								</div>
 								<div class="col-xs-6 text-right">
-									<p class="announcement-heading">18</p>
+									<p class="announcement-heading">${count.aneksCount}</p>
 									<p class="announcement-text">Aneksów do podpisania!</p>
 								</div>
 							</div>
@@ -115,7 +115,7 @@
 									<i class="fa fa-calendar fa-5x"></i>
 								</div>
 								<div class="col-xs-6 text-right">
-									<p class="announcement-heading">56</p>
+									<p class="announcement-heading">${count.terminCount}</p>
 									<p class="announcement-text">Wydarzeñ w terminarzu!</p>
 								</div>
 							</div>

@@ -25,7 +25,6 @@
 		<jsp:include page="../default/sideBar.jsp" />
 
 		<!-- CONTENT -->
-		<!-- Nazwa strony -->
 		<div id="page-wrapper" >
 			<div class="row" >
 				<div class="col-lg-12">
@@ -59,7 +58,7 @@
 	<!-- /#wrapper -->
 
 	<!-- JAVASCRIPT -->
-	<jsp:include page="../default/javaScript.jsp" />
+	<jsp:include page="../default/javaScript.jsp" /> 
 
 </body>
 </html>

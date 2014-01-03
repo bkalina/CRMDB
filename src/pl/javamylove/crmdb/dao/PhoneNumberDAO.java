@@ -24,7 +24,7 @@ public class PhoneNumberDAO {
 	}
 
 	public List<PhoneNumber> getNumbersList() {
-		System.out.println("pnDA: getNumbersList()");
+		System.out.println("pnDAO: getNumbersList()");
 		
 		return jdbc.query("select * from telefon", new RowMapper<PhoneNumber>() {
 
