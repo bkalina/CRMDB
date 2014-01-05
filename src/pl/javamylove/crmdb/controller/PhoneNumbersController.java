@@ -26,7 +26,7 @@ public class PhoneNumbersController {
 	public String showPhoneNumbers(Model model, HttpSession session){
 		System.out.println("Id: " + session.getAttribute("id"));
 		System.out.println("pnController: showNumber()");
-		List<PhoneNumber> pnList = pnService.getNumbersList();
+		List<PhoneNumber> pnList = pnService.getNumbersList((int) session.getAttribute("id"));
 		model.addAttribute("numbersList", pnList);
 		return "number/numbers";
 	}

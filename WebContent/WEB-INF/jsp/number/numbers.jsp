@@ -6,6 +6,7 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
+<meta charset="utf-8">
 <jsp:include page="../default/headTag.jsp" />
 <title>CRMDB - Telefony</title>
 
@@ -30,17 +31,23 @@
 			</div>
 			<div class="table-responsive">
 				<datatables:table cdn="true" id="numery" data="${numbersList}"
-					cssClass="table table-hover table-striped" >
+					cssClass="table table-hover table-striped" row="nr" theme="jqueryui" themeOption="redmond">
 					<!-- theme="jqueryui" themeOption="redmond" -->
-					<datatables:column title="Lp."></datatables:column>
 					<datatables:column title="Operator" property="operator" />
-					<datatables:column title="Koniec" property="koniec_umowy" />
+					<datatables:column title="Koniec" property="koniecUmowy" sortInit="asc"/>
 					<datatables:column title="Numer telefonu" property="numer" />
-					<datatables:column title="Us³uga" property="typ_uslugi" />
-					<datatables:column title="D³ugo¶æ" property="dlugosc_umowy" />
+					<datatables:column title="Us³uga" >
+						<font style="font-size:small;"><c:out value="${nr.typUslugi}" /></font>
+					</datatables:column>
+					<datatables:column title="D³ugo¶æ" property="dlugoscUmowy" />
+					<datatables:column title="Firma">
+						<b><c:out value="${nr.nazwaFirmy}" /></b><br>
+						<font style="font-size:small;"><c:out value="${nr.daneKlienta}" /></font>
+					</datatables:column>
 					<datatables:column title=" ">
 						<a href="#"><i class="fa fa-pencil-square-o fa-2x"></i></a>
 					</datatables:column>
+					
 				</datatables:table>
 			</div>
 		</div>

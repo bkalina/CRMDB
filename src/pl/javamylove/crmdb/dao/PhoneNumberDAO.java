@@ -23,23 +23,21 @@ public class PhoneNumberDAO {
 		this.jdbc = new JdbcTemplate(jdbc);
 	}
 
-	public List<PhoneNumber> getNumbersList() {
+	public List<PhoneNumber> getNumbersList(int id) {
 		System.out.println("pnDAO: getNumbersList()");
 		
-		return jdbc.query("select * from telefon", new RowMapper<PhoneNumber>() {
+		return jdbc.query("SELECT UCASE(t.operator) AS operator, t.koniec_umowy, t.numer, REPLACE(t.typ_uslugi, '_', ' ') AS typ_uslugi, t.dlugosc_umowy, k.nazwa_firmy, CONCAT(k.imie, ' ', k.nazwisko, '   NIP:', k.nip) AS dane_klienta FROM telefon t JOIN klient k ON t.klient_id=k.id WHERE k.pracownik_id="+id, new RowMapper<PhoneNumber>() {
 
 			public PhoneNumber mapRow(ResultSet rs, int rowNum) throws SQLException {
 				PhoneNumber phoneNumber = new PhoneNumber();
 				
-				phoneNumber.setId(rs.getInt("id"));
 				phoneNumber.setNumer(rs.getString("numer"));
 				phoneNumber.setOperator(rs.getString("operator"));
-				phoneNumber.setDlugosc_umowy(rs.getString("dlugosc_umowy"));
-				phoneNumber.setPoczatek_umowy(rs.getString("poczatek_umowy"));
-				phoneNumber.setKoniec_umowy(rs.getString("koniec_umowy"));
-				phoneNumber.setTyp_uslugi(rs.getString("typ_uslugi"));
-				phoneNumber.setNotatka(rs.getString("notatka"));
-				phoneNumber.setKlient_id(rs.getInt("klient_id"));
+				phoneNumber.setDlugoscUmowy(rs.getString("dlugosc_umowy"));
+				phoneNumber.setKoniecUmowy(rs.getString("koniec_umowy"));
+				phoneNumber.setTypUslugi(rs.getString("typ_uslugi"));
+				phoneNumber.setNazwaFirmy(rs.getString("nazwa_firmy"));
+				phoneNumber.setDaneKlienta(rs.getString("dane_klienta"));
 				
 				return phoneNumber;
 			}

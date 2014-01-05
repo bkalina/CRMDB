@@ -18,12 +18,12 @@ public class PanelDAO {
 		this.jdbc = new JdbcTemplate(jdbc);
 	}
 
-	public PanelModel getCount(){
+	public PanelModel getCount(int id){
 		PanelModel model = new PanelModel();
-		model.setNrCount(jdbc.queryForInt("SELECT COUNT(*) FROM telefon"));
-		model.setKlientCount(jdbc.queryForInt("SELECT COUNT(*) FROM klient"));
-		model.setTerminCount(jdbc.queryForInt("SELECT COUNT(*) FROM zdarzenie"));
-		model.setAneksCount(0);
+		model.setNrCount(jdbc.queryForInt("SELECT COUNT(*) FROM telefon t JOIN klient k ON t.klient_id=k.id WHERE k.pracownik_id="+id));
+		model.setKlientCount(jdbc.queryForInt("SELECT COUNT(*) FROM klient WHERE pracownik_id="+id));
+		model.setTerminCount(jdbc.queryForInt("SELECT COUNT(*) FROM zdarzenie WHERE pracownik_id="+id));
+		model.setAneksCount(jdbc.queryForInt("SELECT COUNT(*) FROM telefon t JOIN klient k ON t.klient_id=k.id WHERE k.pracownik_id="+id+" AND koniec_umowy > 2000-01-01 AND koniec_umowy < DATE_ADD(CURDATE(),INTERVAL 60 DAY)"));
 		return model;
 	}
 	

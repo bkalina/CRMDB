@@ -18,9 +18,10 @@ public class PhoneNumberService {
 		this.pnDao = pnDao;
 	}
 	
-	public List<PhoneNumber> getNumbersList(){
+	public List<PhoneNumber> getNumbersList(int id){
 		System.out.println("pnService: getNumbersList()");
-		return pnDao.getNumbersList();
+		return pnDao.getNumbersList(id);
 	}
+	
 	
 }

@@ -16,8 +16,8 @@ public class PanelService {
 		this.panelDao = panelDao;
 	}
 	
-	public PanelModel getCount(){
+	public PanelModel getCount(int id){
 		System.out.println("panelService: getPhoneNumberCount()");
-		return panelDao.getCount();
+		return panelDao.getCount(id);
 	}
 }

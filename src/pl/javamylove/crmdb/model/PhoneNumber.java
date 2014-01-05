@@ -5,12 +5,14 @@ public class PhoneNumber {
 	private int id;
 	private String numer;
 	private String operator;
-	private String dlugosc_umowy;
-	private String poczatek_umowy;
-	private String koniec_umowy;
-	private String typ_uslugi;
+	private String dlugoscUmowy;
+	private String poczatekUmowy;
+	private String koniecUmowy;
+	private String typUslugi;
 	private String notatka;
-	private int klient_id;
+	private int klientId;
+	private String nazwaFirmy;
+	private String daneKlienta;
 
 	public int getId() {
 		return id;
@@ -36,36 +38,36 @@ public class PhoneNumber {
 		this.operator = operator;
 	}
 
-	public String getDlugosc_umowy() {
-		return dlugosc_umowy;
+	public String getDlugoscUmowy() {
+		return dlugoscUmowy;
 	}
 
-	public void setDlugosc_umowy(String dlugosc_umowy) {
-		this.dlugosc_umowy = dlugosc_umowy;
+	public void setDlugoscUmowy(String dlugoscUmowy) {
+		this.dlugoscUmowy = dlugoscUmowy;
 	}
 
-	public String getPoczatek_umowy() {
-		return poczatek_umowy;
+	public String getPoczatekUmowy() {
+		return poczatekUmowy;
 	}
 
-	public void setPoczatek_umowy(String poczatek_umowy) {
-		this.poczatek_umowy = poczatek_umowy;
+	public void setPoczatekUmowy(String poczatekUmowy) {
+		this.poczatekUmowy = poczatekUmowy;
 	}
 
-	public String getKoniec_umowy() {
-		return koniec_umowy;
+	public String getKoniecUmowy() {
+		return koniecUmowy;
 	}
 
-	public void setKoniec_umowy(String koniec_umowy) {
-		this.koniec_umowy = koniec_umowy;
+	public void setKoniecUmowy(String koniecUmowy) {
+		this.koniecUmowy = koniecUmowy;
 	}
 
-	public String getTyp_uslugi() {
-		return typ_uslugi;
+	public String getTypUslugi() {
+		return typUslugi;
 	}
 
-	public void setTyp_uslugi(String typ_uslugi) {
-		this.typ_uslugi = typ_uslugi;
+	public void setTypUslugi(String typUslugi) {
+		this.typUslugi = typUslugi;
 	}
 
 	public String getNotatka() {
@@ -76,21 +78,38 @@ public class PhoneNumber {
 		this.notatka = notatka;
 	}
 
-	public int getKlient_id() {
-		return klient_id;
+	public int getKlientId() {
+		return klientId;
 	}
 
-	public void setKlient_id(int klient_id) {
-		this.klient_id = klient_id;
+	public void setKlientId(int klientId) {
+		this.klientId = klientId;
+	}
+
+	public String getNazwaFirmy() {
+		return nazwaFirmy;
+	}
+
+	public void setNazwaFirmy(String nazwaFirmy) {
+		this.nazwaFirmy = nazwaFirmy;
+	}
+
+	public String getDaneKlienta() {
+		return daneKlienta;
+	}
+
+	public void setDaneKlienta(String daneKlienta) {
+		this.daneKlienta = daneKlienta;
 	}
 
 	@Override
 	public String toString() {
-		return "Number [id=" + id + ", numer=" + numer + ", operator="
-				+ operator + ", dlugosc_umowy=" + dlugosc_umowy
-				+ ", poczatek_umowy=" + poczatek_umowy + ", koniec_umowy="
-				+ koniec_umowy + ", typ_uslugi=" + typ_uslugi + ", notatka="
-				+ notatka + ", klient_id=" + klient_id + "]";
+		return "PhoneNumber [id=" + id + ", numer=" + numer + ", operator="
+				+ operator + ", dlugoscUmowy=" + dlugoscUmowy
+				+ ", poczatekUmowy=" + poczatekUmowy + ", koniecUmowy="
+				+ koniecUmowy + ", typUslugi=" + typUslugi + ", notatka="
+				+ notatka + ", klientId=" + klientId + ", nazwaFirmy="
+				+ nazwaFirmy + ", daneKlienta=" + daneKlienta + "]";
 	}
 
 }

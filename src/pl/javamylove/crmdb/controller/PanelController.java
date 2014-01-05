@@ -1,5 +1,7 @@
 package pl.javamylove.crmdb.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,9 +21,8 @@ public class PanelController {
 	}
 
 	@RequestMapping("/panel")
-	public String showPanel(Model model) {
-		model.addAttribute("id", "1");
-		PanelModel pModel = panelService.getCount();
+	public String showPanel(Model model, HttpSession session) {
+		PanelModel pModel = panelService.getCount((int) session.getAttribute("id"));
 		model.addAttribute("count", pModel);
 		return "panel/panel";
 	}
