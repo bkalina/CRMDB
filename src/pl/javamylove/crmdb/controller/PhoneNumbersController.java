@@ -9,7 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import pl.javamylove.crmdb.model.PhoneNumber;
+import pl.javamylove.crmdb.model.PhoneNumberModel;
 import pl.javamylove.crmdb.service.PhoneNumberService;
 
 @Controller
@@ -26,7 +26,7 @@ public class PhoneNumbersController {
 	public String showPhoneNumbers(Model model, HttpSession session){
 		System.out.println("Id: " + session.getAttribute("id"));
 		System.out.println("pnController: showNumber()");
-		List<PhoneNumber> pnList = pnService.getNumbersList((int) session.getAttribute("id"));
+		List<PhoneNumberModel> pnList = pnService.getNumbersList((int) session.getAttribute("id"));
 		model.addAttribute("numbersList", pnList);
 		return "number/numbers";
 	}

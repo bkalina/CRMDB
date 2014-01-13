@@ -17,7 +17,7 @@
 
 		<!-- CONTENT -->
 		<!-- Nazwa strony -->
-		<div id="page-wrapper" >
+		<div id="page-wrapper">
 			<div class="row">
 				<div class="col-lg-12">
 					<h1>Panel g³ówny</h1>
@@ -30,19 +30,19 @@
 			<!-- Statystyki -->
 			<div class="row">
 				<div class="col-lg-3">
-					<div class="panel panel-info">
-						<div class="panel-heading">
-							<div class="row">
-								<div class="col-xs-6">
-									<i class="fa fa-phone-square fa-5x"></i>
-								</div>
-								<div class="col-xs-6 text-right">
-									<p class="announcement-heading">${count.nrCount}</p>
-									<p class="announcement-text">Numerów w bazie!</p>
+					<a href="${pageContext.request.contextPath}/telefony">
+						<div class="panel panel-info">
+							<div class="panel-heading">
+								<div class="row">
+									<div class="col-xs-6">
+										<i class="fa fa-phone-square fa-5x"></i>
+									</div>
+									<div class="col-xs-6 text-right">
+										<p class="announcement-heading">${count.nrCount}</p>
+										<p class="announcement-text">Numerów w bazie!</p>
+									</div>
 								</div>
 							</div>
-						</div>
-						<a href="${pageContext.request.contextPath}/telefony">
 							<div class="panel-footer announcement-bottom">
 								<div class="row">
 									<div class="col-xs-6">Przejd¼ do numerów</div>
@@ -51,24 +51,24 @@
 									</div>
 								</div>
 							</div>
-						</a>
-					</div>
+						</div>
+					</a>
 				</div>
 
 				<div class="col-lg-3">
-					<div class="panel panel-info">
-						<div class="panel-heading">
-							<div class="row">
-								<div class="col-xs-6">
-									<i class="fa fa-male fa-5x"></i>
-								</div>
-								<div class="col-xs-6 text-right">
-									<p class="announcement-heading">${count.klientCount}</p>
-									<p class="announcement-text">Klientów w bazie!</p>
+					<a href="${pageContext.request.contextPath}/klienci">
+						<div class="panel panel-info">
+							<div class="panel-heading">
+								<div class="row">
+									<div class="col-xs-6">
+										<i class="fa fa-male fa-5x"></i>
+									</div>
+									<div class="col-xs-6 text-right">
+										<p class="announcement-heading">${count.klientCount}</p>
+										<p class="announcement-text">Klientów w bazie!</p>
+									</div>
 								</div>
 							</div>
-						</div>
-						<a href="${pageContext.request.contextPath}/klienci">
 							<div class="panel-footer announcement-bottom">
 								<div class="row">
 									<div class="col-xs-6">Przejd¼ do klientów</div>
@@ -77,24 +77,24 @@
 									</div>
 								</div>
 							</div>
-						</a>
-					</div>
+						</div>
+					</a>
 				</div>
 
 				<div class="col-lg-3">
-					<div class="panel panel-danger">
-						<div class="panel-heading">
-							<div class="row">
-								<div class="col-xs-6">
-									<i class="fa fa-briefcase fa-5x"></i>
-								</div>
-								<div class="col-xs-6 text-right">
-									<p class="announcement-heading">${count.aneksCount}</p>
-									<p class="announcement-text">Aneksów do podpisania!</p>
+					<a href="${pageContext.request.contextPath}/telefony">
+						<div class="panel panel-danger">
+							<div class="panel-heading">
+								<div class="row">
+									<div class="col-xs-6">
+										<i class="fa fa-briefcase fa-5x"></i>
+									</div>
+									<div class="col-xs-6 text-right">
+										<p class="announcement-heading">${count.aneksCount}</p>
+										<p class="announcement-text">Aneksów do podpisania!</p>
+									</div>
 								</div>
 							</div>
-						</div>
-						<a href="${pageContext.request.contextPath}/telefony">
 							<div class="panel-footer announcement-bottom">
 								<div class="row">
 									<div class="col-xs-6">Przejdz do numerów</div>
@@ -103,24 +103,24 @@
 									</div>
 								</div>
 							</div>
-						</a>
-					</div>
+						</div>
+					</a>
 				</div>
 
 				<div class="col-lg-3">
-					<div class="panel panel-success">
-						<div class="panel-heading">
-							<div class="row">
-								<div class="col-xs-6">
-									<i class="fa fa-calendar fa-5x"></i>
-								</div>
-								<div class="col-xs-6 text-right">
-									<p class="announcement-heading">${count.terminCount}</p>
-									<p class="announcement-text">Wydarzeñ w terminarzu!</p>
+					<a href="${pageContext.request.contextPath}/terminarz">
+						<div class="panel panel-success">
+							<div class="panel-heading">
+								<div class="row">
+									<div class="col-xs-6">
+										<i class="fa fa-calendar fa-5x"></i>
+									</div>
+									<div class="col-xs-6 text-right">
+										<p class="announcement-heading">${count.terminCount}</p>
+										<p class="announcement-text">Wydarzeñ w terminarzu!</p>
+									</div>
 								</div>
 							</div>
-						</div>
-						<a href="${pageContext.request.contextPath}/terminarz">
 							<div class="panel-footer announcement-bottom">
 								<div class="row">
 									<div class="col-xs-6">Przejdz do terminarza</div>
@@ -129,8 +129,8 @@
 									</div>
 								</div>
 							</div>
-						</a>
-					</div>
+						</div>
+					</a>
 				</div>
 			</div>
 			<!-- /.row -->

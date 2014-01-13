@@ -9,8 +9,6 @@
 <meta charset="utf-8">
 <jsp:include page="../default/headTag.jsp" />
 <title>CRMDB - Telefony</title>
-
-<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.3.min.js"></script>
 <body>
 
 	<div id="wrapper">
@@ -31,11 +29,11 @@
 			</div>
 			<div class="table-responsive">
 				<datatables:table cdn="true" id="numery" data="${numbersList}"
-					cssClass="table table-hover table-striped" row="nr" theme="jqueryui" themeOption="redmond">
-					<!-- theme="jqueryui" themeOption="redmond" -->
-					<datatables:column title="Operator" property="operator" />
+					cssClass="table table-hover table-striped" row="nr" >
+					<datatables:column title="Operator" property="operator" sortable="true"/>
 					<datatables:column title="Koniec" property="koniecUmowy" sortInit="asc"/>
-					<datatables:column title="Numer telefonu" property="numer" />
+					<datatables:column title="Numer telefonu" property="numer"/>
+					
 					<datatables:column title="Us³uga" >
 						<font style="font-size:small;"><c:out value="${nr.typUslugi}" /></font>
 					</datatables:column>
@@ -44,8 +42,8 @@
 						<b><c:out value="${nr.nazwaFirmy}" /></b><br>
 						<font style="font-size:small;"><c:out value="${nr.daneKlienta}" /></font>
 					</datatables:column>
-					<datatables:column title=" ">
-						<a href="#"><i class="fa fa-pencil-square-o fa-2x"></i></a>
+					<datatables:column style="text-align:center" title=" ">
+						<a href="${nr.typUslugi}"><i class="fa fa-pencil-square-o fa-2x"></i></a>
 					</datatables:column>
 					
 				</datatables:table>

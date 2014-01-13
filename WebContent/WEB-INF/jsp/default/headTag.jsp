@@ -12,10 +12,14 @@
 <!-- Bootstrap -->
 <link href="${pageContext.request.contextPath}/static/css/bootstrap.css"
 	rel="stylesheet">
-<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.3.min.js"></script>
+<script src="${pageContext.request.contextPath}/static/js/jquery-1.8.3.js"></script>
+<script src="${pageContext.request.contextPath}/static/js/jquery.dataTables.min.js"></script>
 
 <!-- CSS -->
 <link href="${pageContext.request.contextPath}/static/css/settings.css"
+	rel="stylesheet">
+
+<link href="${pageContext.request.contextPath}/static/css/jquery.dataTables.css"
 	rel="stylesheet">
 
 <link rel="stylesheet"

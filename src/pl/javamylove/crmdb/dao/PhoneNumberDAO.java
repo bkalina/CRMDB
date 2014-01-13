@@ -11,7 +11,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 
-import pl.javamylove.crmdb.model.PhoneNumber;
+import pl.javamylove.crmdb.model.PhoneNumberModel;
 
 @Component("phoneNumberDao")
 public class PhoneNumberDAO {
@@ -23,13 +23,13 @@ public class PhoneNumberDAO {
 		this.jdbc = new JdbcTemplate(jdbc);
 	}
 
-	public List<PhoneNumber> getNumbersList(int id) {
+	public List<PhoneNumberModel> getNumbersList(int id) {
 		System.out.println("pnDAO: getNumbersList()");
 		
-		return jdbc.query("SELECT UCASE(t.operator) AS operator, t.koniec_umowy, t.numer, REPLACE(t.typ_uslugi, '_', ' ') AS typ_uslugi, t.dlugosc_umowy, k.nazwa_firmy, CONCAT(k.imie, ' ', k.nazwisko, '   NIP:', k.nip) AS dane_klienta FROM telefon t JOIN klient k ON t.klient_id=k.id WHERE k.pracownik_id="+id, new RowMapper<PhoneNumber>() {
+		return jdbc.query("SELECT UCASE(t.operator) AS operator, t.koniec_umowy, t.numer, REPLACE(t.typ_uslugi, '_', ' ') AS typ_uslugi, t.dlugosc_umowy, k.nazwa_firmy, CONCAT(k.imie, ' ', k.nazwisko, '   NIP:', k.nip) AS dane_klienta FROM telefon t JOIN klient k ON t.klient_id=k.id WHERE k.pracownik_id="+id, new RowMapper<PhoneNumberModel>() {
 
-			public PhoneNumber mapRow(ResultSet rs, int rowNum) throws SQLException {
-				PhoneNumber phoneNumber = new PhoneNumber();
+			public PhoneNumberModel mapRow(ResultSet rs, int rowNum) throws SQLException {
+				PhoneNumberModel phoneNumber = new PhoneNumberModel();
 				
 				phoneNumber.setNumer(rs.getString("numer"));
 				phoneNumber.setOperator(rs.getString("operator"));

@@ -1,6 +1,6 @@
 package pl.javamylove.crmdb.model;
 
-public class PhoneNumber {
+public class PhoneNumberModel {
 
 	private int id;
 	private String numer;

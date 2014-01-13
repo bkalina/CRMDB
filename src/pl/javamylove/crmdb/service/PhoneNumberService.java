@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import pl.javamylove.crmdb.dao.PhoneNumberDAO;
-import pl.javamylove.crmdb.model.PhoneNumber;
+import pl.javamylove.crmdb.model.PhoneNumberModel;
 
 @Service("phoneNumberService")
 public class PhoneNumberService {
@@ -18,7 +18,7 @@ public class PhoneNumberService {
 		this.pnDao = pnDao;
 	}
 	
-	public List<PhoneNumber> getNumbersList(int id){
+	public List<PhoneNumberModel> getNumbersList(int id){
 		System.out.println("pnService: getNumbersList()");
 		return pnDao.getNumbersList(id);
 	}
