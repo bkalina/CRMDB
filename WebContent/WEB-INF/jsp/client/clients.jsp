@@ -44,7 +44,7 @@
 						<font size="-2"><c:out value="Tel. ${cl.telKontaktowy}"></c:out></font>
 					</datatables:column>
 					<datatables:column style="text-align:center" title=" ">
-						<a href="#"><i class="fa fa-pencil-square-o fa-2x"></i></a>
+						<a href="${pageContext.request.contextPath}/edytujKlienta?klientId=${cl.id}"><i class="fa fa-pencil-square-o fa-2x"></i></a>
 					</datatables:column>
 
 				</datatables:table>

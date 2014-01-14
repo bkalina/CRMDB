@@ -14,7 +14,7 @@
 
 	<!-- SQL -->
 	<sql:query var="rs" dataSource="jdbc/crmdb">
-		select p.imie, p.nazwisko, p.ranga, CONCAT(pp.imie, ' ', pp.nazwisko) as przelozony from pracownik p join pracownik pp on p.przelozony_id=pp.id where pp.id=${id}
+		select p.imie, p.nazwisko, p.ranga, CONCAT(pp.imie, ' ', pp.nazwisko) as przelozony from pracownik p join pracownik pp on p.przelozony_id=pp.id where pp.id=${pracownikId}
 	</sql:query>
 	<!-- SQL -->
 

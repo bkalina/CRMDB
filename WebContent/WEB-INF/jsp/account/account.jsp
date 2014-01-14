@@ -13,7 +13,7 @@
   <body>
 
 <sql:query var="rs" dataSource="jdbc/crmdb">
-select imie, nazwisko, telefon, email from pracownik where id=${id}
+select imie, nazwisko, telefon, email from pracownik where id=${pracownikId}
 </sql:query>
 
     <div id="wrapper">

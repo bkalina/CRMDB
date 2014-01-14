@@ -24,7 +24,7 @@ public class ScheduleController {
 
 	@RequestMapping("/terminarz")
 	public String showSchedule(Model model, HttpSession session){
-		List<ScheduleModel> sModel = schService.getScheduleList((int) session.getAttribute("id"));
+		List<ScheduleModel> sModel = schService.getScheduleList((int) session.getAttribute("pracownikId"));
 		model.addAttribute("scheduleList", sModel);
 		return "schedule/schedule";
 	}

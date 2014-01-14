@@ -23,5 +23,8 @@ public class ClientService {
 		return clientDao.getClientsList(id);
 	}
 	
-	
+	public ClientModel getClient(int klientId){
+		System.out.println("clientService: getClient()");
+		return clientDao.getClient(klientId);
+	}
 }

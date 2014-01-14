@@ -21,7 +21,7 @@
 					class="icon-bar"></span>
 			</button>
 			<a class="navbar-brand"
-				href="${pageContext.request.contextPath}/panel">CRM DB</a>
+				href="${pageContext.request.contextPath}/panel">CRMDB</a>
 		</div>
 	</nav>
 	<div style="width: 100%; margin: 0 auto;">

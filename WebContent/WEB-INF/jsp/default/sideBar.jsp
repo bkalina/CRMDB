@@ -40,7 +40,7 @@
 				<ul class="dropdown-menu">
 					<li><a href="${pageContext.request.contextPath}/mojekonto"><i class="fa fa-user"></i> Moje konto</a></li>
 					<li class="divider"></li>
-					<li><a href="${pageContext.request.contextPath}/"><i
+					<li><a href="${pageContext.request.contextPath}/wyloguj"><i
 							class="fa fa-power-off"></i> Wyloguj</a></li>
 				</ul></li>
 		</ul>
