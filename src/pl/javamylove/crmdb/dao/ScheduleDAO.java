@@ -11,11 +11,10 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 
-import pl.javamylove.crmdb.model.PanelModel;
 import pl.javamylove.crmdb.model.ScheduleModel;
 
-@Component("panelDao")
-public class PanelDAO {
+@Component("scheduleDao")
+public class ScheduleDAO {
 
 	private JdbcTemplate jdbc;
 
@@ -24,19 +23,10 @@ public class PanelDAO {
 		this.jdbc = new JdbcTemplate(jdbc);
 	}
 
-	public PanelModel getCount(int id){
-		PanelModel model = new PanelModel();
-		model.setNrCount(jdbc.queryForInt("SELECT COUNT(*) FROM telefon t JOIN klient k ON t.klient_id=k.id WHERE k.pracownik_id="+id));
-		model.setKlientCount(jdbc.queryForInt("SELECT COUNT(*) FROM klient WHERE pracownik_id="+id));
-		model.setTerminCount(jdbc.queryForInt("SELECT COUNT(*) FROM zdarzenie WHERE pracownik_id="+id));
-		model.setAneksCount(jdbc.queryForInt("SELECT COUNT(*) FROM telefon t JOIN klient k ON t.klient_id=k.id WHERE k.pracownik_id="+id+" AND koniec_umowy > 2000-01-01 AND koniec_umowy < DATE_ADD(CURDATE(),INTERVAL 60 DAY)"));
-		return model;
-	}
-	
-	public List<ScheduleModel> getScheduleList10(int id) {
-		System.out.println("pnDAO: getScheduleList10()");
+	public List<ScheduleModel> getScheduleList(int id) {
+		System.out.println("scheduleDAO: getScheduleList()");
 		
-		return jdbc.query("SELECT z.id, z.data_zdarzenia, z.godzina, z.opis, z.notatka, z.klient_id, z.pracownik_id, k.nazwa_firmy, k.imie, k.nazwisko, k.nip FROM zdarzenie z left outer join klient k on z.klient_id=k.id where z.pracownik_id="+id+" order by z.data_zdarzenia asc limit 10", new RowMapper<ScheduleModel>() {
+		return jdbc.query("SELECT z.id, z.data_zdarzenia, z.godzina, z.opis, z.notatka, z.klient_id, z.pracownik_id, k.nazwa_firmy, k.imie, k.nazwisko, k.nip FROM zdarzenie z left outer join klient k on z.klient_id=k.id where z.pracownik_id="+id, new RowMapper<ScheduleModel>() {
 
 			public ScheduleModel mapRow(ResultSet rs, int rowNum) throws SQLException {
 				ScheduleModel scheduleModel = new ScheduleModel();
@@ -57,5 +47,4 @@ public class PanelDAO {
 			}
 		});
 	}
-	
 }

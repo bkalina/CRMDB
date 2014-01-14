@@ -29,7 +29,7 @@
 			</div>
 			<div class="table-responsive">
 				<datatables:table cdn="true" id="numery" data="${numbersList}"
-					cssClass="table table-hover table-striped" row="nr" >
+					cssClass="table table-hover table-striped table-responsive" row="nr" >
 					<datatables:column title="Operator" property="operator" sortable="true"/>
 					<datatables:column title="Koniec" property="koniecUmowy" sortInit="asc"/>
 					<datatables:column title="Numer telefonu" property="numer"/>

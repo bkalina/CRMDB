@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-2"
 	pageEncoding="ISO-8859-2"%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="datatables"
+	uri="http://github.com/dandelion/datatables"%>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -146,32 +148,12 @@
 
 					<div class="panel-body">
 						<div class="list-group">
-							<a href="#" class="list-group-item"> <span class="badge">just
-									now</span> <i class="fa fa-calendar"></i> Calendar updated
-							</a> <a href="#" class="list-group-item"> <span class="badge">4
-									minutes ago</span> <i class="fa fa-comment"></i> Commented on a post
-							</a> <a href="#" class="list-group-item"> <span class="badge">23
-									minutes ago</span> <i class="fa fa-truck"></i> Order 392 shipped
-							</a> <a href="#" class="list-group-item"> <span class="badge">46
-									minutes ago</span> <i class="fa fa-money"></i> Invoice 653 has been
-								paid
-							</a> <a href="#" class="list-group-item"> <span class="badge">1
-									hour ago</span> <i class="fa fa-user"></i> A new user has been added
-							</a> <a href="#" class="list-group-item"> <span class="badge">2
-									hours ago</span> <i class="fa fa-check"></i> Completed task: "pick up
-								dry cleaning"
-							</a> <a href="#" class="list-group-item"> <span class="badge">yesterday</span>
-								<i class="fa fa-globe"></i> Saved the world
-							</a> <a href="#" class="list-group-item"> <span class="badge">two
-									days ago</span> <i class="fa fa-check"></i> Completed task: "fix error
-								on sales page"
-							</a> <a href="#" class="list-group-item"> <span class="badge">two
-									days ago</span> <i class="fa fa-check"></i> Completed task: "fix error
-								on sales page"
-							</a> <a href="#" class="list-group-item"> <span class="badge">two
-									days ago</span> <i class="fa fa-check"></i> Completed task: "fix error
-								on sales page"
-							</a>
+							<c:forEach var="s" items="${schedule}">
+								<a href="<c:out value="${s.id}"></c:out>"
+									class="list-group-item"> <span class="badge"><c:out
+											value="${s.dataZdarzenia}"></c:out></span> <i class="fa fa-calendar"></i>
+									<c:out value="${s.opis}"></c:out></a>
+							</c:forEach>
 						</div>
 						<div class="text-right">
 							<a href="${pageContext.request.contextPath}/terminarz">Przejd¼
@@ -181,10 +163,9 @@
 					</div>
 				</div>
 			</div>
+			<!-- /.row -->
 		</div>
-		<!-- /.row -->
-	</div>
-	<!-- /#page-wrapper -->
+		<!-- /#page-wrapper -->
 	</div>
 	<!-- /#wrapper -->
 

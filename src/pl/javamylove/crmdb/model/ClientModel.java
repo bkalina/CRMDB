@@ -1,8 +1,11 @@
 package pl.javamylove.crmdb.model;
 
+import javax.validation.constraints.Size;
+
 public class ClientModel {
 
 	private int id;
+	@Size(min=5, max=100)
 	private String nazwaFirmy;
 	private String imie;
 	private String nazwisko;
@@ -16,7 +19,7 @@ public class ClientModel {
 	private String pesel;
 	private String telKontaktowy;
 	private String email;
-	private String pracownikId;
+	private int pracownikId;
 	private int iloscNumerow;
 
 	public int getId() {
@@ -131,11 +134,11 @@ public class ClientModel {
 		this.email = email;
 	}
 
-	public String getPracownikId() {
+	public int getPracownikId() {
 		return pracownikId;
 	}
 
-	public void setPracownikId(String pracownikId) {
+	public void setPracownikId(int pracownikId) {
 		this.pracownikId = pracownikId;
 	}
 

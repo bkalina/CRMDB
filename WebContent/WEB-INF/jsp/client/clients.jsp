@@ -23,7 +23,9 @@
 				<div class="col-lg-12">
 					<h1>Klienci</h1>
 				</div>
-				<div class="page-header"></div>
+				<div class="page-header" style="padding-left: 15px;">
+				<a href="${pageContext.request.contextPath}/dodajKlienta"><button type="button" class="btn btn-success"><i class="fa fa-plus"></i> Dodaj klienta</button></a>
+				</div>
 			</div>
 
 			<div class="table-responsive">
@@ -39,7 +41,7 @@
 					<datatables:column title="Miasto" property="miasto" />
 					<datatables:column title="Osoba kontaktowa">
 						<b><c:out value="${cl.imie} ${cl.nazwisko}"></c:out></b><br>
-						<c:out value="${cl.telKontaktowy}"></c:out>
+						<font size="-2"><c:out value="Tel. ${cl.telKontaktowy}"></c:out></font>
 					</datatables:column>
 					<datatables:column style="text-align:center" title=" ">
 						<a href="#"><i class="fa fa-pencil-square-o fa-2x"></i></a>
