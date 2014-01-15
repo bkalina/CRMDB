@@ -42,7 +42,7 @@ public class ClientController {
 	}
 	
 	@RequestMapping(value="/dodajKlientaDO", method=RequestMethod.POST)
-	public String addClientDO(Model model, HttpSession session, @Valid ClientModel client, BindingResult result){
+	public String addClientDO(Model model, HttpSession session, ClientModel client, BindingResult result){
 		System.out.println("Id: " + session.getAttribute("pracownikId"));
 //		client.setPracownikId((int)session.getAttribute("id"));
 		
@@ -55,26 +55,42 @@ public class ClientController {
 		}
 		else{
 			System.out.println("Form validated!");
+			System.out.println(client);
+			System.out.println("Created: " + clientService.createClient(client));
 		}
 		return "client/addClient";
 	}
 	
-	@RequestMapping(value="/edytujKlienta", method=RequestMethod.GET)
-	public String editClient(Model model, HttpSession session, @RequestParam("klientId") int klientId){
+	@RequestMapping(value="/edytujKlienta", method=RequestMethod.POST)
+	public String editClient(Model model, HttpSession session, @RequestParam("klientId") int clientId){
 		System.out.println("Id: " + session.getAttribute("pracownikId"));
-		session.setAttribute("klientId", klientId);
-		ClientModel client = clientService.getClient(klientId);
+		session.setAttribute("klientId", clientId);
+		ClientModel client = clientService.getClient(clientId);
+//		model.addAttribute("klientId", client.getId());
 		model.addAttribute("client", client);
 		return "client/editClient";
 	}
 	
 	@RequestMapping(value="/edytujKlientaDO", method=RequestMethod.POST)
 	public String editClientDO(Model model, HttpSession session, ClientModel client){
+		
 		System.out.println("Id: " + session.getAttribute("pracownikId"));
 		System.out.println("Id: " + session.getAttribute("klientId"));
-//		clientService.updateClient(session.getAttribute("klientId"));
+		System.out.println("Update: " + clientService.updateClient(client));
+		System.out.println(client);
+		System.out.println(client.getNazwaFirmy());
 		session.removeAttribute("klientId");
 		System.out.println("Id: " + session.getAttribute("klientId"));
-		return "client/editClient";
+		return "client/clients";
+	}
+	
+	@RequestMapping(value="/usunKlientaDO", method=RequestMethod.POST)
+	public String deleteClientDO(Model model, HttpSession session, @RequestParam("klientId") int clientId){
+		System.out.println("Id: " + session.getAttribute("pracownikId"));
+		System.out.println("Id: " + session.getAttribute("klientId"));
+		System.out.println("Delete: " + clientService.deleteClient(clientId));
+		session.removeAttribute("klientId");
+		System.out.println("Id: " + session.getAttribute("klientId"));
+		return "client/clients";
 	}
 }

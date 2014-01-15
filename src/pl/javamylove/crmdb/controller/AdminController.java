@@ -3,26 +3,25 @@ package pl.javamylove.crmdb.controller;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Component;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import pl.javamylove.crmdb.service.AccountService;
+import pl.javamylove.crmdb.service.AdminService;
 
-@Controller
-public class AccountController {
-
-	private AccountService accService;
+@Component
+public class AdminController {
+	
+	private AdminService adminService;
 
 	@Autowired
-	public void setSchService(AccountService accService) {
-		this.accService = accService;
+	public void setAdminService(AdminService adminService) {
+		this.adminService = adminService;
 	}
 
-	@RequestMapping("/mojekonto")
+	@RequestMapping("/admin")
 	public String showAccount(Model model, HttpSession session) {
 		model.addAttribute("pracownikId", session.getAttribute("pracownikId"));
-		return "account/account";
+		return "admin/panel";
 	}
-
 }

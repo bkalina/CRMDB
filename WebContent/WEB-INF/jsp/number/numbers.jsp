@@ -42,7 +42,7 @@
 						<b><c:out value="${nr.nazwaFirmy}" /></b><br>
 						<font style="font-size:small;"><c:out value="${nr.daneKlienta}" /></font>
 					</datatables:column>
-					<datatables:column style="text-align:center" title=" ">
+					<datatables:column style="text-align:center" title=" " sortable="false">
 						<a href="${nr.typUslugi}"><i class="fa fa-pencil-square-o fa-2x"></i></a>
 					</datatables:column>
 					

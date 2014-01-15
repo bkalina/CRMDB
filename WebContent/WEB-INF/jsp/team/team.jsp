@@ -34,8 +34,8 @@
 					<div class="page-header"></div>
 				</div>
 			</div>
-			<div class="row" >
-			<div class="col-lg-4" >
+			<div class="panel-body"
+				style="border: 1px solid #428bca; border-radius: 4px; padding-right: 22px;">
 				<c:forEach var="row" items="${rs.rows}">
 					<div class="panel panel-primary" style="float:left; width: auto; margin-right: 10px;">
 						<div class="panel-heading">
@@ -50,8 +50,6 @@
 					</div>
 				</c:forEach>
 			</div>
-			</div>
-
 		</div>
 		<!-- /#page-wrapper -->
 	</div>

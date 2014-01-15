@@ -43,8 +43,11 @@
 						<b><c:out value="${cl.imie} ${cl.nazwisko}"></c:out></b><br>
 						<font size="-2"><c:out value="Tel. ${cl.telKontaktowy}"></c:out></font>
 					</datatables:column>
-					<datatables:column style="text-align:center" title=" ">
-						<a href="${pageContext.request.contextPath}/edytujKlienta?klientId=${cl.id}"><i class="fa fa-pencil-square-o fa-2x"></i></a>
+					<datatables:column style="text-align:center" title=" " sortable="false">
+						<form method="post" action="${pageContext.request.contextPath}/edytujKlienta">
+							<input type="hidden" name="klientId" value="${cl.id}">
+							<button type="submit" class="btn btn-link"  style="width:30px; height:28px; padding:0px;"><i class="fa fa-pencil-square-o fa-2x"></i></button>
+						</form>
 					</datatables:column>
 
 				</datatables:table>

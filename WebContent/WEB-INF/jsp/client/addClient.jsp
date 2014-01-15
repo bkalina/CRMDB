@@ -106,6 +106,7 @@
 							<input type="text" class="form-control" name="email"
 								placeholder="Email">
 						</div>
+						<input type="hidden" name="pracownikId" value="${pracownikId}">
 					</div>
 					<div>
 						<button type="submit" class="btn btn-success"><i class="fa fa-floppy-o"></i> Zapisz</button>

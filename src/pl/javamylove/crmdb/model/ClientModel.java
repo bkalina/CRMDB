@@ -5,8 +5,10 @@ import javax.validation.constraints.Size;
 public class ClientModel {
 
 	private int id;
+	
 	@Size(min=5, max=100)
 	private String nazwaFirmy;
+	
 	private String imie;
 	private String nazwisko;
 	private String ulica;
@@ -21,6 +23,31 @@ public class ClientModel {
 	private String email;
 	private int pracownikId;
 	private int iloscNumerow;
+	
+	public ClientModel(){
+		
+	}
+
+	public ClientModel(int id, String nazwaFirmy, String imie, String nazwisko,
+			String ulica, String nrBudynku, String nrLokalu,
+			String kodPocztowy, String miasto, String nip, String regon,
+			String pesel, String telKontaktowy, String email, int pracownikId) {
+		this.id = id;
+		this.nazwaFirmy = nazwaFirmy;
+		this.imie = imie;
+		this.nazwisko = nazwisko;
+		this.ulica = ulica;
+		this.nrBudynku = nrBudynku;
+		this.nrLokalu = nrLokalu;
+		this.kodPocztowy = kodPocztowy;
+		this.miasto = miasto;
+		this.nip = nip;
+		this.regon = regon;
+		this.pesel = pesel;
+		this.telKontaktowy = telKontaktowy;
+		this.email = email;
+		this.pracownikId = pracownikId;
+	}
 
 	public int getId() {
 		return id;

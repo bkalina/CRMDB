@@ -9,7 +9,7 @@ import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
-import org.springframework.jdbc.core.RowMapperResultSetExtractor;
+import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.stereotype.Component;
 
 import pl.javamylove.crmdb.model.ClientModel;
@@ -75,9 +75,22 @@ public class ClientDAO {
 						clientModel.setEmail(rs.getString("email"));
 						clientModel.setTelKontaktowy(rs
 								.getString("tel_kontaktowy"));
-
+						clientModel.setPracownikId(rs.getInt("pracownik_id"));
+						
 						return clientModel;
 					}
 				});
 	}
+	
+	public boolean updateClient(ClientModel client){
+		return jdbc.update("UPDATE klient SET nazwa_firmy='"+client.getNazwaFirmy()+"', imie='"+client.getImie()+"', nazwisko='"+client.getNazwisko()+"', ulica='"+client.getUlica()+"', nr_budynku='"+client.getNrBudynku()+"', nr_lokalu='"+client.getNrLokalu()+"', kod_pocztowy='"+client.getKodPocztowy()+"', miasto='"+client.getMiasto()+"', nip='"+client.getNip()+"', regon='"+client.getRegon()+"', email='"+client.getEmail()+"', tel_kontaktowy='"+client.getTelKontaktowy()+"' where id="+client.getId()) == 1;
+	}
+	
+	public boolean createClient(ClientModel client){
+		return jdbc.update("INSERT INTO klient (nazwa_firmy, imie, nazwisko, ulica, nr_budynku, nr_lokalu, kod_pocztowy, miasto, nip, regon, email, tel_kontaktowy, pracownik_id) VALUES ('"+ client.getNazwaFirmy() +"',  '"+ client.getImie() +"', '"+ client.getNazwisko() +"', '"+ client.getUlica() +"', '"+ client.getNrBudynku() +"', '"+ client.getNrLokalu() +"', '"+ client.getKodPocztowy() +"', '"+ client.getMiasto() +"', '"+ client.getNip() +"', '"+ client.getRegon() +"', '"+ client.getEmail() +"', '"+ client.getTelKontaktowy() +"', '"+ client.getPracownikId() +"')") == 1;
+	}
+	
+	public boolean deleteClient(int clientId){
+		return jdbc.update("DELETE FROM klient where id="+clientId) == 1; 
+		}
 }
