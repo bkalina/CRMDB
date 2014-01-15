@@ -1,6 +1,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-2"
 	pageEncoding="ISO-8859-2"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!-- SIDEBAR -->
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -18,8 +19,7 @@
 	<!-- SIDEBAR MENU -->
 	<div class="collapse navbar-collapse navbar-ex1-collapse">
 		<ul class="nav navbar-nav side-nav">
-			<li ><a
-				href="${pageContext.request.contextPath}/panel"><i
+			<li><a href="${pageContext.request.contextPath}/panel"><i
 					class="fa fa-dashboard"></i> Panel</a></li>
 			<li><a href="${pageContext.request.contextPath}/terminarz"><i
 					class="fa fa-calendar"></i> Terminarz</a></li>
@@ -29,6 +29,10 @@
 					class="fa fa-male"></i> Klienci</a></li>
 			<li><a href="${pageContext.request.contextPath}/mojzespol"><i
 					class="fa fa-users"></i> Mój zespó³</a></li>
+			<c:if test="${pracownikId == 1}">
+				<li><a href="${pageContext.request.contextPath}/admin"><i
+						class="fa fa-cogs"></i> Admin panel</a></li>
+			</c:if>
 		</ul>
 		<!-- / SIDEBAR MENU -->
 
@@ -38,7 +42,8 @@
 				class="dropdown-toggle" data-toggle="dropdown"><i
 					class="fa fa-user"></i> Edek Furtka <b class="caret"></b></a>
 				<ul class="dropdown-menu">
-					<li><a href="${pageContext.request.contextPath}/mojekonto"><i class="fa fa-user"></i> Moje konto</a></li>
+					<li><a href="${pageContext.request.contextPath}/mojekonto"><i
+							class="fa fa-user"></i> Moje konto</a></li>
 					<li class="divider"></li>
 					<li><a href="${pageContext.request.contextPath}/wyloguj"><i
 							class="fa fa-power-off"></i> Wyloguj</a></li>

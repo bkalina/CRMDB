@@ -25,14 +25,16 @@
 						class="icon-bar"></span>
 				</button>
 				<a class="navbar-brand"
-					href="${pageContext.request.contextPath}/panel">CRMDB ADMIN</a>
+					href="${pageContext.request.contextPath}/admin">CRMDB ADMIN</a>
 			</div>
 
 			<!-- SIDEBAR MENU -->
 			<div class="collapse navbar-collapse navbar-ex1-collapse">
 				<ul class="nav navbar-nav side-nav">
 					<li><a href="${pageContext.request.contextPath}/admin"><i
-							class="fa fa-dashboard"></i> Panel</a></li>
+							class="fa fa-dashboard"></i> Admin panel</a></li>
+					<li><a href="${pageContext.request.contextPath}/panel"><i
+							class="fa fa-reply"></i> Powrót</a></li>
 				</ul>
 				<!-- / SIDEBAR MENU -->
 
@@ -56,7 +58,7 @@
 		<div id="page-wrapper">
 			<div class="row">
 				<div class="col-lg-12">
-					<h1>Panel g³ówny</h1>
+					<h1>Admin panel</h1>
 				</div>
 				<div class="col-lg-12">
 					<div class="page-header" style="padding-left: 15px;">
@@ -73,11 +75,11 @@
 						<!-- theme="jqueryui" themeOption="redmond" -->
 						<datatables:column title="Id" property="id" />
 						<datatables:column title="Imie" property="imie" />
-						<datatables:column title="Nazwisko"property="nazwisko" />
+						<datatables:column title="Nazwisko" property="nazwisko" />
 						<datatables:column title="Email" property="email" />
-						<datatables:column title="Telefon"property="telefon" />
-						<datatables:column title="Ranga"property="ranga" />
-						<datatables:column title="Prze³o¿ony"property="przelozonyId" />
+						<datatables:column title="Telefon" property="telefon" />
+						<datatables:column title="Ranga" property="ranga" />
+						<datatables:column title="Prze³o¿ony" property="przelozonyId" />
 						<datatables:column style="text-align:center" title=" "
 							sortable="false">
 							<form method="post"

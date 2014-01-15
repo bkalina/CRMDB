@@ -37,15 +37,17 @@
 			<div class="panel-body"
 				style="border: 1px solid #428bca; border-radius: 4px; padding-right: 22px;">
 				<c:forEach var="row" items="${rs.rows}">
-					<div class="panel panel-primary" style="float:left; width: auto; margin-right: 10px;">
+					<div class="panel panel-primary"
+						style="float: left; width: auto; margin-right: 10px;">
 						<div class="panel-heading">
-							<h3 class="panel-title"><b>${row.imie} ${row.nazwisko}</b></h3>
+							<h3 class="panel-title">
+								<b>${row.imie} ${row.nazwisko}</b>
+							</h3>
 						</div>
 						<div class="panel-body">
-							<b>Ranga:</b> ${row.ranga}<br /> 
-							<b>Imie:</b> ${row.imie}<br /> 
-							<b>Nazwisko:</b> ${row.nazwisko}<br />
-							<b>Przelozony:</b> ${row.przelozony}<br />
+							<b>Ranga:</b> ${row.ranga}<br /> <b>Imie:</b> ${row.imie}<br />
+							<b>Nazwisko:</b> ${row.nazwisko}<br /> <b>Przelozony:</b>
+							${row.przelozony}<br />
 						</div>
 					</div>
 				</c:forEach>
