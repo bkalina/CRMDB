@@ -36,11 +36,11 @@ public class WorkerDAO {
 						workerModel.setId(rs.getInt("id"));
 						workerModel.setImie(rs.getString("imie"));
 						workerModel.setNazwisko(rs.getString("nazwisko"));
-						workerModel.setTelefon(rs.getString("nazwa_firmy"));
-						workerModel.setEmail(rs.getString("ulica"));
-						workerModel.setHaslo(rs.getString("nr_budynku"));
-						workerModel.setRanga(rs.getString("nr_lokalu"));
-						workerModel.setPrzelozonyId(rs.getInt("numery"));
+						workerModel.setTelefon(rs.getString("telefon"));
+						workerModel.setEmail(rs.getString("email"));
+						workerModel.setHaslo(rs.getString("haslo"));
+						workerModel.setRanga(rs.getString("ranga"));
+						workerModel.setPrzelozonyId(rs.getInt("przelozony_id"));
 
 						return workerModel;
 					}
@@ -60,12 +60,12 @@ public class WorkerDAO {
 						workerModel.setId(rs.getInt("id"));
 						workerModel.setImie(rs.getString("imie"));
 						workerModel.setNazwisko(rs.getString("nazwisko"));
-						workerModel.setTelefon(rs.getString("nazwa_firmy"));
-						workerModel.setEmail(rs.getString("ulica"));
-						workerModel.setHaslo(rs.getString("nr_budynku"));
-						workerModel.setRanga(rs.getString("nr_lokalu"));
-						workerModel.setPrzelozonyId(rs.getInt("numery"));
-
+						workerModel.setTelefon(rs.getString("telefon"));
+						workerModel.setEmail(rs.getString("email"));
+						workerModel.setHaslo(rs.getString("haslo"));
+						workerModel.setRanga(rs.getString("ranga"));
+						workerModel.setPrzelozonyId(rs.getInt("przelozony_id"));
+						
 						return workerModel;
 					}
 				});

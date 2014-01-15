@@ -31,7 +31,7 @@
 			<!-- SIDEBAR MENU -->
 			<div class="collapse navbar-collapse navbar-ex1-collapse">
 				<ul class="nav navbar-nav side-nav">
-					<li><a href="${pageContext.request.contextPath}/panel"><i
+					<li><a href="${pageContext.request.contextPath}/admin"><i
 							class="fa fa-dashboard"></i> Panel</a></li>
 				</ul>
 				<!-- / SIDEBAR MENU -->
@@ -60,7 +60,7 @@
 				</div>
 				<div class="col-lg-12">
 					<div class="page-header" style="padding-left: 15px;">
-						<a href="${pageContext.request.contextPath}/dodajKlienta"><button
+						<a href="${pageContext.request.contextPath}/dodajPracownika"><button
 								type="button" class="btn btn-success">
 								<i class="fa fa-plus"></i> Dodaj pracownika
 							</button></a>
@@ -68,29 +68,21 @@
 				</div>
 
 				<div class="table-responsive">
-					<datatables:table cdn="true" id="klienci" data="${clientsList}"
-						cssClass="table table-hover table-striped" row="cl">
+					<datatables:table cdn="true" id="pracownicy" data="${list}"
+						cssClass="table table-hover table-striped" row="p">
 						<!-- theme="jqueryui" themeOption="redmond" -->
-						<datatables:column title="Nazwa klienta">
-							<b><c:out value="${cl.nazwaFirmy}"></c:out></b>
-							<br>
-							<font size="-2"> <c:out
-									value="${cl.ulica} ${cl.nrBudynku}"></c:out> <c:if
-									test="${not empty cl.nrLokalu}">/${cl.nrLokalu}</c:if> <c:out
-									value=", ${cl.kodPocztowy} ${cl.miasto}, NIP: ${cl.nip}"></c:out>
-							</font>
-						</datatables:column>
-						<datatables:column title="Miasto" property="miasto" />
-						<datatables:column title="Osoba kontaktowa">
-							<b><c:out value="${cl.imie} ${cl.nazwisko}"></c:out></b>
-							<br>
-							<font size="-2"><c:out value="Tel. ${cl.telKontaktowy}"></c:out></font>
-						</datatables:column>
+						<datatables:column title="Id" property="id" />
+						<datatables:column title="Imie" property="imie" />
+						<datatables:column title="Nazwisko"property="nazwisko" />
+						<datatables:column title="Email" property="email" />
+						<datatables:column title="Telefon"property="telefon" />
+						<datatables:column title="Ranga"property="ranga" />
+						<datatables:column title="Prze³o¿ony"property="przelozonyId" />
 						<datatables:column style="text-align:center" title=" "
 							sortable="false">
 							<form method="post"
-								action="${pageContext.request.contextPath}/edytujKlienta">
-								<input type="hidden" name="klientId" value="${cl.id}">
+								action="${pageContext.request.contextPath}/edytujPracownika">
+								<input type="hidden" name="klientId" value="${p.id}">
 								<button type="submit" class="btn btn-link"
 									style="width: 30px; height: 28px; padding: 0px;">
 									<i class="fa fa-pencil-square-o fa-2x"></i>
