@@ -1,71 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns="http://java.sun.com/xml/ns/javaee"
-	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
-	id="WebApp_ID" version="2.5">
-	<display-name>CRMDB</display-name>
-	<welcome-file-list>
-		<welcome-file>welcome.jsp</welcome-file>
-	</welcome-file-list>
-
-	<!-- Spring servlet -->
-	<servlet>
-		<description></description>
-		<display-name>crmdb</display-name>
-		<servlet-name>crmdb</servlet-name>
-		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-		<load-on-startup>1</load-on-startup>
-	</servlet>
-	
-	<!-- Spring servlet mapping -->
-	<servlet-mapping>
-		<servlet-name>crmdb</servlet-name>
-		<url-pattern>/</url-pattern>
-	</servlet-mapping>
-
-	<!-- DataTables servlet definition -->
-	<servlet>
-		<servlet-name>datatablesController</servlet-name>
-		<servlet-class>com.github.dandelion.datatables.extras.servlet2.servlet.DatatablesServlet</servlet-class>
-	</servlet>
-
-	<!-- DataTables servlet mapping -->
-	<servlet-mapping>
-		<servlet-name>datatablesController</servlet-name>
-		<url-pattern>/datatablesController/*</url-pattern>
-	</servlet-mapping>
-
-	<!-- DataTables filter definition -->
-	<filter>
-		<filter-name>datatablesFilter</filter-name>
-		<filter-class>com.github.dandelion.datatables.extras.servlet2.filter.DatatablesFilter</filter-class>
-	</filter>
-
-	<!-- DataTables4j filter mapping -->
-	<filter-mapping>
-		<filter-name>datatablesFilter</filter-name>
-		<url-pattern>/*</url-pattern>
-	</filter-mapping>
-
-	<!-- Baza danych -->
-	<description>CRMDB</description>
-	<resource-ref>
-		<description>CRMDB</description>
-		<res-ref-name>jdbc/crmdb</res-ref-name>
-		<res-type>javax.sql.DataSource</res-type>
-		<res-auth>Container</res-auth>
-	</resource-ref>
-
-	<listener>
-		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-	</listener>
-
-	<context-param>
-		<param-name>contextConfigLocation</param-name>
-		<param-value>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>CRMDB</display-name>
+  <welcome-file-list>
+    <welcome-file>welcome.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>crmdb</display-name>
+    <servlet-name>crmdb</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>crmdb</servlet-name>
+    <url-pattern>/</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>datatablesController</servlet-name>
+    <servlet-class>com.github.dandelion.datatables.extras.servlet2.servlet.DatatablesServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>datatablesController</servlet-name>
+    <url-pattern>/datatablesController/*</url-pattern>
+  </servlet-mapping>
+  <filter>
+    <filter-name>datatablesFilter</filter-name>
+    <filter-class>com.github.dandelion.datatables.extras.servlet2.filter.DatatablesFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>datatablesFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  <description>CRMDB</description>
+  <resource-ref>
+    <description>CRMDB</description>
+    <res-ref-name>jdbc/crmdb</res-ref-name>
+    <res-type>javax.sql.DataSource</res-type>
+    <res-auth>Container</res-auth>
+  </resource-ref>
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>
 		classpath:pl/javamylove/crmdb/config/dao-config.xml
 		classpath:pl/javamylove/crmdb/config/service-config.xml
+		classpath:pl/javamylove/crmdb/config/security-config.xml
 		</param-value>
-	</context-param>
-
+  </context-param>
+  <filter>
+    <display-name>springSecurityFilterChain</display-name>
+    <filter-name>springSecurityFilterChain</filter-name>
+    <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>springSecurityFilterChain</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
 </web-app>

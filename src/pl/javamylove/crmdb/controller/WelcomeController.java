@@ -19,8 +19,9 @@ public class WelcomeController {
 		return "welcome";
 	}
 	
-//	@RequestMapping(value="/zaloguj", method=RequestMethod.POST)
-//	public String login(HttpSession session, @RequestParam("login") String login, @RequestParam("haslo") String password) {
+	@RequestMapping("/zaloguj")
+	public String login(HttpSession session) {
+//		, @RequestParam("login") String login, @RequestParam("haslo") String password
 //		if(welcomeService.login(login,password)){
 //			WorkerModel worker = welcomeService.getWorkerData(login);
 //			if(worker.getPrzelozonyId().isEmpty())
@@ -32,7 +33,8 @@ public class WelcomeController {
 //		else{
 //			return "welcome";
 //		}
-//	}
+		return "zaloguj";
+	}
 	
 	@RequestMapping("/wyloguj")
 	public String logout(HttpSession session) {

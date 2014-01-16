@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-2"
 	pageEncoding="ISO-8859-2"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -8,7 +9,7 @@
 <title>CRMDB - Logowanie</title>
 </head>
 
-<body>
+<body onload='document.f.j_username.focus();'>
 
 	<!-- BELKA -->
 	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -33,20 +34,30 @@
 					<h3 class="panel-title">Logowanie</h3>
 				</div>
 				<div class="panel-body">
-					<div class="input-group margin-bottom-sm">
-						<span class="input-group-addon"><i
-							class="fa fa-envelope-o fa-fw"></i></span> <input class="form-control"
-							type="text" placeholder="Email">
-					</div>
-					<div class="input-group">
-						<span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
-						<input class="form-control" type="password" placeholder="Has³o">
-					</div></br>
-					<div style="text-align: center;">
-						<a href="${pageContext.request.contextPath}/panel">
-							<button type="button" class="btn btn-primary">Zaloguj</button>
-						</a>
-					</div>
+				
+					<c:if test="${param.error != null}">
+						<div class="alert alert-danger"><font size="-1">B³êdny login lub has³o!</font></div>
+					</c:if>
+				
+					<form name='f' action='${pageContext.request.contextPath}/j_spring_security_check'
+						method='POST'>
+						<div class="input-group margin-bottom-sm">
+							<span class="input-group-addon"><i
+								class="fa fa-envelope-o fa-fw"></i></span>
+								<input type='text' class="form-control" name='j_username' value='' placeholder='Email' >
+						</div>
+						<div class="input-group">
+							<span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+							<input type='password' class="form-control" name='j_password' placeholder='Has³o' />
+						</div>
+						<br>
+						<div style="text-align: center;">
+								<button name="submit" type="submit" class="btn btn-primary">Zaloguj</button>
+						</div>
+					</form>
+					<c:if test="${param.login != null}">
+						<div class="alert alert-success"><font size="-1">Zalogowano!</font></div>
+					</c:if>
 				</div>
 			</div>
 		</div>
@@ -57,3 +68,5 @@
 
 </body>
 </html>
+
+
