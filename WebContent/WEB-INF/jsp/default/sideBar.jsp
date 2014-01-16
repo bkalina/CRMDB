@@ -29,10 +29,6 @@
 					class="fa fa-male"></i> Klienci</a></li>
 			<li><a href="${pageContext.request.contextPath}/mojzespol"><i
 					class="fa fa-users"></i> Mój zespó³</a></li>
-			<c:if test="${pracownikId == 1}">
-				<li><a href="${pageContext.request.contextPath}/admin"><i
-						class="fa fa-cogs"></i> Admin panel</a></li>
-			</c:if>
 		</ul>
 		<!-- / SIDEBAR MENU -->
 
