@@ -17,15 +17,18 @@
 		<jsp:include page="../default/sideBar.jsp" />
 
 		<!-- CONTENT -->
-		<div id="page-wrapper" >
-			<div class="row" >
+		<div id="page-wrapper">
+			<div class="row">
 				<div class="col-lg-12">
 					<h1>Mój zespół</h1>
 				</div>
 				<div class="page-header" style="padding-left: 15px;">
-				<c:if test="${ranga == 'doradca'}">
-				<a href="${pageContext.request.contextPath}/dodajCzlonka"><button type="button" class="btn btn-success"><i class="fa fa-plus"></i> Dodaj czlonka zespołu</button></a>
-				</c:if>
+					<c:if test="${ranga == 'doradca'}">
+						<a href="${pageContext.request.contextPath}/dodajCzlonka"><button
+								type="button" class="btn btn-success">
+								<i class="fa fa-plus"></i> Dodaj czlonka zespołu
+							</button></a>
+					</c:if>
 				</div>
 			</div>
 			<div class="panel-body"
@@ -37,11 +40,19 @@
 							<h3 class="panel-title">
 								<b>${worker.imie} ${worker.nazwisko}</b>
 							</h3>
+							<form action="${pageContext.request.contextPath}/usunCzlonkaDO"
+								method="post">
+								<input type="hidden" name="workerId" value="${worker.id}" />
+								<button type="submit" class="btn btn-danger"
+									style="float: right; width: 21px; height: 21px; margin-top: -23px; margin-right: -12px; padding: 0px;">
+									<i class="fa fa-times-circle"></i>
+								</button>
+							</form>
 						</div>
 						<div class="panel-body">
 							<b>Ranga:</b> ${worker.ranga}<br /> <b>Imie:</b> ${worker.imie}<br />
 							<b>Nazwisko:</b> ${worker.nazwisko}<br /> <b>Przelozony:</b>
-							<br />
+							${worker.przelozony} <br />
 						</div>
 					</div>
 				</c:forEach>
@@ -52,7 +63,7 @@
 	<!-- /#wrapper -->
 
 	<!-- JAVASCRIPT -->
-	<jsp:include page="../default/javaScript.jsp" /> 
+	<jsp:include page="../default/javaScript.jsp" />
 
 </body>
 </html>

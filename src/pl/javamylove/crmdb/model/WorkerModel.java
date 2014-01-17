@@ -10,6 +10,7 @@ public class WorkerModel {
 	private String haslo;
 	private String ranga;
 	private int przelozonyId;
+	private String przelozony;
 
 	public int getId() {
 		return id;
@@ -73,6 +74,14 @@ public class WorkerModel {
 
 	public void setPrzelozonyId(int i) {
 		this.przelozonyId = i;
+	}
+
+	public String getPrzelozony() {
+		return przelozony;
+	}
+
+	public void setPrzelozony(String przelozony) {
+		this.przelozony = przelozony;
 	}
 
 	@Override

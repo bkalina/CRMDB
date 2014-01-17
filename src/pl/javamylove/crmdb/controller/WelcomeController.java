@@ -14,16 +14,26 @@ import pl.javamylove.crmdb.service.WorkerService;
 
 @Controller
 public class WelcomeController {
-	
+
+	private boolean admin;
+
+	public void setAdmin(boolean admin) {
+		this.admin = admin;
+	}
+
+	public boolean isAdmin() {
+		return admin;
+	}
+
 	private WorkerService workerService;
 
 	@Autowired
 	public void setWorkerService(WorkerService workerService) {
 		this.workerService = workerService;
 	}
-	
+
 	private LoggerService loggerService;
-	
+
 	@Autowired
 	public void setLoggerService(LoggerService loggerService) {
 		this.loggerService = loggerService;
@@ -33,21 +43,22 @@ public class WelcomeController {
 	public String showWelcome(HttpSession session) {
 		return "welcome";
 	}
-	
+
 	@RequestMapping("/login")
 	public void loginProcess(HttpSession session) {
 		setSessionAttribute(session);
+		session.setAttribute("admin", isAdmin());
 	}
 
 	public WorkerModel getInitData() {
 		Authentication auth = SecurityContextHolder.getContext()
 				.getAuthentication();
 		String username = auth.getName();
-		
+
 		if (username.equals("admin")) {
-			adminLogin();
+			setAdmin(true);
 		}
-		
+
 		System.out.println("|||||||||||||||||||||||||||||||||||");
 		System.out.println("User: " + username + " logged in!");
 		System.out.println("Authority: " + auth.getAuthorities());
@@ -69,7 +80,8 @@ public class WelcomeController {
 			session.setAttribute("pracownikId", przelozonyId);
 			session.setAttribute("id", pracownikId);
 		}
-		session.setAttribute("imieNazwisko", worker.getImie()+" "+worker.getNazwisko());
+		session.setAttribute("imieNazwisko",
+				worker.getImie() + " " + worker.getNazwisko());
 		session.setAttribute("ranga", worker.getRanga());
 	}
 

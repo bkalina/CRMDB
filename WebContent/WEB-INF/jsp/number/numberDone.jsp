@@ -7,6 +7,6 @@
 <title>CRMDB - Zapisano</title>
 </head>
 <body>
-<jsp:forward page="/klienci"></jsp:forward>
+<jsp:forward page="/telefony"></jsp:forward>
 </body>
 </html>

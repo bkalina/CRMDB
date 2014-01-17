@@ -7,7 +7,9 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import pl.javamylove.crmdb.model.PhoneNumberModel;
 import pl.javamylove.crmdb.service.PhoneNumberService;
@@ -28,5 +30,29 @@ public class PhoneNumbersController {
 		List<PhoneNumberModel> pnList = pnService.getNumbersList((int) session.getAttribute("pracownikId"));
 		model.addAttribute("numbersList", pnList);
 		return "number/numbers";
+	}
+	
+	@RequestMapping("/dodajNumer")
+	public String addNumber(Model model){
+		model.addAttribute("numberModel", new PhoneNumberModel());
+		return "number/addNumber";
+	}
+	
+	@RequestMapping(value="/dodajNumerDO", method=RequestMethod.POST)
+	public String addNumberDO(Model model, PhoneNumberModel number, BindingResult result){
+		
+		if(result.hasErrors()){
+			return "number/addNumber";
+		}
+		else{
+			System.out.println(number);
+			System.out.println("Created: " + pnService.createNumber(number));
+			return "number/numberDone";
+		}
+	}
+	
+	@RequestMapping("/szukajKlienta")
+	public String searchClient(Model model, String nip){
+		return "number/addNumber";
 	}
 }

@@ -74,6 +74,8 @@
 							<sf:errors path="haslo" cssClass="error" />
 						</div>
 					</div>
+					<sf:input type="hidden" path="ranga" name="ranga"
+							value="telemarketer" />
 					<sf:input type="hidden" path="przelozonyId" name="przelozonyId"
 							value="${pracownikId}" />
 					<div>

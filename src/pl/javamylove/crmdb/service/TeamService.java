@@ -22,5 +22,12 @@ public class TeamService {
 		return teamDao.getWorkersList(id);
 	}
 	
+	public boolean createWorker(WorkerModel worker){
+		return teamDao.createWorker(worker);
+	}
+	
+	public boolean deleteWorker(int workerId){
+		return teamDao.deleteWorker(workerId);
+	}
 	
 }

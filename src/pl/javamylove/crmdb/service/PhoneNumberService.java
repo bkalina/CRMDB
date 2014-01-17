@@ -17,10 +17,22 @@ public class PhoneNumberService {
 	public void setPnDao(PhoneNumberDAO pnDao) {
 		this.pnDao = pnDao;
 	}
-	
-	public List<PhoneNumberModel> getNumbersList(int id){
+
+	public List<PhoneNumberModel> getNumbersList(int id) {
 		System.out.println("pnService: getNumbersList()");
 		return pnDao.getNumbersList(id);
+	}
+
+	public boolean createNumber(PhoneNumberModel number) {
+		return pnDao.createNumber(number);
+	}
+
+	public boolean deleteNumber(int numberId) {
+		return pnDao.deleteNumber(numberId);
+	}
+
+	public boolean updtaeNumber(PhoneNumberModel number) {
+		return pnDao.updateNumber(number);
 	}
 	
 	

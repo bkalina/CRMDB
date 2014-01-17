@@ -85,6 +85,6 @@ public class ClientController {
 		System.out.println("Delete: " + clientService.deleteClient(clientId));
 		session.removeAttribute("klientId");
 		System.out.println("Id: " + session.getAttribute("klientId"));
-		return "client/clients";
+		return "client/clientDone";
 	}
 }

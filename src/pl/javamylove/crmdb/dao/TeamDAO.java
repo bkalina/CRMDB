@@ -27,7 +27,7 @@ public class TeamDAO {
 
 	public List<WorkerModel> getWorkersList(int id) {
 		System.out.println("workerDAO: getWorkersList()");
-		return jdbc.query("SELECT * FROM pracownik WHERE przelozony_id="+id,
+		return jdbc.query("SELECT *, concat(p.imie, ' ', p.nazwisko) as przelozony FROM pracownik w join pracownik p on w.przelozony_id=p.id WHERE w.przelozony_id="+id,
 				new RowMapper<WorkerModel>() {
 					public WorkerModel mapRow(ResultSet rs, int rowNum)
 							throws SQLException {
@@ -41,7 +41,7 @@ public class TeamDAO {
 						workerModel.setHaslo(rs.getString("haslo"));
 						workerModel.setRanga(rs.getString("ranga"));
 						workerModel.setPrzelozonyId(rs.getInt("przelozony_id"));
-
+						workerModel.setPrzelozony(rs.getString("przelozony"));
 						return workerModel;
 					}
 				});
@@ -71,40 +71,10 @@ public class TeamDAO {
 				});
 	}
 	
-	public WorkerModel getWorkerInitData(String username) {
-		System.out.println("workerDAO: getWorker()");
-		MapSqlParameterSource params = new MapSqlParameterSource();
-		params.addValue("username", username);
-		return jdbc.queryForObject("SELECT * FROM pracownik WHERE email=:username",
-				params, new RowMapper<WorkerModel>() {
-					public WorkerModel mapRow(ResultSet rs, int rowNum)
-							throws SQLException {
-						WorkerModel workerModel = new WorkerModel();
-
-						workerModel.setId(rs.getInt("id"));
-						workerModel.setImie(rs.getString("imie"));
-						workerModel.setNazwisko(rs.getString("nazwisko"));
-						workerModel.setTelefon(rs.getString("telefon"));
-						workerModel.setEmail(rs.getString("email"));
-						workerModel.setHaslo(rs.getString("haslo"));
-						workerModel.setRanga(rs.getString("ranga"));
-						workerModel.setPrzelozonyId(rs.getInt("przelozony_id"));
-						
-						return workerModel;
-					}
-				});
-	}
-
-	public boolean updateWorker(WorkerModel worker) {
-		BeanPropertySqlParameterSource params = new BeanPropertySqlParameterSource(
-				worker);
-		return jdbc.update("", params) == 1;
-	}
-
 	public boolean createWorker(WorkerModel worker) {
 		BeanPropertySqlParameterSource params = new BeanPropertySqlParameterSource(
 				worker);
-		return jdbc.update("", params) == 1;
+		return jdbc.update("INSERT INTO pracownik (imie, nazwisko, telefon, email, haslo, ranga, przelozony_id) VALUES (:imie, :nazwisko, :telefon, :email, :haslo, :ranga, :przelozonyId)", params) == 1;
 	}
 
 	public boolean deleteWorker(int workerId) {
