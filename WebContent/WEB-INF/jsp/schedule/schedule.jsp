@@ -24,21 +24,28 @@
 				<div class="col-lg-12">
 					<h1>Terminarz</h1>
 				</div>
-				<div class="page-header"></div>
+				<div class="page-header" style="padding-left: 15px;">
+				<c:if test="${ranga == 'doradca'}">
+				<a href="${pageContext.request.contextPath}/dodajTermin"><button type="button" class="btn btn-success"><i class="fa fa-plus"></i> Dodaj termin</button></a>
+				</c:if>
+				</div>
 			</div>
 			<div class="table-responsive">
 				<datatables:table cdn="true" id="terminy" data="${scheduleList}"
 					cssClass="table table-hover table-striped table-responsive" row="s">
 					<datatables:column title="Opis" sortable="false">
-						<a href="${s.id}" style="color: black; text-decoration: none">
 							<div><c:out value="${s.opis}"></c:out></div>
-						</a>
 					</datatables:column>
 					<datatables:column title="Data" sortInit="asc">
-						<a href="${s.id}" style="color: black; text-decoration: none">
 							<div><c:out value="${s.dataZdarzenia}"></c:out></div>
-						</a>
 					</datatables:column>
+					<datatables:column style="text-align: centerl" title=" " sortable="false" >
+						<form method="post" action="${pageContext.request.contextPath}/edytujNumer">
+							<input type="hidden" name="klientId" value="${s.id}">
+							<button type="submit" class="btn btn-link"  style="width:30px; height:28px; padding:0px;"><i class="fa fa-pencil-square-o fa-2x"></i></button>
+						</form>
+					</datatables:column>
+					
 				</datatables:table>
 			</div>
 		</div>

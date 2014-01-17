@@ -23,8 +23,10 @@
 				<div class="col-lg-12">
 					<h1>Telefony</h1>
 				</div>
-				<div class="col-lg-12">
-					<div class="page-header"></div>
+				<div class="page-header" style="padding-left: 15px;">
+				<c:if test="${ranga == 'doradca'}">
+				<a href="${pageContext.request.contextPath}/dodajNumer"><button type="button" class="btn btn-success"><i class="fa fa-plus"></i> Dodaj numer</button></a>
+				</c:if>
 				</div>
 			</div>
 			<div class="table-responsive">
@@ -43,7 +45,10 @@
 						<font style="font-size:small;"><c:out value="${nr.daneKlienta}" /></font>
 					</datatables:column>
 					<datatables:column style="text-align:center" title=" " sortable="false">
-						<a href="${nr.typUslugi}"><i class="fa fa-pencil-square-o fa-2x"></i></a>
+						<form method="post" action="${pageContext.request.contextPath}/edytujNumer">
+							<input type="hidden" name="klientId" value="${nr.id}">
+							<button type="submit" class="btn btn-link"  style="width:30px; height:28px; padding:0px;"><i class="fa fa-pencil-square-o fa-2x"></i></button>
+						</form>
 					</datatables:column>
 					
 				</datatables:table>

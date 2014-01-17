@@ -36,12 +36,12 @@
 		<ul class="nav navbar-nav navbar-right navbar-user">
 			<li class="dropdown user-dropdown"><a href="#"
 				class="dropdown-toggle" data-toggle="dropdown"><i
-					class="fa fa-user"></i> Edek Furtka <b class="caret"></b></a>
+					class="fa fa-user"></i> ${imieNazwisko} <b class="caret"></b></a>
 				<ul class="dropdown-menu">
 					<li><a href="${pageContext.request.contextPath}/mojekonto"><i
 							class="fa fa-user"></i> Moje konto</a></li>
 					<li class="divider"></li>
-					<li><a href="${pageContext.request.contextPath}/wyloguj"><i
+					<li><a href="${pageContext.request.contextPath}/j_spring_security_logout"><i
 							class="fa fa-power-off"></i> Wyloguj</a></li>
 				</ul></li>
 		</ul>

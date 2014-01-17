@@ -70,6 +70,30 @@ public class WorkerDAO {
 					}
 				});
 	}
+	
+	public WorkerModel getWorkerInitData(String username) {
+		System.out.println("workerDAO: getWorker()");
+		MapSqlParameterSource params = new MapSqlParameterSource();
+		params.addValue("username", username);
+		return jdbc.queryForObject("SELECT * FROM pracownik WHERE email=:username",
+				params, new RowMapper<WorkerModel>() {
+					public WorkerModel mapRow(ResultSet rs, int rowNum)
+							throws SQLException {
+						WorkerModel workerModel = new WorkerModel();
+
+						workerModel.setId(rs.getInt("id"));
+						workerModel.setImie(rs.getString("imie"));
+						workerModel.setNazwisko(rs.getString("nazwisko"));
+						workerModel.setTelefon(rs.getString("telefon"));
+						workerModel.setEmail(rs.getString("email"));
+						workerModel.setHaslo(rs.getString("haslo"));
+						workerModel.setRanga(rs.getString("ranga"));
+						workerModel.setPrzelozonyId(rs.getInt("przelozony_id"));
+						
+						return workerModel;
+					}
+				});
+	}
 
 	public boolean updateWorker(WorkerModel worker) {
 		BeanPropertySqlParameterSource params = new BeanPropertySqlParameterSource(

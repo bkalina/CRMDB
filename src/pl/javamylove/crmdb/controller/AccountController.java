@@ -24,7 +24,7 @@ public class AccountController {
 
 	@RequestMapping("/mojekonto")
 	public String showAccount(Model model, HttpSession session) {
-		WorkerModel worker = accService.getWorker((int) session.getAttribute("pracownikId"));
+		WorkerModel worker = accService.getWorker((int) session.getAttribute("id"));
 		model.addAttribute("pracownik", worker);
 		return "account/account";
 	}
@@ -33,7 +33,6 @@ public class AccountController {
 	public String editAccount(Model model, HttpSession session,
 			WorkerModel worker, @RequestParam("emailOld") String emailOld,
 			@RequestParam("numerOld") String numerOld) {
-		model.addAttribute("pracownikId", session.getAttribute("pracownikId"));
 		if (emailOld.equals(worker.getEmail())==false) {
 			accService.updateEmail(worker);
 		}
@@ -46,7 +45,6 @@ public class AccountController {
 	@RequestMapping(value = "/mojekontoHaslo", method = RequestMethod.POST)
 	public String editAccountPassword(Model model, HttpSession session,
 			WorkerModel worker) {
-		model.addAttribute("pracownikId", session.getAttribute("pracownikId"));
 		if (worker.getHaslo().isEmpty() == false) {
 			accService.updatePassword(worker);
 		}

@@ -99,12 +99,12 @@
 						<label for="haslo" class="col-sm-1 control-label"
 							style="width: 15%;">Nowe haslo</label>
 						<div class="col-sm-4" style="width: 35%;">
-							<input type="text" class="form-control" name="haslo">
+							<input type="password" class="form-control" name="haslo">
 						</div>
 						<label for="haslo2" class="col-sm-2 control-label"
 							style="width: 15%;">Powtorz</label>
 						<div class="col-sm-4" style="width: 35%;">
-							<input type="text" class="form-control" name="haslo2">
+							<input type="password" class="form-control" name="haslo2">
 						</div>
 					</div>
 					<div>

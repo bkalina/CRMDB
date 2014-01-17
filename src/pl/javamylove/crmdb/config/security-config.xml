@@ -1,44 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:security="http://www.springframework.org/schema/security"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:security="http://www.springframework.org/schema/security"
 	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-		
+
+
 	<security:authentication-manager>
 		<security:authentication-provider>
 			<security:user-service>
-				<security:user name="edek@gmail.com" authorities="admin"
-					password="x" />
-					<security:user name="trol@gmail.com" authorities="user"
-					password="x" />
+				<security:user name="admin" authorities="admin"
+					password="admin" />
 			</security:user-service>
 		</security:authentication-provider>
 		<security:authentication-provider>
-			<security:jdbc-user-service data-source-ref="dataSource"
- 
-		   users-by-username-query="
-		      select username,password, enabled 
-		      from users where username=?" 
- 
-		   authorities-by-username-query="
-		      select u.username, ur.authority from users u, user_roles ur 
-		      where u.user_id = ur.user_id and u.username =?  " 
- 
-		/>
+			<security:jdbc-user-service
+				data-source-ref="dataSource"
+
+				users-by-username-query="
+		      select email as username, haslo as password, status as enabled from pracownik where email=?"
+
+				authorities-by-username-query="
+		      select email as username, ranga as authority from pracownik where email=?" />
 		</security:authentication-provider>
 	</security:authentication-manager>
-	
-	
+
+
 	<security:http use-expressions="true">
 		<security:intercept-url pattern="/" access="permitAll" />
 		<security:intercept-url pattern="/static/**"
 			access="permitAll" />
-		<security:intercept-url pattern="/**"
-			access="isAuthenticated()" />
+		<security:intercept-url pattern="/*"
+			access="hasAnyRole('doradca', 'telemarketer')" />
 		<security:form-login login-page="/"
-			authentication-failure-url="/?error=true" default-target-url="/panel" />
-		<security:logout logout-success-url="/"/>
-		<security:intercept-url pattern="/admin" access="admin" />
+			authentication-failure-url="/?error=true" default-target-url="/login"
+			always-use-default-target="true" />
+		<security:logout logout-success-url="/" />
+		<security:intercept-url pattern="/admin/panel"
+			access="hasRole('admin')" />
 	</security:http>
+
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url"
+			value="jdbc:mysql://kalix.linuxpl.info:3306/kalix_crmdb" />
+		<property name="username" value="kalix_crmdb" />
+		<property name="password" value="kalii1" />
+
+	</bean>
 </beans>

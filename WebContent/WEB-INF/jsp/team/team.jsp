@@ -30,8 +30,10 @@
 				<div class="col-lg-12">
 					<h1>Mój zespó³</h1>
 				</div>
-				<div class="col-lg-12">
-					<div class="page-header"></div>
+				<div class="page-header" style="padding-left: 15px;">
+				<c:if test="${ranga == 'doradca'}">
+				<a href="${pageContext.request.contextPath}/dodajCzlonka"><button type="button" class="btn btn-success"><i class="fa fa-plus"></i> Dodaj czlonka zespo³u</button></a>
+				</c:if>
 				</div>
 			</div>
 			<div class="panel-body"

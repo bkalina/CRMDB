@@ -28,4 +28,10 @@ public class ScheduleController {
 		model.addAttribute("scheduleList", sModel);
 		return "schedule/schedule";
 	}
+	
+	@RequestMapping("/dodajTermin")
+	public String addTerm(Model model, HttpSession session){
+		model.addAttribute("scheduleModel", new ScheduleModel());
+		return "schedule/addTerm";
+	}
 }

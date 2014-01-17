@@ -23,7 +23,7 @@ public class AdminController {
 		this.adminService = adminService;
 	}
 
-	@RequestMapping("/admin")
+	@RequestMapping("/admin/panel")
 	public String showAccount(Model model, HttpSession session) {
 		List<WorkerModel> list = adminService.getWorkersList();
 		model.addAttribute("list", list);

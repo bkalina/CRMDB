@@ -7,12 +7,7 @@ public class ScheduleModel {
 	private String godzina;
 	private String opis;
 	private String notatka;
-	private int klientId;
 	private int pracownikId;
-	private String nazwaFirmy;
-	private String imie;
-	private String nazwisko;
-	private String nip;
 
 	public int getId() {
 		return id;
@@ -54,14 +49,6 @@ public class ScheduleModel {
 		this.notatka = notatka;
 	}
 
-	public int getKlientId() {
-		return klientId;
-	}
-
-	public void setKlientId(int klientId) {
-		this.klientId = klientId;
-	}
-
 	public int getPracownikId() {
 		return pracownikId;
 	}
@@ -69,45 +56,12 @@ public class ScheduleModel {
 	public void setPracownikId(int pracownikId) {
 		this.pracownikId = pracownikId;
 	}
-	
-	public String getNazwaFirmy() {
-		return nazwaFirmy;
-	}
-
-	public void setNazwaFirmy(String nazwaFirmy) {
-		this.nazwaFirmy = nazwaFirmy;
-	}
-
-	public String getImie() {
-		return imie;
-	}
-
-	public void setImie(String imie) {
-		this.imie = imie;
-	}
-
-	public String getNazwisko() {
-		return nazwisko;
-	}
-
-	public void setNazwisko(String nazwisko) {
-		this.nazwisko = nazwisko;
-	}
-
-	public String getNip() {
-		return nip;
-	}
-
-	public void setNip(String nip) {
-		this.nip = nip;
-	}
 
 	@Override
 	public String toString() {
 		return "ScheduleModel [id=" + id + ", dataZdarzenia=" + dataZdarzenia
 				+ ", godzina=" + godzina + ", opis=" + opis + ", notatka="
-				+ notatka + ", klientId=" + klientId + ", pracownikId="
-				+ pracownikId + "]";
+				+ notatka + ", pracownikId=" + pracownikId + "]";
 	}
 
 }

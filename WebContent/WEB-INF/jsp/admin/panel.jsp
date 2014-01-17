@@ -25,16 +25,14 @@
 						class="icon-bar"></span>
 				</button>
 				<a class="navbar-brand"
-					href="${pageContext.request.contextPath}/admin">CRMDB ADMIN</a>
+					href="${pageContext.request.contextPath}/admin/panel">CRMDB ADMIN</a>
 			</div>
 
 			<!-- SIDEBAR MENU -->
 			<div class="collapse navbar-collapse navbar-ex1-collapse">
 				<ul class="nav navbar-nav side-nav">
-					<li><a href="${pageContext.request.contextPath}/admin"><i
+					<li><a href="${pageContext.request.contextPath}/admin/panel"><i
 							class="fa fa-dashboard"></i> Admin panel</a></li>
-					<li><a href="${pageContext.request.contextPath}/panel"><i
-							class="fa fa-reply"></i> Powrót</a></li>
 				</ul>
 				<!-- / SIDEBAR MENU -->
 
@@ -44,7 +42,7 @@
 						class="dropdown-toggle" data-toggle="dropdown"><i
 							class="fa fa-user"></i> Administrator <b class="caret"></b></a>
 						<ul class="dropdown-menu">
-							<li><a href="${pageContext.request.contextPath}/wyloguj"><i
+							<li><a href="${pageContext.request.contextPath}/j_spring_security_logout"><i
 									class="fa fa-power-off"></i> Wyloguj</a></li>
 						</ul></li>
 				</ul>
@@ -62,11 +60,8 @@
 				</div>
 				<div class="col-lg-12">
 					<div class="page-header" style="padding-left: 15px;">
-						<a href="${pageContext.request.contextPath}/dodajPracownika"><button
-								type="button" class="btn btn-success">
-								<i class="fa fa-plus"></i> Dodaj pracownika
-							</button></a>
-					</div>
+				<a href="${pageContext.request.contextPath}/dodajPracownika"><button type="button" class="btn btn-success"><i class="fa fa-plus"></i> Dodaj pracownika</button></a>
+				</div>
 				</div>
 
 				<div class="table-responsive">

@@ -24,7 +24,9 @@
 					<h1>Klienci</h1>
 				</div>
 				<div class="page-header" style="padding-left: 15px;">
+				<c:if test="${ranga == 'doradca'}">
 				<a href="${pageContext.request.contextPath}/dodajKlienta"><button type="button" class="btn btn-success"><i class="fa fa-plus"></i> Dodaj klienta</button></a>
+				</c:if>
 				</div>
 			</div>
 
