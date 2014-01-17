@@ -15,8 +15,8 @@ import org.springframework.stereotype.Component;
 
 import pl.javamylove.crmdb.model.WorkerModel;
 
-@Component("workerDao")
-public class WorkerDAO {
+@Component("teamDao")
+public class TeamDAO {
 
 	private NamedParameterJdbcTemplate jdbc;
 
@@ -25,9 +25,9 @@ public class WorkerDAO {
 		this.jdbc = new NamedParameterJdbcTemplate(jdbc);
 	}
 
-	public List<WorkerModel> getWorkersList() {
+	public List<WorkerModel> getWorkersList(int id) {
 		System.out.println("workerDAO: getWorkersList()");
-		return jdbc.query("SELECT * FROM pracownik",
+		return jdbc.query("SELECT * FROM pracownik WHERE przelozony_id="+id,
 				new RowMapper<WorkerModel>() {
 					public WorkerModel mapRow(ResultSet rs, int rowNum)
 							throws SQLException {

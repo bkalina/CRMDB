@@ -1,12 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-2"
-	pageEncoding="ISO-8859-2"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
 <jsp:include page="../default/headTag.jsp" />
-<title>CRMDB - Edycja klienta</title>
+<title>CRMDB - Edycja terminu</title>
 </head>
 
 <body>
@@ -20,124 +20,71 @@
 		<div id="page-wrapper">
 			<div class="row">
 				<div class="col-lg-12">
-					<h1>Edycja klienta</h1>
+					<h1>Edycja terminu</h1>
 				</div>
 				<div class="page-header" style="padding-left: 15px;"></div>
 			</div>
 			<div class="panel-body"
 				style="border: 1px solid #428bca; border-radius: 4px; padding-right: 22px;">
 				<c:if test="${ranga == 'doradca'}">
-				<form action="${pageContext.request.contextPath}/usunKlientaDO"
+				<form action="${pageContext.request.contextPath}/usunTerminDO"
 					method="post">
-					<input type="hidden" name="klientId" value="${klientId}" />
+					<input type="hidden" name="termId" value="${termId}" />
 					<button type="submit" class="btn btn-danger"
 						style="float: right; width: 21px; height: 21px; margin-top: -14px; margin-right: -21px; padding: 0px;">
 						<i class="fa fa-times-circle"></i>
 					</button>
 				</form>
 				</c:if>
-				<sf:form class="form-horizontal" accept-charset="ISO-8859-2"
-					method="post"
-					action="${pageContext.request.contextPath}/edytujKlientaDO" commandName="clientModel">
+				<sf:form class="form-horizontal" method="post"
+					action="${pageContext.request.contextPath}/edytujTerminDO"
+					commandName="scheduleModel">
 
-					<sf:input type="hidden" name="id" value="${klientId}" path="id"/>
 					<div class="form-group">
 						<label for="nazwaFirmy" class="col-sm-1 control-label"
-							style="width: 15%;">Nazwa firmy</label>
-						<div class="col-sm-10" style="width: 85%;">
-							<sf:input type="text" class="form-control" path="nazwaFirmy" name="nazwaFirmy"
-								value="${client.nazwaFirmy}"/><sf:errors path="nazwaFirmy" cssClass="error"/>
+							style="width: 15%;">Data</label>
+						<div class="col-sm-10" style="width: 35%;">
+							<sf:input type="text" class="form-control" path="dataZdarzenia"
+								value="${term.dataZdarzenia}" name="dataZdarzenia" />
+							<sf:errors path="dataZdarzenia" cssClass="error" />
+						</div>
+						
+						<label for="imie" class="col-sm-1 control-label"
+							style="width: 15%;">Godzina</label>
+						<div class="col-sm-4" style="width: 35%;">
+							<sf:input type="text" class="form-control" path="godzina"
+								name="godzina" value="${term.godzina}" />
+							<sf:errors path="godzina" cssClass="error" />
 						</div>
 					</div>
 
 					<div class="form-group">
-						<label for="imie" class="col-sm-1 control-label"
-							style="width: 15%;">Imiê</label>
-						<div class="col-sm-4" style="width: 35%;">
-							<sf:input type="text" class="form-control" path="imie" name="imie"
-								value="${client.imie}"/><sf:errors path="imie" cssClass="error"/>
-						</div>
 						<label for="nazwisko" class="col-sm-2 control-label"
-							style="width: 15%;">Nazwisko</label>
-						<div class="col-sm-4" style="width: 35%;">
-							<sf:input type="text" class="form-control" path="nazwisko" name="nazwisko"
-								value="${client.nazwisko}"/><sf:errors path="nazwisko" cssClass="error"/>
+							style="width: 15%;">Opis</label>
+						<div class="col-sm-4" style="width: 85%;">
+							<sf:input type="text" class="form-control" path="opis"
+								name="opis" value="${term.opis}" />
+							<sf:errors path="opis" cssClass="error" />
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label for="ulica" class="col-sm-1 control-label"
-							style="width: 15%;">Ulica</label>
-						<div class="col-sm-4" style="width: 35%;">
-							<sf:input type="text" class="form-control" path="ulica" name="ulica"
-								value="${client.ulica}"/><sf:errors path="ulica" cssClass="error"/>
+							style="width: 15%;">Notatka</label>
+						<div class="col-sm-4" style="width: 85%;">
+							<sf:textarea type="text" class="form-control" path="notatka"
+								name="notatka" value="${term.notatka}" />
+							<sf:errors path="notatka" cssClass="error" />
 						</div>
-						<label for="nrBudynku" class="col-sm-2 control-label"
-							style="width: 15%;">Nr budynku</label>
-						<div class="col-sm-1" style="width: 12%;">
-							<sf:input type="text" class="form-control" path="nrBudynku" name="nrBudynku"
-								value="${client.nrBudynku}"/><sf:errors path="nrBudynku" cssClass="error"/>
-						</div>
-						<label for="nrLokalu" class="col-sm-2 control-label"
-							style="width: 11%;">Nr lokalu</label>
-						<div class="col-sm-1" style="width: 12%;">
-							<sf:input type="text" class="form-control" path="nrLokalu" name="nrLokalu"
-								value="${client.nrLokalu}"/><sf:errors path="nrLokalu" cssClass="error"/>
-						</div>
-					</div>
 
-					<div class="form-group">
-						<label for="kodPocztowy" class="col-sm-1 control-label"
-							style="width: 15%;">Kod pocztowy</label>
-						<div class="col-sm-4" style="width: 35%;">
-							<sf:input type="text" class="form-control" path="kodPocztowy" name="kodPocztowy"
-								value="${client.kodPocztowy}"/><sf:errors path="kodPocztowy" cssClass="error"/>
-						</div>
-						<label for="miasto" class="col-sm-2 control-label"
-							style="width: 15%;">Miasto</label>
-						<div class="col-sm-4" style="width: 35%;">
-							<sf:input type="text" class="form-control" path="miasto" name="miasto"
-								value="${client.miasto}"/><sf:errors path="miasto" cssClass="error"/>
-						</div>
-					</div>
-
-					<div class="form-group">
-						<label for="nip" class="col-sm-1 control-label"
-							style="width: 15%;">NIP</label>
-						<div class="col-sm-4" style="width: 35%;">
-							<sf:input type="hidden" name="nip" value="${client.nip}" path="nip" /> 
-							<input type="text" class="form-control" value="${client.nip}" disabled/>
-							<sf:errors path="nip" cssClass="error"/>
-						</div>
-						<label for="regon" class="col-sm-2 control-label"
-							style="width: 15%;">Regon</label>
-						<div class="col-sm-4" style="width: 35%;">
-							<sf:input type="text" class="form-control" path="regon" name="regon"
-								value="${client.regon}"/><sf:errors path="regon" cssClass="error"/>
-						</div>
-					</div>
-
-					<div class="form-group">
-						<label for="telKontaktowy" class="col-sm-1 control-label"
-							style="width: 15%;">Tel. kontaktowy</label>
-						<div class="col-sm-4" style="width: 35%;">
-							<sf:input type="text" class="form-control" path="telKontaktowy" name="telKontaktowy"
-								value="${client.telKontaktowy}"/><sf:errors path="telKontaktowy" cssClass="error"/>
-						</div>
-						<label for="email" class="col-sm-2 control-label"
-							style="width: 15%;">Email</label>
-						<div class="col-sm-4" style="width: 35%;">
-							<sf:input type="text" class="form-control" path="email" name="email"
-								value="${client.email}"/><sf:errors path="email" cssClass="error"/>
-						</div>
-						<sf:input type="hidden" name="pracownikId"
-							value="${client.pracownikId}" path="pracownikId"/>
+						<sf:input type="hidden" path="pracownikId" name="pracownikId"
+							value="${pracownikId}" />
 					</div>
 					<div>
 						<button type="submit" class="btn btn-success">
 							<i class="fa fa-floppy-o"></i> Zapisz
 						</button>
-						<a href="${pageContext.request.contextPath}/klienci">
+						<a href="${pageContext.request.contextPath}/terminarz">
 							<button type="button" class="btn btn-danger"
 								style="float: right;">
 								<i class="fa fa-times-circle"></i> Anuluj

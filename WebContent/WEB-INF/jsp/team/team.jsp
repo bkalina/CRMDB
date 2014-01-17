@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-2"
-	pageEncoding="ISO-8859-2"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -7,18 +7,10 @@
 <html lang="pl">
 <head>
 <jsp:include page="../default/headTag.jsp" />
-<title>CRMDB - M骿 zesp蟪</title>
+<title>CRMDB - M贸j zesp贸艂</title>
 </head>
 
 <body>
-
-	<!-- SQL -->
-	<sql:query var="rs" dataSource="jdbc/crmdb">
-		select p.imie, p.nazwisko, p.ranga, CONCAT(pp.imie, ' ', pp.nazwisko) as przelozony from pracownik p join pracownik pp on p.przelozony_id=pp.id where pp.id=${pracownikId}
-	</sql:query>
-	<!-- SQL -->
-
-
 	<div id="wrapper">
 
 		<!-- SIDEBAR -->
@@ -28,28 +20,28 @@
 		<div id="page-wrapper" >
 			<div class="row" >
 				<div class="col-lg-12">
-					<h1>M骿 zesp蟪</h1>
+					<h1>M贸j zesp贸艂</h1>
 				</div>
 				<div class="page-header" style="padding-left: 15px;">
 				<c:if test="${ranga == 'doradca'}">
-				<a href="${pageContext.request.contextPath}/dodajCzlonka"><button type="button" class="btn btn-success"><i class="fa fa-plus"></i> Dodaj czlonka zespo硊</button></a>
+				<a href="${pageContext.request.contextPath}/dodajCzlonka"><button type="button" class="btn btn-success"><i class="fa fa-plus"></i> Dodaj czlonka zespo艂u</button></a>
 				</c:if>
 				</div>
 			</div>
 			<div class="panel-body"
 				style="border: 1px solid #428bca; border-radius: 4px; padding-right: 22px;">
-				<c:forEach var="row" items="${rs.rows}">
+				<c:forEach var="worker" items="${workers}">
 					<div class="panel panel-primary"
 						style="float: left; width: auto; margin-right: 10px;">
 						<div class="panel-heading">
 							<h3 class="panel-title">
-								<b>${row.imie} ${row.nazwisko}</b>
+								<b>${worker.imie} ${worker.nazwisko}</b>
 							</h3>
 						</div>
 						<div class="panel-body">
-							<b>Ranga:</b> ${row.ranga}<br /> <b>Imie:</b> ${row.imie}<br />
-							<b>Nazwisko:</b> ${row.nazwisko}<br /> <b>Przelozony:</b>
-							${row.przelozony}<br />
+							<b>Ranga:</b> ${worker.ranga}<br /> <b>Imie:</b> ${worker.imie}<br />
+							<b>Nazwisko:</b> ${worker.nazwisko}<br /> <b>Przelozony:</b>
+							<br />
 						</div>
 					</div>
 				</c:forEach>

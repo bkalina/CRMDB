@@ -1,18 +1,25 @@
 package pl.javamylove.crmdb.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import pl.javamylove.crmdb.dao.WorkerDAO;
+import pl.javamylove.crmdb.dao.TeamDAO;
+import pl.javamylove.crmdb.model.WorkerModel;
 
 @Service("teamService")
 public class TeamService {
 
-	private WorkerDAO teamDao;
+	private TeamDAO teamDao;
 
 	@Autowired
-	public void setSDao(WorkerDAO teamDao) {
+	public void setTeamDao(TeamDAO teamDao) {
 		this.teamDao = teamDao;
+	}
+	
+	public List<WorkerModel> getTeamList(int id){
+		return teamDao.getWorkersList(id);
 	}
 	
 	

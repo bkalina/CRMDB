@@ -18,10 +18,28 @@ public class ScheduleService {
 		this.sDao = sDao;
 	}
 	
-	public List<ScheduleModel> getScheduleList(int id){
-		System.out.println("scheduleService: getScheduleList()");
-		return sDao.getScheduleList(id);
+	public List<ScheduleModel> getTermsList(int id){
+		System.out.println("scheduleService: getTermsList()");
+		return sDao.getTermsList(id);
 	}
 	
+	public ScheduleModel getTerm(int termId){
+		System.out.println("scheduleService: getTerm()");
+		return sDao.getTerm(termId);
+	}
 	
+	public boolean updateTerm(ScheduleModel term){
+		System.out.println("scheduleService: updateTerm()");
+		return sDao.updateTerm(term);
+	}
+	
+	public boolean createTerm(ScheduleModel term){
+		System.out.println("scheduleService: createTerm()");
+		return sDao.createTerm(term);
+	}
+	
+	public boolean deleteTerm(int termId){
+		System.out.println("scheduleService: deleteTerm()");
+		return sDao.deleteTerm(termId);
+	}
 }

@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-2"
-	pageEncoding="ISO-8859-2"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -31,14 +31,14 @@
 			<div class="panel-body"
 				style="border: 1px solid #428bca; border-radius: 4px; padding-right: 22px;"
 				id="daneForm">
-				<form class="form-horizontal" accept-charset="ISO-8859-2"
+				<form class="form-horizontal" accept-charset="UTF-8"
 					method="post"
 					action="${pageContext.request.contextPath}/mojekontoEdycja">
 
 					<input type="hidden" name="id" value="${pracownik.id}">
 					<div class="form-group">
 						<label for="imie" class="col-sm-1 control-label"
-							style="width: 15%;">Imiê</label>
+							style="width: 15%;">ImiÄ™</label>
 						<div class="col-sm-4" style="width: 35%;">
 							<input type="text" class="form-control" name="imie"
 								value="${pracownik.imie}" disabled>
@@ -86,11 +86,11 @@
 				</form>
 			</div>
 
-			<label style="width: 100px; margin-top: 20px;">Zmiana has³a</label>
+			<label style="width: 100px; margin-top: 20px;">Zmiana hasÅ‚a</label>
 			<div class="panel-body"
 				style="border: 1px solid #428bca; border-radius: 4px; padding-right: 22px;"
 				id="hasloForm">
-				<form class="form-horizontal" accept-charset="ISO-8859-2"
+				<form class="form-horizontal" accept-charset="UTF-8"
 					method="post"
 					action="${pageContext.request.contextPath}/mojekontoHaslo">
 

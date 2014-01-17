@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-2"
-	pageEncoding="ISO-8859-2"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
 <jsp:include page="default/headTag.jsp" />
-<title>CRMDB - Panel g≥Ûwny</title>
+<title>CRMDB - Panel g≈Ç√≥wny</title>
 </head>
 
 <body>
@@ -20,7 +20,7 @@
 		<div id="page-wrapper">
 			<div class="row">
 				<div class="col-lg-12">
-					<h1>Panel g≥Ûwny</h1>
+					<h1>Panel g≈Ç√≥wny</h1>
 					<ol class="breadcrumb">
 						<li class="active"><i class="fa fa-dashboard"></i> Statystyki</li>
 					</ol>

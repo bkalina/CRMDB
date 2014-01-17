@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-2"
-	pageEncoding="ISO-8859-2"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="datatables"
 	uri="http://github.com/dandelion/datatables"%>
@@ -7,7 +7,7 @@
 <html lang="pl">
 <head>
 <jsp:include page="../default/headTag.jsp" />
-<title>CRMDB - Panel g≥Ûwny</title>
+<title>CRMDB - Panel g≈Ç√≥wny</title>
 </head>
 
 <body>
@@ -22,7 +22,7 @@
 		<div id="page-wrapper">
 			<div class="row">
 				<div class="col-lg-12">
-					<h1>Panel g≥Ûwny</h1>
+					<h1>Panel g≈Ç√≥wny</h1>
 				</div>
 				<div class="col-lg-12">
 					<div class="page-header"></div>
@@ -41,13 +41,13 @@
 									</div>
 									<div class="col-xs-6 text-right">
 										<p class="announcement-heading">${count.nrCount}</p>
-										<p class="announcement-text">NumerÛw w bazie!</p>
+										<p class="announcement-text">Numer√≥w w bazie!</p>
 									</div>
 								</div>
 							</div>
 							<div class="panel-footer announcement-bottom">
 								<div class="row">
-									<div class="col-xs-6">Przejdº do numerÛw</div>
+									<div class="col-xs-6">Przejd≈∫ do numer√≥w</div>
 									<div class="col-xs-6 text-right">
 										<i class="fa fa-arrow-circle-right"></i>
 									</div>
@@ -67,13 +67,13 @@
 									</div>
 									<div class="col-xs-6 text-right">
 										<p class="announcement-heading">${count.klientCount}</p>
-										<p class="announcement-text">KlientÛw w bazie!</p>
+										<p class="announcement-text">Klient√≥w w bazie!</p>
 									</div>
 								</div>
 							</div>
 							<div class="panel-footer announcement-bottom">
 								<div class="row">
-									<div class="col-xs-6">Przejdº do klientÛw</div>
+									<div class="col-xs-6">Przejd≈∫ do klient√≥w</div>
 									<div class="col-xs-6 text-right">
 										<i class="fa fa-arrow-circle-right"></i>
 									</div>
@@ -93,13 +93,13 @@
 									</div>
 									<div class="col-xs-6 text-right">
 										<p class="announcement-heading">${count.aneksCount}</p>
-										<p class="announcement-text">AneksÛw do podpisania!</p>
+										<p class="announcement-text">Aneks√≥w do podpisania!</p>
 									</div>
 								</div>
 							</div>
 							<div class="panel-footer announcement-bottom">
 								<div class="row">
-									<div class="col-xs-6">Przejdz do numerÛw</div>
+									<div class="col-xs-6">Przejdz do numer√≥w</div>
 									<div class="col-xs-6 text-right">
 										<i class="fa fa-arrow-circle-right"></i>
 									</div>
@@ -119,7 +119,7 @@
 									</div>
 									<div class="col-xs-6 text-right">
 										<p class="announcement-heading">${count.terminCount}</p>
-										<p class="announcement-text">WydarzeÒ w terminarzu!</p>
+										<p class="announcement-text">Wydarze≈Ñ w terminarzu!</p>
 									</div>
 								</div>
 							</div>
@@ -142,7 +142,7 @@
 				<div class="panel panel-primary">
 					<div class="panel-heading">
 						<h3 class="panel-title">
-							<i class="fa fa-clock-o"></i> Najbliøsze wydarzenia
+							<i class="fa fa-clock-o"></i> Najbli≈ºsze wydarzenia
 						</h3>
 					</div>
 
@@ -156,7 +156,7 @@
 							</c:forEach>
 						</div>
 						<div class="text-right">
-							<a href="${pageContext.request.contextPath}/terminarz">Przejdº
+							<a href="${pageContext.request.contextPath}/terminarz">Przejd≈∫
 								do terminarza <i class="fa fa-arrow-circle-right"></i>
 							</a>
 						</div>

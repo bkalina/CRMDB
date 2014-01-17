@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-2"
-	pageEncoding="ISO-8859-2"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="datatables"
 	uri="http://github.com/dandelion/datatables"%>
@@ -39,9 +39,9 @@
 					<datatables:column title="Data" sortInit="asc">
 							<div><c:out value="${s.dataZdarzenia}"></c:out></div>
 					</datatables:column>
-					<datatables:column style="text-align: centerl" title=" " sortable="false" >
-						<form method="post" action="${pageContext.request.contextPath}/edytujNumer">
-							<input type="hidden" name="klientId" value="${s.id}">
+					<datatables:column style="text-align: center;" title=" " sortable="false" >
+						<form method="post" action="${pageContext.request.contextPath}/edytujTermin">
+							<input type="hidden" name="termId" value="${s.id}">
 							<button type="submit" class="btn btn-link"  style="width:30px; height:28px; padding:0px;"><i class="fa fa-pencil-square-o fa-2x"></i></button>
 						</form>
 					</datatables:column>

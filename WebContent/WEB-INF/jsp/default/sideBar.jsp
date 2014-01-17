@@ -1,10 +1,10 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-2"
-	pageEncoding="ISO-8859-2"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!-- SIDEBAR -->
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<nav class="navbar navbar-inverse navbar-fixed-top" >
 	<!-- Brand and toggle get grouped for better mobile display -->
 	<div class="navbar-header">
 		<button type="button" class="navbar-toggle" data-toggle="collapse"
@@ -27,8 +27,8 @@
 					class="fa fa-phone-square"></i> Telefony</a></li>
 			<li><a href="${pageContext.request.contextPath}/klienci"><i
 					class="fa fa-male"></i> Klienci</a></li>
-			<li><a href="${pageContext.request.contextPath}/mojzespol"><i
-					class="fa fa-users"></i> Mój zespó³</a></li>
+			<li><a href="${pageContext.request.contextPath}/mojZespol"><i
+					class="fa fa-users"></i> MÃ³j zespÃ³Å‚</a></li>
 		</ul>
 		<!-- / SIDEBAR MENU -->
 

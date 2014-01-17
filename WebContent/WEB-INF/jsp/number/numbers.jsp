@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-2"
-	pageEncoding="ISO-8859-2"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="datatables"
 	uri="http://github.com/dandelion/datatables"%>
@@ -36,10 +36,10 @@
 					<datatables:column title="Koniec" property="koniecUmowy" sortInit="asc"/>
 					<datatables:column title="Numer telefonu" property="numer"/>
 					
-					<datatables:column title="Us³uga" >
+					<datatables:column title="UsÅ‚uga" >
 						<font style="font-size:small;"><c:out value="${nr.typUslugi}" /></font>
 					</datatables:column>
-					<datatables:column title="D³ugo¶æ" property="dlugoscUmowy" />
+					<datatables:column title="DÅ‚ugoÅ›Ä‡" property="dlugoscUmowy" />
 					<datatables:column title="Firma">
 						<b><c:out value="${nr.nazwaFirmy}" /></b><br>
 						<font style="font-size:small;"><c:out value="${nr.daneKlienta}" /></font>

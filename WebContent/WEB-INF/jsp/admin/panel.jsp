@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-2"
-	pageEncoding="ISO-8859-2"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="datatables"
 	uri="http://github.com/dandelion/datatables"%>
@@ -74,7 +74,7 @@
 						<datatables:column title="Email" property="email" />
 						<datatables:column title="Telefon" property="telefon" />
 						<datatables:column title="Ranga" property="ranga" />
-						<datatables:column title="Prze³o¿ony" property="przelozonyId" />
+						<datatables:column title="PrzeÅ‚oÅ¼ony" property="przelozonyId" />
 						<datatables:column style="text-align:center" title=" "
 							sortable="false">
 							<form method="post"
