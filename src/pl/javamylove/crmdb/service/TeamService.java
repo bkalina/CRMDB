@@ -17,17 +17,17 @@ public class TeamService {
 	public void setTeamDao(TeamDAO teamDao) {
 		this.teamDao = teamDao;
 	}
-	
-	public List<WorkerModel> getTeamList(int id){
+
+	public List<WorkerModel> getTeamList(int id) {
 		return teamDao.getWorkersList(id);
 	}
-	
-	public boolean createWorker(WorkerModel worker){
+
+	public boolean createWorker(WorkerModel worker) {
 		return teamDao.createWorker(worker);
 	}
-	
-	public boolean deleteWorker(int workerId){
+
+	public boolean deleteWorker(int workerId) {
 		return teamDao.deleteWorker(workerId);
 	}
-	
+
 }

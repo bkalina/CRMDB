@@ -12,7 +12,7 @@
 <body onload='document.f.j_username.focus();'>
 
 	<!-- BELKA -->
-	<nav class="navbar navbar-inverse navbar-fixed-top" >
+	<nav class="navbar navbar-inverse navbar-fixed-top">
 		<!-- Brand and toggle get grouped for better mobile display -->
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle" data-toggle="collapse"
@@ -34,29 +34,36 @@
 					<h3 class="panel-title">Logowanie</h3>
 				</div>
 				<div class="panel-body">
-				
+
 					<c:if test="${param.error != null}">
-						<div class="alert alert-danger"><font size="-1">Błędny login lub hasło!</font></div>
+						<div class="alert alert-danger">
+							<font size="-1">Błędny login lub hasło!</font>
+						</div>
 					</c:if>
-				
-					<form name='f' action='${pageContext.request.contextPath}/j_spring_security_check'
+
+					<form name='f'
+						action='${pageContext.request.contextPath}/j_spring_security_check'
 						method='POST'>
 						<div class="input-group margin-bottom-sm">
 							<span class="input-group-addon"><i
-								class="fa fa-envelope-o fa-fw"></i></span>
-								<input type='text' class="form-control" name='j_username' value='' placeholder='Email' >
+								class="fa fa-envelope-o fa-fw"></i></span> <input type='text'
+								class="form-control" name='j_username' value=''
+								placeholder='Email'>
 						</div>
 						<div class="input-group">
 							<span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
-							<input type='password' class="form-control" name='j_password' placeholder='Hasło' />
+							<input type='password' class="form-control" name='j_password'
+								placeholder='Hasło' />
 						</div>
 						<br>
 						<div style="text-align: center;">
-								<button name="submit" type="submit" class="btn btn-primary">Zaloguj</button>
+							<button name="submit" type="submit" class="btn btn-primary">Zaloguj</button>
 						</div>
 					</form>
 					<c:if test="${param.login != null}">
-						<div class="alert alert-success"><font size="-1">Zalogowano!</font></div>
+						<div class="alert alert-success">
+							<font size="-1">Zalogowano!</font>
+						</div>
 					</c:if>
 				</div>
 			</div>

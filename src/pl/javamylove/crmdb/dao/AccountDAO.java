@@ -23,7 +23,7 @@ public class AccountDAO {
 	public void setDataSource(DataSource jdbc) {
 		this.jdbc = new NamedParameterJdbcTemplate(jdbc);
 	}
-	
+
 	public WorkerModel getWorker(int workerId) {
 		System.out.println("workerDAO: getWorker()");
 		MapSqlParameterSource params = new MapSqlParameterSource();
@@ -42,30 +42,36 @@ public class AccountDAO {
 						workerModel.setHaslo(rs.getString("haslo"));
 						workerModel.setRanga(rs.getString("ranga"));
 						workerModel.setPrzelozonyId(rs.getInt("przelozony_id"));
-						
+
 						return workerModel;
 					}
 				});
 	}
-	
+
 	public boolean updateWorker(WorkerModel worker) {
 		BeanPropertySqlParameterSource params = new BeanPropertySqlParameterSource(
 				worker);
 		return jdbc.update("", params) == 1;
 	}
-	
+
 	public boolean updateNumber(WorkerModel worker) {
-		BeanPropertySqlParameterSource params = new BeanPropertySqlParameterSource(worker);
-		return jdbc.update("update pracownik set telefon=:telefon where id=:id", params) == 1;
+		BeanPropertySqlParameterSource params = new BeanPropertySqlParameterSource(
+				worker);
+		return jdbc.update(
+				"update pracownik set telefon=:telefon where id=:id", params) == 1;
 	}
 
 	public boolean updateEmail(WorkerModel worker) {
-		BeanPropertySqlParameterSource params = new BeanPropertySqlParameterSource(worker);
-		return jdbc.update("update pracownik set email=:email where id=:id", params) == 1;
+		BeanPropertySqlParameterSource params = new BeanPropertySqlParameterSource(
+				worker);
+		return jdbc.update("update pracownik set email=:email where id=:id",
+				params) == 1;
 	}
-	
+
 	public boolean updatePassword(WorkerModel worker) {
-		BeanPropertySqlParameterSource params = new BeanPropertySqlParameterSource(worker);
-		return jdbc.update("update pracownik set haslo=:haslo where id=:id", params) == 1;
+		BeanPropertySqlParameterSource params = new BeanPropertySqlParameterSource(
+				worker);
+		return jdbc.update("update pracownik set haslo=:haslo where id=:id",
+				params) == 1;
 	}
 }

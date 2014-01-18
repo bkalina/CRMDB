@@ -8,9 +8,6 @@
 <title>CRMDB - Witam</title>
 </head>
 <body>
-	<c:if test="${admin == true}">
-	<jsp:forward page="/admin/panel"></jsp:forward>
-	</c:if>
 	<jsp:forward page="/panel"></jsp:forward>
 </body>
 </html>

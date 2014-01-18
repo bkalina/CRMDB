@@ -25,7 +25,7 @@ public class PanelController {
 
 	@RequestMapping("/panel")
 	public String showPanel(Model model, HttpSession session) {
-		
+
 		PanelModel pModel = panelService.getCount((int) session
 				.getAttribute("pracownikId"));
 		List<ScheduleModel> sModel = panelService

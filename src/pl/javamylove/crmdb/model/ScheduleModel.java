@@ -6,11 +6,11 @@ import javax.validation.constraints.Size;
 public class ScheduleModel {
 
 	private int id;
-	@Size(min=10, max=10)
-	@Pattern(regexp="..-..-....", message="Podaj datê w formacie dd-mm-rrrr!")
+	@Size(min = 10, max = 10)
+	@Pattern(regexp = "..-..-....", message = "Podaj datê w formacie dd-mm-rrrr!")
 	private String dataZdarzenia;
 	private String godzina;
-	@Size(min=1, message="Nie wprowadzono opisu lub opis za krótki!")
+	@Size(min = 1, message = "Nie wprowadzono opisu lub opis za krótki!")
 	private String opis;
 	private String notatka;
 	private int pracownikId;

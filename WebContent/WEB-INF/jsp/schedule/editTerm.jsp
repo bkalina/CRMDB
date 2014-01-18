@@ -27,14 +27,14 @@
 			<div class="panel-body"
 				style="border: 1px solid #428bca; border-radius: 4px; padding-right: 22px;">
 				<c:if test="${ranga == 'doradca'}">
-				<form action="${pageContext.request.contextPath}/usunTerminDO"
-					method="post">
-					<input type="hidden" name="termId" value="${termId}" />
-					<button type="submit" class="btn btn-danger"
-						style="float: right; width: 21px; height: 21px; margin-top: -14px; margin-right: -21px; padding: 0px;">
-						<i class="fa fa-times-circle"></i>
-					</button>
-				</form>
+					<form action="${pageContext.request.contextPath}/usunTerminDO"
+						method="post">
+						<input type="hidden" name="termId" value="${termId}" />
+						<button type="submit" class="btn btn-danger"
+							style="float: right; width: 21px; height: 21px; margin-top: -14px; margin-right: -21px; padding: 0px;">
+							<i class="fa fa-times-circle"></i>
+						</button>
+					</form>
 				</c:if>
 				<sf:form class="form-horizontal" method="post"
 					action="${pageContext.request.contextPath}/edytujTerminDO"
@@ -48,7 +48,7 @@
 								value="${term.dataZdarzenia}" name="dataZdarzenia" />
 							<sf:errors path="dataZdarzenia" cssClass="error" />
 						</div>
-						
+
 						<label for="imie" class="col-sm-1 control-label"
 							style="width: 15%;">Godzina</label>
 						<div class="col-sm-4" style="width: 35%;">

@@ -23,6 +23,11 @@ public class PhoneNumberService {
 		return pnDao.getNumbersList(id);
 	}
 
+	public PhoneNumberModel getNumber(int id) {
+		System.out.println("pnService: getNumbersList()");
+		return pnDao.getNumber(id);
+	}
+
 	public boolean createNumber(PhoneNumberModel number) {
 		return pnDao.createNumber(number);
 	}
@@ -31,9 +36,8 @@ public class PhoneNumberService {
 		return pnDao.deleteNumber(numberId);
 	}
 
-	public boolean updtaeNumber(PhoneNumberModel number) {
-		return pnDao.updateNumber(number);
+	public boolean updateNumber(PhoneNumberModel number, int numberId) {
+		return pnDao.updateNumber(number, numberId);
 	}
-	
-	
+
 }

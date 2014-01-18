@@ -31,8 +31,7 @@
 			<div class="panel-body"
 				style="border: 1px solid #428bca; border-radius: 4px; padding-right: 22px;"
 				id="daneForm">
-				<form class="form-horizontal" accept-charset="UTF-8"
-					method="post"
+				<form class="form-horizontal" accept-charset="UTF-8" method="post"
 					action="${pageContext.request.contextPath}/mojekontoEdycja">
 
 					<input type="hidden" name="id" value="${pracownik.id}">
@@ -90,8 +89,7 @@
 			<div class="panel-body"
 				style="border: 1px solid #428bca; border-radius: 4px; padding-right: 22px;"
 				id="hasloForm">
-				<form class="form-horizontal" accept-charset="UTF-8"
-					method="post"
+				<form class="form-horizontal" accept-charset="UTF-8" method="post"
 					action="${pageContext.request.contextPath}/mojekontoHaslo">
 
 					<input type="hidden" name="id" value="${pracownik.id}">

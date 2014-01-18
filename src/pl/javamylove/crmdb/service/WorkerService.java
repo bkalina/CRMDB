@@ -15,8 +15,8 @@ public class WorkerService {
 	public void setWorkerDao(WorkerDAO workerDao) {
 		this.workerDao = workerDao;
 	}
-	
-	public WorkerModel getWorkerId(String username){
+
+	public WorkerModel getWorkerId(String username) {
 		System.out.println("workerService: getId()");
 		return workerDao.getWorkerInitData(username);
 	}

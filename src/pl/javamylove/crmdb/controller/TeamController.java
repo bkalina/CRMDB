@@ -13,12 +13,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import pl.javamylove.crmdb.model.ClientModel;
 import pl.javamylove.crmdb.model.WorkerModel;
+import pl.javamylove.crmdb.service.LoggerService;
 import pl.javamylove.crmdb.service.TeamService;
 
 @Controller
 public class TeamController {
+
+	private LoggerService loggerService;
+
+	@Autowired
+	public void setLoggerService(LoggerService loggerService) {
+		this.loggerService = loggerService;
+	}
 
 	private TeamService teamService;
 
@@ -29,37 +36,36 @@ public class TeamController {
 
 	@RequestMapping("/mojZespol")
 	public String showTeam(Model model, HttpSession session) {
-		model.addAttribute("pracownikId", session.getAttribute("pracownikId"));
-		List<WorkerModel> workers = teamService.getTeamList((int) session.getAttribute("pracownikId"));
+		List<WorkerModel> workers = teamService.getTeamList((int) session
+				.getAttribute("pracownikId"));
 		model.addAttribute("workers", workers);
 		return "team/team";
 	}
-	
+
 	@RequestMapping("/dodajCzlonka")
 	public String addMember(Model model, HttpSession session) {
-		model.addAttribute("pracownikId", session.getAttribute("pracownikId"));
 		model.addAttribute("workerModel", new WorkerModel());
 		return "team/addMember";
 	}
-	
-	@RequestMapping(value="/dodajCzlonkaDO", method=RequestMethod.POST)
-	public String addClientDO(Model model, @Valid WorkerModel worker, BindingResult result){
-		
-		if(result.hasErrors()){
+
+	@RequestMapping(value = "/dodajCzlonkaDO", method = RequestMethod.POST)
+	public String addMemberDO(Model model, @Valid WorkerModel worker,
+			BindingResult result) {
+
+		if (result.hasErrors()) {
 			return "team/addMember";
-		}
-		else{
-			System.out.println(worker);
-			System.out.println("Created: " + teamService.createWorker(worker));
+		} else {
+			loggerService.log("Created team member " + worker.getEmail()
+					+ " = " + teamService.createWorker(worker));
 			return "team/memberDone";
 		}
 	}
-	
-	@RequestMapping(value="/usunCzlonkaDO", method=RequestMethod.POST)
-	public String deleteMemberDO(Model model, HttpSession session, @RequestParam("workerId") int workerId){
-		System.out.println("Id: " + session.getAttribute("pracownikId"));
-		System.out.println("Id: " + session.getAttribute("workerId"));
-		System.out.println("Delete: " + teamService.deleteWorker(workerId));
+
+	@RequestMapping(value = "/usunCzlonkaDO", method = RequestMethod.POST)
+	public String deleteMemberDO(Model model, HttpSession session,
+			@RequestParam("workerId") int workerId) {
+		loggerService.log("Deleted team member id=" + workerId + " = "
+				+ teamService.deleteWorker(workerId));
 		session.removeAttribute("workerId");
 		return "team/memberDone";
 	}

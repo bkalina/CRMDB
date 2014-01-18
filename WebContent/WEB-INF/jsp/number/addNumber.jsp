@@ -35,7 +35,7 @@
 				style="border: 1px solid #428bca; border-radius: 4px; padding-right: 22px;">
 				<sf:form name="numerForm" class="form-horizontal" method="post"
 					action="${pageContext.request.contextPath}/dodajNumerDO"
-					commandName="numberModel">
+					commandName="phoneNumberModel">
 
 					<div class="form-group">
 						<label for="imie" class="col-sm-1 control-label"
@@ -50,15 +50,24 @@
 						<label for="nazwisko" class="col-sm-2 control-label"
 							style="width: 15%;">Operator</label>
 						<div class="col-sm-4" style="width: 35%;">
-							<sf:input type="text" class="form-control" path="operator"
-								name="operator" placeholder="Operator" />
+							<sf:select class="form-control" path="operator" id="operator"
+								name="operator">
+								<option value="play">PLAY</option>
+								<option value="plus">PLUS</option>
+								<option value="orange">ORANGE</option>
+								<option value="tmobile">T-MOBILE</option>
+								<option value="inny">INNY</option>
+							</sf:select>
 							<sf:errors path="operator" cssClass="error" />
 						</div>
 						<label for="miasto" class="col-sm-2 control-label"
 							style="width: 15%;">Typ usługi</label>
 						<div class="col-sm-4" style="width: 35%;">
-							<sf:input type="text" class="form-control" path="typUslugi"
-								name="typUslugi" placeholder="Typ usługi" />
+							<sf:select class="form-control" path="typUslugi" id="typUslugi"
+								name="typUslugi">
+								<option value="postpaid_voice">POSTPAID VOICE</option>
+								<option value="postpaid_data">POSTPAID DATA</option>
+							</sf:select>
 							<sf:errors path="typUslugi" cssClass="error" />
 						</div>
 					</div>
@@ -67,8 +76,13 @@
 						<label for="ulica" class="col-sm-1 control-label"
 							style="width: 15%;">Długość umowy</label>
 						<div class="col-sm-4" style="width: 35%;">
-							<sf:input type="text" class="form-control" path="dlugoscUmowy"
-								name="dlugoscUmowy" placeholder="Długość umowy" />
+							<sf:select class="form-control" path="dlugoscUmowy"
+								id="dlugoscUmowy" name="dlugoscUmowy">
+								<option value="12">12 miesięcy</option>
+								<option value="18">18 miesięcy</option>
+								<option value="24">24 miesiące</option>
+								<option value="26">36 miesięcy</option>
+							</sf:select>
 							<sf:errors path="dlugoscUmowy" cssClass="error" />
 						</div>
 						<label for="nrBudynku" class="col-sm-2 control-label"
@@ -120,8 +134,12 @@
 
 				</sf:form>
 				<div style="width: 15%; float: left;">
-				<a href="${pageContext.request.contextPath}/dodajKlienta" style="float: right; margin-right: 25px;"><button type="button" class="btn btn-success  btn-sm"><i class="fa fa-plus"></i> Dodaj klienta</button></a>
-					<label style="float: right; margin-right: -104px; margin-top: 42px;">Kliknij
+					<a href="${pageContext.request.contextPath}/dodajKlienta"
+						style="float: right; margin-right: 25px;"><button
+							type="button" class="btn btn-success  btn-sm">
+							<i class="fa fa-plus"></i> Dodaj klienta
+						</button></a> <label
+						style="float: right; margin-right: -104px; margin-top: 42px;">Kliknij
 						ID</label>
 				</div>
 				<div class="table-responsive" style="width: 85%; float: right;">

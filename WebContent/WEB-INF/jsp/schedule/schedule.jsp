@@ -25,27 +25,37 @@
 					<h1>Terminarz</h1>
 				</div>
 				<div class="page-header" style="padding-left: 15px;">
-				<c:if test="${ranga == 'doradca'}">
-				<a href="${pageContext.request.contextPath}/dodajTermin"><button type="button" class="btn btn-success"><i class="fa fa-plus"></i> Dodaj termin</button></a>
-				</c:if>
+					<a href="${pageContext.request.contextPath}/dodajTermin"><button
+							type="button" class="btn btn-success">
+							<i class="fa fa-plus"></i> Dodaj termin
+						</button></a>
 				</div>
 			</div>
 			<div class="table-responsive">
 				<datatables:table cdn="true" id="terminy" data="${scheduleList}"
 					cssClass="table table-hover table-striped table-responsive" row="s">
 					<datatables:column title="Opis" sortable="false">
-							<div><c:out value="${s.opis}"></c:out></div>
+						<div>
+							<c:out value="${s.opis}"></c:out>
+						</div>
 					</datatables:column>
 					<datatables:column title="Data" sortInit="asc">
-							<div><c:out value="${s.dataZdarzenia}"></c:out></div>
+						<div>
+							<c:out value="${s.dataZdarzenia}"></c:out>
+						</div>
 					</datatables:column>
-					<datatables:column style="text-align: center;" title=" " sortable="false" >
-						<form method="post" action="${pageContext.request.contextPath}/edytujTermin">
+					<datatables:column style="text-align: center;" title=" "
+						sortable="false">
+						<form method="post"
+							action="${pageContext.request.contextPath}/edytujTermin">
 							<input type="hidden" name="termId" value="${s.id}">
-							<button type="submit" class="btn btn-link"  style="width:30px; height:28px; padding:0px;"><i class="fa fa-pencil-square-o fa-2x"></i></button>
+							<button type="submit" class="btn btn-link"
+								style="width: 30px; height: 28px; padding: 0px;">
+								<i class="fa fa-pencil-square-o fa-2x"></i>
+							</button>
 						</form>
 					</datatables:column>
-					
+
 				</datatables:table>
 			</div>
 		</div>

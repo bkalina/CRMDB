@@ -17,8 +17,16 @@ public class AdminService {
 	public void setSDao(WorkerDAO workerDao) {
 		this.workerDao = workerDao;
 	}
-	
-	public List<WorkerModel> getWorkersList(){
+
+	public List<WorkerModel> getWorkersList() {
 		return workerDao.getWorkersList();
+	}
+
+	public boolean createWorker(WorkerModel worker) {
+		return workerDao.createWorker(worker);
+	}
+	
+	public boolean deleteWorker(int workerId) {
+		return workerDao.deleteWorker(workerId);
 	}
 }

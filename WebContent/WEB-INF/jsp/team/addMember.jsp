@@ -6,7 +6,7 @@
 <html lang="pl">
 <head>
 <jsp:include page="../default/headTag.jsp" />
-<title>CRMDB - Dodaj klienta</title>
+<title>CRMDB - Dodaj członka zespołu</title>
 </head>
 
 <body>
@@ -20,7 +20,7 @@
 		<div id="page-wrapper">
 			<div class="row">
 				<div class="col-lg-12">
-					<h1>Dodaj klienta</h1>
+					<h1>Dodaj członka zespołu</h1>
 				</div>
 				<div class="page-header" style="padding-left: 15px;"></div>
 			</div>
@@ -75,9 +75,9 @@
 						</div>
 					</div>
 					<sf:input type="hidden" path="ranga" name="ranga"
-							value="telemarketer" />
+						value="telemarketer" />
 					<sf:input type="hidden" path="przelozonyId" name="przelozonyId"
-							value="${pracownikId}" />
+						value="${pracownikId}" />
 					<div>
 						<button type="submit" class="btn btn-success">
 							<i class="fa fa-floppy-o"></i> Zapisz

@@ -149,10 +149,9 @@
 					<div class="panel-body">
 						<div class="list-group">
 							<c:forEach var="s" items="${schedule}">
-								<a href="<c:out value="${s.id}"></c:out>"
-									class="list-group-item"> <span class="badge"><c:out
+								<span class="list-group-item"> <span class="badge"><c:out
 											value="${s.dataZdarzenia}"></c:out></span> <i class="fa fa-calendar"></i>
-									<c:out value="${s.opis}"></c:out></a>
+									<c:out value="${s.opis}"></c:out></span>
 							</c:forEach>
 						</div>
 						<div class="text-right">

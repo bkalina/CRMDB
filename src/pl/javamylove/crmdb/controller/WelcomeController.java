@@ -15,16 +15,6 @@ import pl.javamylove.crmdb.service.WorkerService;
 @Controller
 public class WelcomeController {
 
-	private boolean admin;
-
-	public void setAdmin(boolean admin) {
-		this.admin = admin;
-	}
-
-	public boolean isAdmin() {
-		return admin;
-	}
-
 	private WorkerService workerService;
 
 	@Autowired
@@ -45,31 +35,28 @@ public class WelcomeController {
 	}
 
 	@RequestMapping("/login")
-	public void loginProcess(HttpSession session) {
+	public String loginProcess(HttpSession session) {
+		Authentication auth = SecurityContextHolder.getContext()
+				.getAuthentication();
+		String username = auth.getName();
+		if (username.equals("admin"))
+			return adminLogin();
 		setSessionAttribute(session);
-		session.setAttribute("admin", isAdmin());
+		return "/login";
 	}
 
-	public WorkerModel getInitData() {
+	public WorkerModel getInitData(HttpSession session) {
 		Authentication auth = SecurityContextHolder.getContext()
 				.getAuthentication();
 		String username = auth.getName();
 
-		if (username.equals("admin")) {
-			setAdmin(true);
-		}
-
-		System.out.println("|||||||||||||||||||||||||||||||||||");
-		System.out.println("User: " + username + " logged in!");
-		System.out.println("Authority: " + auth.getAuthorities());
-		System.out.println("|||||||||||||||||||||||||||||||||||");
-		loggerService.log("User: " + username + " logged in!");
+		loggerService.log("User " + username + " logged in!");
 
 		return workerService.getWorkerId(username);
 	}
 
 	public void setSessionAttribute(HttpSession session) {
-		WorkerModel worker = getInitData();
+		WorkerModel worker = getInitData(session);
 		int pracownikId = worker.getId();
 		int przelozonyId = worker.getPrzelozonyId();
 
@@ -86,9 +73,7 @@ public class WelcomeController {
 	}
 
 	public String adminLogin() {
-		System.out.println("|||||||||||||||||||||||||||||||||||");
-		System.out.println("Admin logged in!");
-		System.out.println("|||||||||||||||||||||||||||||||||||");
-		return "/admin/panel";
+		loggerService.log("Admin logged in!");
+		return "/adminLogin";
 	}
 }

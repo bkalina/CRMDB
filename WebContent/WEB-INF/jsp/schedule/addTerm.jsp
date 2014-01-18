@@ -29,10 +29,10 @@
 			</div>
 			<div class="panel-body"
 				style="border: 1px solid #428bca; border-radius: 4px; padding-right: 22px;">
-				
-				
-				
-				
+
+
+
+
 				<sf:form class="form-horizontal" method="post"
 					action="${pageContext.request.contextPath}/dodajTerminDO"
 					commandName="scheduleModel">
@@ -45,7 +45,7 @@
 								value="${data}" name="dataZdarzenia" />
 							<sf:errors path="dataZdarzenia" cssClass="error" />
 						</div>
-						
+
 						<label for="imie" class="col-sm-1 control-label"
 							style="width: 15%;">Godzina</label>
 						<div class="col-sm-4" style="width: 35%;">

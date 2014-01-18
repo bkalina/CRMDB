@@ -24,9 +24,10 @@
 					<h1>Telefony</h1>
 				</div>
 				<div class="page-header" style="padding-left: 15px;">
-				<c:if test="${ranga == 'doradca'}">
-				<a href="${pageContext.request.contextPath}/dodajNumer"><button type="button" class="btn btn-success"><i class="fa fa-plus"></i> Dodaj numer</button></a>
-				</c:if>
+					<a href="${pageContext.request.contextPath}/dodajNumer"><button
+							type="button" class="btn btn-success">
+							<i class="fa fa-plus"></i> Dodaj numer
+						</button></a>
 				</div>
 			</div>
 			<div class="table-responsive">
@@ -54,7 +55,7 @@
 						sortable="false">
 						<form method="post"
 							action="${pageContext.request.contextPath}/edytujNumer">
-							<input type="hidden" name="klientId" value="${nr.id}">
+							<input type="hidden" name="numberId" value="${nr.id}">
 							<button type="submit" class="btn btn-link"
 								style="width: 30px; height: 28px; padding: 0px;">
 								<i class="fa fa-pencil-square-o fa-2x"></i>

@@ -15,8 +15,8 @@ public class AccountService {
 	public void setSDao(AccountDAO accDao) {
 		this.accDao = accDao;
 	}
-	
-	public WorkerModel getWorker(int pracownikId){
+
+	public WorkerModel getWorker(int pracownikId) {
 		System.out.println("accService: getWorker()");
 		return accDao.getWorker(pracownikId);
 	}

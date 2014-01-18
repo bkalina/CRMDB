@@ -27,8 +27,9 @@ public class TeamDAO {
 
 	public List<WorkerModel> getWorkersList(int id) {
 		System.out.println("workerDAO: getWorkersList()");
-		return jdbc.query("SELECT *, concat(p.imie, ' ', p.nazwisko) as przelozony FROM pracownik w join pracownik p on w.przelozony_id=p.id WHERE w.przelozony_id="+id,
-				new RowMapper<WorkerModel>() {
+		return jdbc
+				.query("SELECT *, concat(p.imie, ' ', p.nazwisko) as przelozony FROM pracownik w join pracownik p on w.przelozony_id=p.id WHERE w.przelozony_id="
+						+ id, new RowMapper<WorkerModel>() {
 					public WorkerModel mapRow(ResultSet rs, int rowNum)
 							throws SQLException {
 						WorkerModel workerModel = new WorkerModel();
@@ -65,16 +66,18 @@ public class TeamDAO {
 						workerModel.setHaslo(rs.getString("haslo"));
 						workerModel.setRanga(rs.getString("ranga"));
 						workerModel.setPrzelozonyId(rs.getInt("przelozony_id"));
-						
+
 						return workerModel;
 					}
 				});
 	}
-	
+
 	public boolean createWorker(WorkerModel worker) {
 		BeanPropertySqlParameterSource params = new BeanPropertySqlParameterSource(
 				worker);
-		return jdbc.update("INSERT INTO pracownik (imie, nazwisko, telefon, email, haslo, ranga, przelozony_id) VALUES (:imie, :nazwisko, :telefon, :email, :haslo, :ranga, :przelozonyId)", params) == 1;
+		return jdbc
+				.update("INSERT INTO pracownik (imie, nazwisko, telefon, email, haslo, ranga, przelozony_id) VALUES (:imie, :nazwisko, :telefon, :email, :haslo, :ranga, :przelozonyId)",
+						params) == 1;
 	}
 
 	public boolean deleteWorker(int workerId) {

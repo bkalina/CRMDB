@@ -15,7 +15,7 @@
 	<div id="wrapper">
 
 		<!-- SIDEBAR -->
-		<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<nav class="navbar navbar-inverse navbar-fixed-top">
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse"
@@ -25,13 +25,15 @@
 						class="icon-bar"></span>
 				</button>
 				<a class="navbar-brand"
-					href="${pageContext.request.contextPath}/admin/panel">CRMDB ADMIN</a>
+					href="${pageContext.request.contextPath}/admin/adminPanel">CRMDB
+					ADMIN</a>
 			</div>
 
 			<!-- SIDEBAR MENU -->
 			<div class="collapse navbar-collapse navbar-ex1-collapse">
 				<ul class="nav navbar-nav side-nav">
-					<li><a href="${pageContext.request.contextPath}/admin/panel"><i
+					<li><a
+						href="${pageContext.request.contextPath}/admin/adminPanel"><i
 							class="fa fa-dashboard"></i> Admin panel</a></li>
 				</ul>
 				<!-- / SIDEBAR MENU -->
@@ -42,7 +44,8 @@
 						class="dropdown-toggle" data-toggle="dropdown"><i
 							class="fa fa-user"></i> Administrator <b class="caret"></b></a>
 						<ul class="dropdown-menu">
-							<li><a href="${pageContext.request.contextPath}/j_spring_security_logout"><i
+							<li><a
+								href="${pageContext.request.contextPath}/j_spring_security_logout"><i
 									class="fa fa-power-off"></i> Wyloguj</a></li>
 						</ul></li>
 				</ul>
@@ -60,8 +63,11 @@
 				</div>
 				<div class="col-lg-12">
 					<div class="page-header" style="padding-left: 15px;">
-				<a href="${pageContext.request.contextPath}/dodajPracownika"><button type="button" class="btn btn-success"><i class="fa fa-plus"></i> Dodaj pracownika</button></a>
-				</div>
+						<a href="${pageContext.request.contextPath}/admin/dodajPracownika"><button
+								type="button" class="btn btn-success">
+								<i class="fa fa-plus"></i> Dodaj pracownika
+							</button></a>
+					</div>
 				</div>
 
 				<div class="table-responsive">
@@ -75,18 +81,6 @@
 						<datatables:column title="Telefon" property="telefon" />
 						<datatables:column title="Ranga" property="ranga" />
 						<datatables:column title="Przełożony" property="przelozonyId" />
-						<datatables:column style="text-align:center" title=" "
-							sortable="false">
-							<form method="post"
-								action="${pageContext.request.contextPath}/edytujPracownika">
-								<input type="hidden" name="klientId" value="${p.id}">
-								<button type="submit" class="btn btn-link"
-									style="width: 30px; height: 28px; padding: 0px;">
-									<i class="fa fa-pencil-square-o fa-2x"></i>
-								</button>
-							</form>
-						</datatables:column>
-
 					</datatables:table>
 				</div>
 			</div>

@@ -32,12 +32,12 @@ public class ClientService {
 		System.out.println("clientService: updateClient()");
 		return clientDao.updateClient(client);
 	}
-	
-	public boolean createClient(ClientModel client){
+
+	public boolean createClient(ClientModel client) {
 		return clientDao.createClient(client);
 	}
-	
-	public boolean deleteClient(int clientId){
+
+	public boolean deleteClient(int clientId) {
 		return clientDao.deleteClient(clientId);
 	}
 }

@@ -16,10 +16,18 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import pl.javamylove.crmdb.model.ScheduleModel;
+import pl.javamylove.crmdb.service.LoggerService;
 import pl.javamylove.crmdb.service.ScheduleService;
 
 @Controller
 public class ScheduleController {
+
+	private LoggerService loggerService;
+
+	@Autowired
+	public void setLoggerService(LoggerService loggerService) {
+		this.loggerService = loggerService;
+	}
 
 	private ScheduleService schService;
 
@@ -53,42 +61,42 @@ public class ScheduleController {
 			return "schedule/addTerm";
 		} else {
 			System.out.println(schedule);
-			System.out
-					.println("Created: " + schService.createTerm(schedule));
+			loggerService.log("Created term = "
+					+ schService.createTerm(schedule));
 			return "schedule/termDone";
 		}
 	}
-	
-	@RequestMapping(value="/edytujTermin", method=RequestMethod.POST)
-	public String editTerm(Model model, HttpSession session, @RequestParam("termId") int termId){
-		System.out.println("Id: " + session.getAttribute("pracownikId"));
+
+	@RequestMapping(value = "/edytujTermin", method = RequestMethod.POST)
+	public String editTerm(Model model, HttpSession session,
+			@RequestParam("termId") int termId) {
 		session.setAttribute("termId", termId);
 		ScheduleModel schedule = schService.getTerm(termId);
 		model.addAttribute("scheduleModel", schedule);
 		model.addAttribute("schedule", schedule);
 		return "schedule/editTerm";
 	}
-	
-	@RequestMapping(value="/edytujTerminDO", method=RequestMethod.POST)
-	public String editTermDO(Model model, HttpSession session, @Valid ScheduleModel schedule, BindingResult result){
-		System.out.println("Id: " + session.getAttribute("pracownikId"));
-		System.out.println("Id: " + session.getAttribute("termId"));
-		if(result.hasErrors()){
+
+	@RequestMapping(value = "/edytujTerminDO", method = RequestMethod.POST)
+	public String editTermDO(Model model, HttpSession session,
+			@Valid ScheduleModel schedule, BindingResult result) {
+		if (result.hasErrors()) {
 			return "schedule/editTerm";
-		}
-		else{
+		} else {
 			System.out.println(schedule);
-			System.out.println("Update: " + schService.updateTerm(schedule));
+			loggerService.log("Updated term = "
+					+ schService.updateTerm(schedule,
+							(int) session.getAttribute("termId")));
 			session.removeAttribute("termId");
 			return "schedule/termDone";
 		}
 	}
-	
-	@RequestMapping(value="/usunTerminDO", method=RequestMethod.POST)
-	public String deleteTermtDO(Model model, HttpSession session, @RequestParam("termId") int termId){
-		System.out.println("Id: " + session.getAttribute("pracownikId"));
-		System.out.println("Id: " + session.getAttribute("termId"));
-		System.out.println("Delete: " + schService.deleteTerm(termId));
+
+	@RequestMapping(value = "/usunTerminDO", method = RequestMethod.POST)
+	public String deleteTermtDO(Model model, HttpSession session,
+			@RequestParam("termId") int termId) {
+		loggerService.log("Deleted term id=" + termId + " = "
+				+ schService.deleteTerm(termId));
 		session.removeAttribute("termId");
 		return "schedule/termDone";
 	}

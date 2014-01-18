@@ -9,18 +9,20 @@ import org.springframework.stereotype.Controller;
 
 @Controller("loggerDao")
 public class LoggerDAO {
-	
+
 	private NamedParameterJdbcTemplate jdbc;
 
 	@Autowired
 	public void setDataSource(DataSource jdbc) {
 		this.jdbc = new NamedParameterJdbcTemplate(jdbc);
 	}
-	
-	public boolean log(String log){
+
+	public boolean log(String log) {
 		MapSqlParameterSource param = new MapSqlParameterSource();
 		param.addValue("log", log);
-		return jdbc.update("INSERT INTO log (data, opis) VALUES (NOW(),:log)", param) == 1;
+		System.out.println(log);
+		return jdbc.update("INSERT INTO log (data, opis) VALUES (NOW(),:log)",
+				param) == 1;
 	}
 
 }

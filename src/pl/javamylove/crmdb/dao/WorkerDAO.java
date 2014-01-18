@@ -65,18 +65,19 @@ public class WorkerDAO {
 						workerModel.setHaslo(rs.getString("haslo"));
 						workerModel.setRanga(rs.getString("ranga"));
 						workerModel.setPrzelozonyId(rs.getInt("przelozony_id"));
-						
+
 						return workerModel;
 					}
 				});
 	}
-	
+
 	public WorkerModel getWorkerInitData(String username) {
 		System.out.println("workerDAO: getWorker()");
 		MapSqlParameterSource params = new MapSqlParameterSource();
 		params.addValue("username", username);
-		return jdbc.queryForObject("SELECT * FROM pracownik WHERE email=:username",
-				params, new RowMapper<WorkerModel>() {
+		return jdbc.queryForObject(
+				"SELECT * FROM pracownik WHERE email=:username", params,
+				new RowMapper<WorkerModel>() {
 					public WorkerModel mapRow(ResultSet rs, int rowNum)
 							throws SQLException {
 						WorkerModel workerModel = new WorkerModel();
@@ -89,22 +90,18 @@ public class WorkerDAO {
 						workerModel.setHaslo(rs.getString("haslo"));
 						workerModel.setRanga(rs.getString("ranga"));
 						workerModel.setPrzelozonyId(rs.getInt("przelozony_id"));
-						
+
 						return workerModel;
 					}
 				});
 	}
 
-	public boolean updateWorker(WorkerModel worker) {
-		BeanPropertySqlParameterSource params = new BeanPropertySqlParameterSource(
-				worker);
-		return jdbc.update("", params) == 1;
-	}
-
 	public boolean createWorker(WorkerModel worker) {
 		BeanPropertySqlParameterSource params = new BeanPropertySqlParameterSource(
 				worker);
-		return jdbc.update("", params) == 1;
+		return jdbc
+				.update("INSERT INTO pracownik (imie, nazwisko, telefon, email, haslo, ranga) VALUES (:imie, :nazwisko, :telefon, :email, :haslo, :ranga)",
+						params) == 1;
 	}
 
 	public boolean deleteWorker(int workerId) {
