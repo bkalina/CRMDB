@@ -31,26 +31,37 @@
 			</div>
 			<div class="table-responsive">
 				<datatables:table cdn="true" id="numery" data="${numbersList}"
-					cssClass="table table-hover table-striped table-responsive" row="nr" >
-					<datatables:column title="Operator" property="operator" sortable="true"/>
-					<datatables:column title="Koniec" property="koniecUmowy" sortInit="asc"/>
-					<datatables:column title="Numer telefonu" property="numer"/>
-					
-					<datatables:column title="Usługa" >
-						<font style="font-size:small;"><c:out value="${nr.typUslugi}" /></font>
+					cssClass="table table-hover table-striped table-responsive"
+					row="nr">
+					<datatables:column title="Operator" property="operator"
+						sortable="true" />
+					<datatables:column title="Koniec" property="koniecUmowy"
+						sortInit="asc" />
+					<datatables:column title="Numer telefonu" property="numer" />
+
+					<datatables:column title="Usługa">
+						<font style="font-size: small;"><c:out
+								value="${nr.typUslugi}" /></font>
 					</datatables:column>
 					<datatables:column title="Długość" property="dlugoscUmowy" />
 					<datatables:column title="Firma">
-						<b><c:out value="${nr.nazwaFirmy}" /></b><br>
-						<font style="font-size:small;"><c:out value="${nr.daneKlienta}" /></font>
+						<b><c:out value="${nr.nazwaFirmy}" /></b>
+						<br>
+						<font style="font-size: small;"><c:out
+								value="${nr.daneKlienta}" /></font>
 					</datatables:column>
-					<datatables:column style="text-align:center" title=" " sortable="false">
-						<form method="post" action="${pageContext.request.contextPath}/edytujNumer">
+					<datatables:column style="text-align:center" title=" "
+						sortable="false">
+						<form method="post"
+							action="${pageContext.request.contextPath}/edytujNumer">
 							<input type="hidden" name="klientId" value="${nr.id}">
-							<button type="submit" class="btn btn-link"  style="width:30px; height:28px; padding:0px;"><i class="fa fa-pencil-square-o fa-2x"></i></button>
+							<button type="submit" class="btn btn-link"
+								style="width: 30px; height: 28px; padding: 0px;">
+								<i class="fa fa-pencil-square-o fa-2x"></i>
+							</button>
 						</form>
 					</datatables:column>
-					
+
 				</datatables:table>
 			</div>
 		</div>

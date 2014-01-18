@@ -14,6 +14,27 @@ public class PhoneNumberModel {
 	private String nazwaFirmy;
 	private String daneKlienta;
 
+	public PhoneNumberModel() {
+
+	}
+
+	public PhoneNumberModel(int id, String numer, String operator,
+			String dlugoscUmowy, String poczatekUmowy, String koniecUmowy,
+			String typUslugi, String notatka, int klientId, String nazwaFirmy,
+			String daneKlienta) {
+		this.id = id;
+		this.numer = numer;
+		this.operator = operator;
+		this.dlugoscUmowy = dlugoscUmowy;
+		this.poczatekUmowy = poczatekUmowy;
+		this.koniecUmowy = koniecUmowy;
+		this.typUslugi = typUslugi;
+		this.notatka = notatka;
+		this.klientId = klientId;
+		this.nazwaFirmy = nazwaFirmy;
+		this.daneKlienta = daneKlienta;
+	}
+
 	public int getId() {
 		return id;
 	}
