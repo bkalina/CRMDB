@@ -7,17 +7,17 @@ import javax.validation.constraints.Size;
 public class PhoneNumberModel {
 
 	private int id;
-	@Size(min = 9, max = 12, message = "Nie podano numeru lub d³ugoœæ numeru nie prawid³owa!")
+	@Size(min = 9, max = 12, message = "Nie podano numeru lub dÅ‚ugoÅ›Ä‡ numeru nie prawidÅ‚owa!")
 	private String numer;
 	private String operator;
 	private String dlugoscUmowy;
-	@Pattern(regexp = "....-..-..", message = "Podaj datê w formacie dd-mm-rrrr!")
+	@Pattern(regexp = "....-..-..", message = "Podaj datÄ™ w formacie dd-mm-rrrr!")
 	private String poczatekUmowy;
-	@Pattern(regexp = "....-..-..", message = "Podaj datê w formacie dd-mm-rrrr!")
+	@Pattern(regexp = "....-..-..", message = "Podaj datÄ™ w formacie dd-mm-rrrr!")
 	private String koniecUmowy;
 	private String typUslugi;
 	private String notatka;
-	@NotNull(message = "Nie podano ID klienta! Kliknij odpowiedni¹ komórkê w kolumnie 'ID klienta'.")
+	@NotNull(message = "Nie podano ID klienta! Kliknij odpowiedniÄ… komÃ³rkÄ™ w kolumnie 'ID klienta'.")
 	private int klientId;
 	private String nazwaFirmy;
 	private String daneKlienta;

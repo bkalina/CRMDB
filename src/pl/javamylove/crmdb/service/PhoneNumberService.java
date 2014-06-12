@@ -22,6 +22,11 @@ public class PhoneNumberService {
 		System.out.println("pnService: getNumbersList()");
 		return pnDao.getNumbersList(id);
 	}
+	
+	public List<PhoneNumberModel> getNumbersListClient(int id) {
+		System.out.println("pnService: getNumbersListClient()");
+		return pnDao.getNumbersListClient(id);
+	}
 
 	public PhoneNumberModel getNumber(int id) {
 		System.out.println("pnService: getNumbersList()");

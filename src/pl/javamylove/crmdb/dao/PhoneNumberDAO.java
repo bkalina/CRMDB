@@ -26,10 +26,39 @@ public class PhoneNumberDAO {
 	}
 
 	public List<PhoneNumberModel> getNumbersList(int id) {
-		System.out.println("pnDAO: getNumbersList()");
+		System.out.println("pnDAO: getNumbersListClient()");
 
 		return jdbc
 				.query("SELECT t.id, t.poczatek_umowy, t.klient_id, t.notatka, UCASE(t.operator) AS operator, t.koniec_umowy, t.numer, REPLACE(t.typ_uslugi, '_', ' ') AS typ_uslugi, t.dlugosc_umowy, k.nazwa_firmy, CONCAT(k.imie, ' ', k.nazwisko, '   NIP:', k.nip) AS dane_klienta FROM telefon t JOIN klient k ON t.klient_id=k.id WHERE k.pracownik_id="
+						+ id, new RowMapper<PhoneNumberModel>() {
+
+					public PhoneNumberModel mapRow(ResultSet rs, int rowNum)
+							throws SQLException {
+						PhoneNumberModel phoneNumber = new PhoneNumberModel();
+						phoneNumber.setId(rs.getInt("id"));
+						phoneNumber.setNumer(rs.getString("numer"));
+						phoneNumber.setOperator(rs.getString("operator"));
+						phoneNumber.setDlugoscUmowy(rs
+								.getString("dlugosc_umowy"));
+						phoneNumber.setPoczatekUmowy(rs
+								.getString("poczatek_umowy"));
+						phoneNumber.setKoniecUmowy(rs.getString("koniec_umowy"));
+						phoneNumber.setNotatka(rs.getString("notatka"));
+						phoneNumber.setTypUslugi(rs.getString("typ_uslugi"));
+						phoneNumber.setKlientId(rs.getInt("klient_id"));
+						phoneNumber.setNazwaFirmy(rs.getString("nazwa_firmy"));
+						phoneNumber.setDaneKlienta(rs.getString("dane_klienta"));
+
+						return phoneNumber;
+					}
+				});
+	}
+	
+	public List<PhoneNumberModel> getNumbersListClient(int id) {
+		System.out.println("pnDAO: getNumbersListClient()");
+
+		return jdbc
+				.query("SELECT t.id, t.poczatek_umowy, t.klient_id, t.notatka, UCASE(t.operator) AS operator, t.koniec_umowy, t.numer, REPLACE(t.typ_uslugi, '_', ' ') AS typ_uslugi, t.dlugosc_umowy, k.nazwa_firmy, CONCAT(k.imie, ' ', k.nazwisko, '   NIP:', k.nip) AS dane_klienta FROM telefon t JOIN klient k ON t.klient_id=k.id WHERE t.klient_id="
 						+ id, new RowMapper<PhoneNumberModel>() {
 
 					public PhoneNumberModel mapRow(ResultSet rs, int rowNum)

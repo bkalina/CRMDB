@@ -1,12 +1,19 @@
 package pl.javamylove.crmdb.model;
 
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
 public class WorkerModel {
 
 	private int id;
+	@Size(min = 1, message = "Pole 'Imiê' nie zosta³o wype³nione prawid³owo")
 	private String imie;
+	@Size(min = 1, message = "Pole 'Nazwisko' nie zosta³o wype³nione prawid³owo")
 	private String nazwisko;
 	private String telefon;
+	@Pattern(regexp = ".*\\@.*\\..*", message = "Z³y format adresu email!")
 	private String email;
+	@Size(min = 1, message = "Pole 'Haslo' nie zosta³o wype³nione prawid³owo")
 	private String haslo;
 	private String ranga;
 	private int przelozonyId;

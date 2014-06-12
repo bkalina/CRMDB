@@ -2,6 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="datatables"
+	uri="http://github.com/dandelion/datatables"%>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -159,7 +161,30 @@
 						</a>
 					</div>
 				</sf:form>
+				<br>
+				<div class="table-responsive">
+					<datatables:table cdn="true" id="numery" data="${numbersList}"
+						cssClass="table table-hover table-striped table-responsive"
+						row="nr">
+						<datatables:column title="Operator" property="operator"
+							sortable="true" />
+						<datatables:column title="Koniec" property="koniecUmowy"
+							sortInit="asc" />
+						<datatables:column title="Numer telefonu" property="numer" />
 
+						<datatables:column title="Usługa">
+							<font style="font-size: small;"><c:out
+									value="${nr.typUslugi}" /></font>
+						</datatables:column>
+						<datatables:column title="Długość" property="dlugoscUmowy" />
+						<datatables:column title="Firma">
+							<b><c:out value="${nr.nazwaFirmy}" /></b>
+							<br>
+							<font style="font-size: small;"><c:out
+									value="${nr.daneKlienta}" /></font>
+						</datatables:column>
+					</datatables:table>
+				</div>
 			</div>
 		</div>
 		<!-- /#page-wrapper -->

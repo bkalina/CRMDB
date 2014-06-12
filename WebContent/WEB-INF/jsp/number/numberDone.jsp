@@ -7,6 +7,6 @@
 <title>CRMDB - Zapisano</title>
 </head>
 <body>
-	<jsp:forward page="/telefony"></jsp:forward>
+	<% response.sendRedirect("telefony"); %>
 </body>
 </html>

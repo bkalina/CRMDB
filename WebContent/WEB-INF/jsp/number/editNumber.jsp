@@ -118,17 +118,17 @@
 					<div class="form-group">
 						<sf:input type="hidden" name="klientId" value="${number.klientId}"
 							path="klientId" />
-						<div>
-							<button type="submit" class="btn btn-success">
-								<i class="fa fa-floppy-o"></i> Zapisz
+					</div>
+					<div>
+						<button type="submit" class="btn btn-success">
+							<i class="fa fa-floppy-o"></i> Zapisz
+						</button>
+						<a href="${pageContext.request.contextPath}/telefony">
+							<button type="button" class="btn btn-danger"
+								style="float: right; margin-right: 17px;">
+								<i class="fa fa-times-circle"></i> Anuluj
 							</button>
-							<a href="${pageContext.request.contextPath}/telefony">
-								<button type="button" class="btn btn-danger"
-									style="float: right; margin-right: 17px;">
-									<i class="fa fa-times-circle"></i> Anuluj
-								</button>
-							</a>
-						</div>
+						</a>
 					</div>
 				</sf:form>
 			</div>

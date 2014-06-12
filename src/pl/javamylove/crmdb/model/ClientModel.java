@@ -7,30 +7,30 @@ public class ClientModel {
 
 	private int id;
 
-	@Size(min = 5, max = 100, message = "Nazwa firmy zbyt krÛtka!")
+	@Size(min = 5, max = 100, message = "Nazwa firmy zbyt kr√≥tka!")
 	private String nazwaFirmy;
 
-	@Size(min = 1, message = "Pole 'ImiÍ' nie zosta≥o wype≥nione prawid≥owo")
+	@Size(min = 1, message = "Pole 'Imiƒô' nie zosta≈Ço wype≈Çnione prawid≈Çowo")
 	private String imie;
-	@Size(min = 1, message = "Pole 'Nazwisko' nie zosta≥o wype≥nione prawid≥owo")
+	@Size(min = 1, message = "Pole 'Nazwisko' nie zosta≈Ço wype≈Çnione prawid≈Çowo")
 	private String nazwisko;
-	@Size(min = 1, message = "Pole 'Ulica' nie zosta≥o wype≥nione prawid≥owo")
+	@Size(min = 1, message = "Pole 'Ulica' nie zosta≈Ço wype≈Çnione prawid≈Çowo")
 	private String ulica;
 	@Size(min = 1, message = "Brak numeru!")
 	private String nrBudynku;
 	private String nrLokalu;
-	@Size(min = 6, max=8, message = "Pole 'Kod pocztowy' nie zosta≥o wype≥nione prawid≥owo")
+	@Size(min = 6, max=8, message = "Pole 'Kod pocztowy' nie zosta≈Ço wype≈Çnione prawid≈Çowo")
 	private String kodPocztowy;
-	@Size(min = 1, message = "Pole 'Miasto' nie zosta≥o wype≥nione prawid≥owo")
+	@Size(min = 1, message = "Pole 'Miasto' nie zosta≈Ço wype≈Çnione prawid≈Çowo")
 	private String miasto;
-	@Size(min = 9, max=10, message = "Pole 'Nip' nie zosta≥o wype≥nione prawid≥owo")
+	@Size(min = 9, max=10, message = "Pole 'Nip' nie zosta≈Ço wype≈Çnione prawid≈Çowo")
 	private String nip;
-	@Size(min = 9, max=10, message = "Pole 'Regon' nie zosta≥o wype≥nione prawid≥owo")
+	@Size(min = 9, max=10, message = "Pole 'Regon' nie zosta≈Ço wype≈Çnione prawid≈Çowo")
 	private String regon;
 	private String pesel;
-	@Size(min = 9, max = 12, message = "Pole 'Tel kontaktowy' nie zosta≥o wype≥nione prawid≥owo")
+	//@Size(min = 9, max = 12, message = "Pole 'Tel kontaktowy' nie zosta≈Ço wype≈Çnione prawid≈Çowo")
 	private String telKontaktowy;
-	@Pattern(regexp = ".*\\@.*\\..*", message = "Z≥y format adresu email!")
+	//@Pattern(regexp = ".*\\@.*\\..*", message = "Z≈Çy format adresu email!")
 	private String email;
 	private int pracownikId;
 	private int iloscNumerow;

@@ -14,8 +14,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import pl.javamylove.crmdb.model.ClientModel;
+import pl.javamylove.crmdb.model.PhoneNumberModel;
 import pl.javamylove.crmdb.service.ClientService;
 import pl.javamylove.crmdb.service.LoggerService;
+import pl.javamylove.crmdb.service.PhoneNumberService;
 
 @Controller
 public class ClientController {
@@ -34,6 +36,12 @@ public class ClientController {
 		this.clientService = clientService;
 	}
 
+	private PhoneNumberService phService;
+	
+	@Autowired
+	public void setPhoneService(PhoneNumberService phService) {
+		this.phService = phService;
+	}
 	@RequestMapping("/klienci")
 	public String showClients(Model model, HttpSession session) {
 		List<ClientModel> clList = clientService.getClientsList((int) session
@@ -67,7 +75,9 @@ public class ClientController {
 	public String editClient(Model model, HttpSession session,
 			@RequestParam("klientId") int clientId) {
 		session.setAttribute("klientId", clientId);
+		List<PhoneNumberModel> pnList = phService.getNumbersListClient(clientId);
 		ClientModel client = clientService.getClient(clientId);
+		model.addAttribute("numbersList", pnList);
 		model.addAttribute("clientModel", client);
 		model.addAttribute("client", client);
 		return "client/editClient";

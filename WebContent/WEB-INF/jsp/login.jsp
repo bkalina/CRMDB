@@ -8,6 +8,6 @@
 <title>CRMDB - Witam</title>
 </head>
 <body>
-	<jsp:forward page="/panel"></jsp:forward>
+	<% response.sendRedirect("panel"); %>
 </body>
 </html>
