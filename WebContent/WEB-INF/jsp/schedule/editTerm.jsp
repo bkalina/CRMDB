@@ -27,10 +27,10 @@
 			<div class="panel-body"
 				style="border: 1px solid #428bca; border-radius: 4px; padding-right: 22px;">
 				<c:if test="${ranga == 'doradca'}">
-					<form action="${pageContext.request.contextPath}/usunTerminDO"
+					<form id="usun" action="${pageContext.request.contextPath}/usunTerminDO"
 						method="post">
 						<input type="hidden" name="termId" value="${termId}" />
-						<button type="submit" class="btn btn-danger"
+						<button type="button" onclick="confrimDelete()" class="btn btn-danger" title="Usuń"
 							style="float: right; width: 21px; height: 21px; margin-top: -14px; margin-right: -21px; padding: 0px;">
 							<i class="fa fa-times-circle"></i>
 						</button>
@@ -101,5 +101,13 @@
 
 	<!-- JAVASCRIPT -->
 	<jsp:include page="../default/javaScript.jsp" />
+		<script>
+	<!-- Potwierdzenie usuniecia -->
+	function confrimDelete() {
+	    if (confirm("Czy na pewno usunąć?") == true) {
+	    	document.getElementById("usun").submit();
+	    }
+	}
+	</script>
 </body>
 </html>

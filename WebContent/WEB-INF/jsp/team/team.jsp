@@ -41,10 +41,10 @@
 								<b>${worker.imie} ${worker.nazwisko}</b>
 							</h3>
 							<c:if test="${ranga == 'doradca'}">
-								<form action="${pageContext.request.contextPath}/usunCzlonkaDO"
+								<form id="usun" action="${pageContext.request.contextPath}/usunCzlonkaDO"
 									method="post">
 									<input type="hidden" name="workerId" value="${worker.id}" />
-									<button type="submit" class="btn btn-danger"
+									<button type="button" onclick="confrimDelete()" class="btn btn-danger" title="Usuń"
 										style="float: right; width: 21px; height: 21px; margin-top: -23px; margin-right: -12px; padding: 0px;">
 										<i class="fa fa-times-circle"></i>
 									</button>
@@ -53,7 +53,7 @@
 						</div>
 						<div class="panel-body">
 							<b>Ranga:</b> ${worker.ranga}<br /> <b>Imie:</b> ${worker.imie}<br />
-							<b>Nazwisko:</b> ${worker.nazwisko}<br /> <b>Przełozony:</b>
+							<b>Nazwisko:</b> ${worker.nazwisko}<br /> <b>Przełożony:</b>
 							${worker.przelozony} <br />
 						</div>
 					</div>
@@ -66,6 +66,14 @@
 
 	<!-- JAVASCRIPT -->
 	<jsp:include page="../default/javaScript.jsp" />
+	<script>
+	<!-- Potwierdzenie usuniecia -->
+	function confrimDelete() {
+	    if (confirm("Czy na pewno usunąć?") == true) {
+	    	document.getElementById("usun").submit();
+	    }
+	}
+	</script>
 
 </body>
 </html>
