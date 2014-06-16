@@ -8,12 +8,8 @@
 <html lang="pl">
 <head>
 <jsp:include page="../default/headTag.jsp" />
+<link href="${pageContext.request.contextPath}/static/css/datepicker.css" rel="stylesheet">
 <title>CRMDB - Dodaj numer</title>
-<script type="text/javascript">
-	function fillId(someval) {
-		document.numerForm.klientId.value = someval;
-	}
-</script>
 </head>
 
 <body>
@@ -33,8 +29,8 @@
 			</div>
 			<div class="panel-body"
 				style="border: 1px solid #428bca; border-radius: 4px; padding-right: 22px;">
-				<sf:form name="numerForm" class="form-horizontal" method="post" onsubmit="zapisz.disabled = true; return true;"
-					action="${pageContext.request.contextPath}/dodajNumerDO"
+				<sf:form id="numerForm" name="numerForm" class="form-horizontal" method="post" onsubmit="zapisz.disabled = true; makeEndDate(); return true;;"
+					action="${pageContext.request.contextPath}/dodajNumerDO" 
 					commandName="phoneNumberModel">
 
 					<div class="form-group">
@@ -85,20 +81,17 @@
 							</sf:select>
 							<sf:errors path="dlugoscUmowy" cssClass="error" />
 						</div>
-						<label for="nrBudynku" class="col-sm-2 control-label"
+						<label for="poczatekUmowy" class="col-sm-2 control-label"
 							style="width: 15%;">Pocztek umowy</label>
-						<div class="col-sm-1" style="width: 12%;">
-							<sf:input type="text" class="form-control" path="poczatekUmowy"
-								name="poczatekUmowy" placeholder="Poczatek umowy" />
+						<div class="input-group date" style="width: 15%;">
+							<sf:input type="text" class="form-control date-picker" path="poczatekUmowy"
+								name="poczatekUmowy" id="poczatekUmowy" placeholder="yyyy-mm-dd" readonly="true"/>
+								<label for="poczatekUmowy" class="input-group-addon btn"><span class="fa fa-calendar"></span></label>
 							<sf:errors path="poczatekUmowy" cssClass="error" />
 						</div>
-						<label for="nrLokalu" class="col-sm-2 control-label"
-							style="width: 11%;">Koniec umowy</label>
-						<div class="col-sm-1" style="width: 12%;">
-							<sf:input type="text" class="form-control" path="koniecUmowy"
-								name="koniecUmowy" placeholder="Koniec umowy" />
-							<sf:errors path="koniecUmowy" cssClass="error" />
-						</div>
+						<sf:hidden class="form-control" path="koniecUmowy"
+							name="koniecUmowy" id="koniecUmowy" placeholder="yyyy-mm-dd" readonly="true"/>
+						<sf:errors path="koniecUmowy" cssClass="error" />
 					</div>
 
 					<div class="form-group">
@@ -120,7 +113,7 @@
 							<sf:errors path="klientId" cssClass="error" />
 						</div>
 						<div>
-							<button name="zapisz" type="submit" class="btn btn-success">
+							<button name="zapisz" id="zapisz" type="submit" class="btn btn-success">
 								<i class="fa fa-floppy-o"></i> Zapisz
 							</button>
 							<a href="${pageContext.request.contextPath}/telefony">
@@ -182,5 +175,50 @@
 
 	<!-- JAVASCRIPT -->
 	<jsp:include page="../default/javaScript.jsp" />
+	<script src="${pageContext.request.contextPath}/static/js/bootstrap-datepicker.js"></script>
+	<script src="${pageContext.request.contextPath}/static/js/bootstrap-datepicker.pl.js"></script>
+	<script type="text/javascript">
+	
+		<!-- Wstawienie wybranego id -->
+		function fillId(someval) {
+			document.numerForm.klientId.value = someval;
+		}
+
+	    function makeEndDate() {
+		var date = new Date($('#poczatekUmowy').val());
+		var dl = parseInt($('#dlugoscUmowy').val());
+		switch(dl){
+		case 12:
+			date.setMonth(date.getMonth()+12);
+			$('#koniecUmowy').val(date.getFullYear()+'-'+date.getMonth()+'-'+date.getDate());
+			break;
+		case 18:
+			date.setMonth(date.getMonth()+18);
+			$('#koniecUmowy').val(date.getFullYear()+'-'+date.getMonth()+'-'+date.getDate());
+			break;
+		case 24:
+			date.setMonth(date.getMonth()+24);
+			$('#koniecUmowy').val(date.getFullYear()+'-'+date.getMonth()+'-'+date.getDate());
+			break;
+		case 36:
+			date.setMonth(date.getMonth()+36);
+			$('#koniecUmowy').val(date.getFullYear()+'-'+date.getMonth()+'-'+date.getDate());
+			break;
+			}
+		}
+
+		$(".date-picker").datepicker({
+			format : "yyyy-mm-dd",
+			startView : 2,
+			language : "pl",
+			autoclose : true
+		});
+
+		$(".date-picker").on("change", function() {
+			var id = $(this).attr("id");
+			var val = $("label[for='" + id + "']").text();
+			$("#msg").text(val + " changed");
+		});
+	</script>
 </body>
 </html>

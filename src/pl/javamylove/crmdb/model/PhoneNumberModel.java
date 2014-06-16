@@ -11,9 +11,8 @@ public class PhoneNumberModel {
 	private String numer;
 	private String operator;
 	private String dlugoscUmowy;
-	@Pattern(regexp = "....-..-..", message = "Podaj datę w formacie dd-mm-rrrr!")
+	@Pattern(regexp = "....-..-..", message = "Podaj datę w formacie rrrr-mm-dd!")
 	private String poczatekUmowy;
-	@Pattern(regexp = "....-..-..", message = "Podaj datę w formacie dd-mm-rrrr!")
 	private String koniecUmowy;
 	private String typUslugi;
 	private String notatka;
