@@ -26,7 +26,7 @@
 			</div>
 			<div class="panel-body"
 				style="border: 1px solid #428bca; border-radius: 4px; padding-right: 22px;">
-				<sf:form class="form-horizontal" method="post"
+				<sf:form class="form-horizontal" method="post" onsubmit="zapisz.disabled = true; return true;"
 					action="${pageContext.request.contextPath}/dodajKlientaDO"
 					commandName="clientModel">
 
@@ -134,7 +134,7 @@
 							value="${pracownikId}" />
 					</div>
 					<div>
-						<button type="submit" class="btn btn-success">
+						<button name="zapisz" type="submit" class="btn btn-success">
 							<i class="fa fa-floppy-o"></i> Zapisz
 						</button>
 						<a href="${pageContext.request.contextPath}/klienci">

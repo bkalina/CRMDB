@@ -33,7 +33,7 @@
 
 
 
-				<sf:form class="form-horizontal" method="post"
+				<sf:form class="form-horizontal" method="post" onsubmit="zapisz.disabled = true; return true;"
 					action="${pageContext.request.contextPath}/dodajTerminDO"
 					commandName="scheduleModel">
 
@@ -78,7 +78,7 @@
 							value="${pracownikId}" />
 					</div>
 					<div>
-						<button type="submit" class="btn btn-success">
+						<button name="zapisz" type="submit" class="btn btn-success">
 							<i class="fa fa-floppy-o"></i> Zapisz
 						</button>
 						<a href="${pageContext.request.contextPath}/klienci">

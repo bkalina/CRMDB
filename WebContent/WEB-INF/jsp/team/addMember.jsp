@@ -26,7 +26,7 @@
 			</div>
 			<div class="panel-body"
 				style="border: 1px solid #428bca; border-radius: 4px; padding-right: 22px;">
-				<sf:form class="form-horizontal" method="post"
+				<sf:form class="form-horizontal" method="post" onsubmit="zapisz.disabled = true; return true;"
 					action="${pageContext.request.contextPath}/dodajCzlonkaDO"
 					commandName="workerModel">
 
@@ -79,7 +79,7 @@
 					<sf:input type="hidden" path="przelozonyId" name="przelozonyId"
 						value="${pracownikId}" />
 					<div>
-						<button type="submit" class="btn btn-success">
+						<button name="zapisz" type="submit" class="btn btn-success">
 							<i class="fa fa-floppy-o"></i> Zapisz
 						</button>
 						<a href="${pageContext.request.contextPath}/mojZespol">
@@ -100,5 +100,8 @@
 
 	<!-- JAVASCRIPT -->
 	<jsp:include page="../default/javaScript.jsp" />
+	<script type="text/javascript">
+
+	</script>
 </body>
 </html>

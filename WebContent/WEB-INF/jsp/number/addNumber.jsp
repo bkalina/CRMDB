@@ -33,7 +33,7 @@
 			</div>
 			<div class="panel-body"
 				style="border: 1px solid #428bca; border-radius: 4px; padding-right: 22px;">
-				<sf:form name="numerForm" class="form-horizontal" method="post"
+				<sf:form name="numerForm" class="form-horizontal" method="post" onsubmit="zapisz.disabled = true; return true;"
 					action="${pageContext.request.contextPath}/dodajNumerDO"
 					commandName="phoneNumberModel">
 
@@ -120,7 +120,7 @@
 							<sf:errors path="klientId" cssClass="error" />
 						</div>
 						<div>
-							<button type="submit" class="btn btn-success">
+							<button name="zapisz" type="submit" class="btn btn-success">
 								<i class="fa fa-floppy-o"></i> Zapisz
 							</button>
 							<a href="${pageContext.request.contextPath}/telefony">
@@ -135,8 +135,8 @@
 				</sf:form>
 				<div style="width: 15%; float: left;">
 					<a href="${pageContext.request.contextPath}/dodajKlienta"
-						style="float: right; margin-right: 25px;"><button
-							type="button" class="btn btn-success  btn-sm">
+						style="float: right; margin-right: 25px;">
+						<button type="submit" class="btn btn-success btn-sm">
 							<i class="fa fa-plus"></i> Dodaj klienta
 						</button></a> <label
 						style="float: right; margin-right: -104px; margin-top: 42px;">Kliknij
