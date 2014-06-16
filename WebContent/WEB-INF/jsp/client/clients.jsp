@@ -54,7 +54,7 @@
 						<form method="post"
 							action="${pageContext.request.contextPath}/edytujKlienta">
 							<input type="hidden" name="klientId" value="${cl.id}">
-							<button type="submit" class="btn btn-link"
+							<button type="submit" class="btn btn-link" title="Edytuj"
 								style="width: 30px; height: 28px; padding: 0px;">
 								<i class="fa fa-pencil-square-o fa-2x"></i>
 							</button>
