@@ -81,7 +81,7 @@
 								<option value="12">12 miesięcy</option>
 								<option value="18">18 miesięcy</option>
 								<option value="24">24 miesiące</option>
-								<option value="26">36 miesięcy</option>
+								<option value="36">36 miesięcy</option>
 							</sf:select>
 							<sf:errors path="dlugoscUmowy" cssClass="error" />
 						</div>
