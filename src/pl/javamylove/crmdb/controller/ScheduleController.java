@@ -47,7 +47,7 @@ public class ScheduleController {
 	@RequestMapping("/dodajTermin")
 	public String addTerm(Model model, HttpSession session) {
 		model.addAttribute("scheduleModel", new ScheduleModel());
-		SimpleDateFormat form = new SimpleDateFormat("dd-MM-yyyy");
+		SimpleDateFormat form = new SimpleDateFormat("yyyy-MM-dd");
 		String data = form.format(new Date());
 		model.addAttribute("data", data);
 		return "schedule/addTerm";

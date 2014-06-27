@@ -8,6 +8,12 @@
 <html lang="pl">
 <head>
 <jsp:include page="../default/headTag.jsp" />
+<link
+	href="${pageContext.request.contextPath}/static/css/datepicker.css"
+	rel="stylesheet">
+<link
+href="${pageContext.request.contextPath}/static/css/bootstrap-timepicker.min.css"
+	rel="stylesheet">
 <title>CRMDB - Dodaj termin</title>
 </head>
 
@@ -22,10 +28,9 @@
 		<!-- Nazwa strony -->
 		<div id="page-wrapper">
 			<div class="row">
-				<div class="col-lg-12">
+				<div class="page-header" style="padding-left: 15px;">
 					<h1>Dodaj termin</h1>
 				</div>
-				<div class="page-header" style="padding-left: 15px;"></div>
 			</div>
 			<div class="panel-body"
 				style="border: 1px solid #428bca; border-radius: 4px; padding-right: 22px;">
@@ -33,17 +38,37 @@
 
 
 
-				<sf:form class="form-horizontal" method="post" onsubmit="zapisz.disabled = true; return true;"
+				<sf:form class="form-horizontal" method="post"
+					onsubmit="zapisz.disabled = true; return true;"
 					action="${pageContext.request.contextPath}/dodajTerminDO"
 					commandName="scheduleModel">
 
 					<div class="form-group">
-						<label for="nazwaFirmy" class="col-sm-1 control-label"
-							style="width: 15%;">Data</label>
-						<div class="col-sm-10" style="width: 35%;">
-							<sf:input type="text" class="form-control" path="dataZdarzenia"
-								value="${data}" name="dataZdarzenia" />
-							<sf:errors path="dataZdarzenia" cssClass="error" />
+
+						<label for="dataZdarzenia" class="col-md-1 control-label">Data
+						</label>
+						<div class="col-md-2">
+							<div class="input-group date">
+								<sf:input type="text" class="form-control date-picker"
+									path="dataZdarzenia" name="dataZdarzenia" id="dataZdarzenia"
+									readonly="true" value="${data}" />
+								<label for="dataZdarzenia" class="input-group-addon btn"><span
+									class="fa fa-calendar"></span></label>
+								<sf:errors path="dataZdarzenia" cssClass="error" />
+							</div>
+						</div>
+						
+						<label for="godzina" class="col-md-1 control-label">Godzina
+						</label>
+						<div class="col-md-2">
+							<div class="input-group date">
+								<sf:input data-format="hh:mm:ss" type="text" class="form-control timepicker"
+									path="godzina" name="godzina" id="godzina"
+									readonly="true" />
+								<label for="godzina" class="input-group-addon btn"><span
+									class="fa fa-clock-o"></span></label>
+								<sf:errors path="godzina" cssClass="error" />
+							</div>
 						</div>
 
 						<label for="imie" class="col-sm-1 control-label"
@@ -81,7 +106,7 @@
 						<button name="zapisz" type="submit" class="btn btn-success">
 							<i class="fa fa-floppy-o"></i> Zapisz
 						</button>
-						<a href="${pageContext.request.contextPath}/klienci">
+						<a href="${pageContext.request.contextPath}/terminarz">
 							<button type="button" class="btn btn-danger"
 								style="float: right;">
 								<i class="fa fa-times-circle"></i> Anuluj
@@ -98,5 +123,22 @@
 
 	<!-- JAVASCRIPT -->
 	<jsp:include page="../default/javaScript.jsp" />
+	<script
+		src="${pageContext.request.contextPath}/static/js/bootstrap-datepicker.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/static/js/bootstrap-datepicker.pl.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/static/js/bootstrap-timepicker.js"></script>
+	<script type="text/javascript">
+	<!-- Datepicker -->
+		$("#dataZdarzenia").datepicker({
+			format : "yyyy-mm-dd",
+			startView : 2,
+			language : "pl",
+			autoclose : true
+		});
+		
+		$('#godzina').timepicker();
+	</script>
 </body>
 </html>

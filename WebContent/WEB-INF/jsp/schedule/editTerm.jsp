@@ -6,6 +6,9 @@
 <html lang="pl">
 <head>
 <jsp:include page="../default/headTag.jsp" />
+<link
+	href="${pageContext.request.contextPath}/static/css/datepicker.css"
+	rel="stylesheet">
 <title>CRMDB - Edycja terminu</title>
 </head>
 
@@ -19,10 +22,7 @@
 		<!-- Nazwa strony -->
 		<div id="page-wrapper">
 			<div class="row">
-				<div class="col-lg-12">
-					<h1>Edycja terminu</h1>
-				</div>
-				<div class="page-header" style="padding-left: 15px;"></div>
+				<div class="page-header" style="padding-left: 15px;"><h1>Edycja terminu</h1></div>
 			</div>
 			<div class="panel-body"
 				style="border: 1px solid #428bca; border-radius: 4px; padding-right: 22px;">
