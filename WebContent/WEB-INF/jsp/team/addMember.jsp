@@ -19,10 +19,9 @@
 		<!-- Nazwa strony -->
 		<div id="page-wrapper">
 			<div class="row">
-				<div class="col-lg-12">
+				<div class="page-header" style="padding-left: 15px;">
 					<h1>Dodaj członka zespołu</h1>
 				</div>
-				<div class="page-header" style="padding-left: 15px;"></div>
 			</div>
 			<div class="panel-body"
 				style="border: 1px solid #428bca; border-radius: 4px; padding-right: 22px;">

@@ -21,10 +21,9 @@
 		<!-- Nazwa strony -->
 		<div id="page-wrapper">
 			<div class="row">
-				<div class="col-lg-12">
+				<div class="page-header" style="padding-left: 15px;">
 					<h1>Moje konto</h1>
 				</div>
-				<div class="page-header"></div>
 			</div>
 
 			<label style="width: 100px;">Moje dane</label>

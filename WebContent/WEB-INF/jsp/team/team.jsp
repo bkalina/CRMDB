@@ -19,10 +19,8 @@
 		<!-- CONTENT -->
 		<div id="page-wrapper">
 			<div class="row">
-				<div class="col-lg-12">
-					<h1>Mój zespół</h1>
-				</div>
 				<div class="page-header" style="padding-left: 15px;">
+					<h1>Mój zespół</h1>
 					<c:if test="${ranga == 'doradca'}">
 						<a href="${pageContext.request.contextPath}/dodajCzlonka">
 							<button	type="button" class="btn btn-success">

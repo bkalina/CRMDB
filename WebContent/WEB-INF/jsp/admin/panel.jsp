@@ -58,34 +58,31 @@
 		<!-- Nazwa strony -->
 		<div id="page-wrapper">
 			<div class="row">
-				<div class="col-lg-12">
+				<div class="page-header" style="padding-left: 15px;">
 					<h1>Admin panel</h1>
-				</div>
-				<div class="col-lg-12">
-					<div class="page-header" style="padding-left: 15px;">
-						<a href="${pageContext.request.contextPath}/admin/dodajPracownika"><button
-								type="button" class="btn btn-success">
-								<i class="fa fa-plus"></i> Dodaj pracownika
-							</button></a>
-					</div>
-				</div>
-
-				<div class="table-responsive">
-					<datatables:table cdn="true" id="pracownicy" data="${list}"
-						cssClass="table table-hover table-striped" row="p">
-						<!-- theme="jqueryui" themeOption="redmond" -->
-						<datatables:column title="Id" property="id" />
-						<datatables:column title="Imie" property="imie" />
-						<datatables:column title="Nazwisko" property="nazwisko" />
-						<datatables:column title="Email" property="email" />
-						<datatables:column title="Telefon" property="telefon" />
-						<datatables:column title="Ranga" property="ranga" />
-						<datatables:column title="Przełożony" property="przelozonyId" />
-					</datatables:table>
+					<a href="${pageContext.request.contextPath}/admin/dodajPracownika"><button
+							type="button" class="btn btn-success">
+							<i class="fa fa-plus"></i> Dodaj pracownika
+						</button></a>
 				</div>
 			</div>
+
+			<div class="table-responsive">
+				<datatables:table cdn="true" id="pracownicy" data="${list}"
+					cssClass="table table-hover table-striped" row="p">
+					<!-- theme="jqueryui" themeOption="redmond" -->
+					<datatables:column title="Id" property="id" />
+					<datatables:column title="Imie" property="imie" />
+					<datatables:column title="Nazwisko" property="nazwisko" />
+					<datatables:column title="Email" property="email" />
+					<datatables:column title="Telefon" property="telefon" />
+					<datatables:column title="Ranga" property="ranga" />
+					<datatables:column title="Przełożony" property="przelozonyId" />
+				</datatables:table>
+			</div>
 		</div>
-		<!-- /#page-wrapper -->
+	</div>
+	<!-- /#page-wrapper -->
 	</div>
 	<!-- /#wrapper -->
 

@@ -20,10 +20,8 @@
 		<!-- Nazwa strony -->
 		<div id="page-wrapper">
 			<div class="row">
-				<div class="col-lg-12">
-					<h1>Klienci</h1>
-				</div>
 				<div class="page-header" style="padding-left: 15px;">
+					<h1>Klienci</h1>
 					<a href="${pageContext.request.contextPath}/dodajKlienta"><button
 							type="button" class="btn btn-success">
 							<i class="fa fa-plus"></i> Dodaj klienta
