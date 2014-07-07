@@ -34,33 +34,31 @@
 					action="${pageContext.request.contextPath}/mojekontoEdycja">
 
 					<input type="hidden" name="id" value="${pracownik.id}">
-					<div class="form-group">
-						<label for="imie" class="col-sm-1 control-label"
-							style="width: 15%;">Imię</label>
-						<div class="col-sm-4" style="width: 35%;">
+					<div class="form-group col-md-11">
+						<label for="imie" class="col-md-1 control-label col-md-offset-2">Imię</label>
+						<div class="col-md-3 ">
 							<input type="text" class="form-control" name="imie"
 								value="${pracownik.imie}" disabled>
 						</div>
-						<label for="nazwisko" class="col-sm-2 control-label"
-							style="width: 15%;">Nazwisko</label>
-						<div class="col-sm-4" style="width: 35%;">
+						<label for="nazwisko" class="col-md-1 control-label"
+							>Nazwisko</label>
+						<div class="col-md-3">
 							<input type="text" class="form-control" name="nazwisko"
 								value="${pracownik.nazwisko}" disabled>
 						</div>
 					</div>
-
-					<div class="form-group">
-						<label for="telKontaktowy" class="col-sm-1 control-label"
-							style="width: 15%;">Telefon</label>
-						<div class="col-sm-4" style="width: 35%;">
+					<div class="form-group col-md-11">
+						<label for="telKontaktowy" class="col-md-1 control-label col-md-offset-2"
+							>Telefon</label>
+						<div class="col-md-3">
 							<input type="text" class="form-control" name="telefon"
 								value="${pracownik.telefon}">
 						</div>
 						<input type="hidden" name="numerOld" value="${pracownik.telefon}">
 
-						<label for="email" class="col-sm-2 control-label"
-							style="width: 15%;">Email</label>
-						<div class="col-sm-4" style="width: 35%;">
+						<label for="email" class="col-md-1 control-label"
+							>Email</label>
+						<div class="col-md-3">
 							<input type="text" class="form-control" name="email"
 								value="${pracownik.email}">
 						</div>
@@ -70,7 +68,7 @@
 						<input type="hidden" name="przelozonyId"
 							value="${pracownik.przelozonyId}">
 					</div>
-					<div>
+					<div class="col-md-7 col-md-offset-2">
 						<button type="submit" class="btn btn-success">
 							<i class="fa fa-floppy-o"></i> Zapisz
 						</button>
@@ -92,19 +90,19 @@
 					action="${pageContext.request.contextPath}/mojekontoHaslo">
 
 					<input type="hidden" name="id" value="${pracownik.id}">
-					<div class="form-group">
-						<label for="haslo" class="col-sm-1 control-label"
-							style="width: 15%;">Nowe haslo</label>
-						<div class="col-sm-4" style="width: 35%;">
+					<div class="form-group col-md-11">
+						<label for="haslo" class="col-md-1 control-label col-md-offset-2"
+							>Nowe haslo</label>
+						<div class="col-md-3" ">
 							<input type="password" class="form-control" name="haslo">
 						</div>
-						<label for="haslo2" class="col-sm-2 control-label"
-							style="width: 15%;">Powtorz</label>
-						<div class="col-sm-4" style="width: 35%;">
+						<label for="haslo2" class="col-md-1 control-label"
+							>Powtorz</label>
+						<div class="col-md-3" >
 							<input type="password" class="form-control" name="haslo2">
 						</div>
 					</div>
-					<div>
+					<div class="col-md-7 col-md-offset-2">
 						<button type="submit" class="btn btn-success">
 							<i class="fa fa-floppy-o"></i> Zapisz
 						</button>
