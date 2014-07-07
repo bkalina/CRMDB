@@ -82,6 +82,10 @@ table.dataTable tr.even td.sorting_3 { background-color: #F9F9FF; }
 	color: #ffffff;
 }
 
+input, select, textarea{
+    color: #0a0a0a;
+}
+
 
 /*
  * Table information
