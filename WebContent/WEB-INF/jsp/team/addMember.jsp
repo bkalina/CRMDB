@@ -30,44 +30,44 @@
 					commandName="workerModel">
 
 
-					<div class="form-group">
-						<label for="imie" class="col-sm-1 control-label"
-							style="width: 15%;">Imię</label>
-						<div class="col-sm-4" style="width: 35%;">
+					<div class="form-group col-md-11">
+						<label for="imie" class="col-md-1 control-label col-md-offset-2"
+							>Imię</label>
+						<div class="col-md-3" >
 							<sf:input type="text" class="form-control" path="imie"
 								name="imie" placeholder="Imię" />
 							<sf:errors path="imie" cssClass="error" />
 						</div>
-						<label for="nazwisko" class="col-sm-2 control-label"
-							style="width: 15%;">Nazwisko</label>
-						<div class="col-sm-4" style="width: 35%;">
+						<label for="nazwisko" class="col-md-1 control-label"
+							>Nazwisko</label>
+						<div class="col-md-3" >
 							<sf:input type="text" class="form-control" path="nazwisko"
 								name="nazwisko" placeholder="Nazwisko" />
 							<sf:errors path="nazwisko" cssClass="error" />
 						</div>
 					</div>
 
-					<div class="form-group">
-						<label for="telKontaktowy" class="col-sm-1 control-label"
-							style="width: 15%;">Tel. kontaktowy</label>
-						<div class="col-sm-4" style="width: 35%;">
+					<div class="form-group col-md-11">
+						<label for="telKontaktowy" class="col-md-1 control-label col-md-offset-2"
+							>Tel. kontaktowy</label>
+						<div class="col-md-3" >
 							<sf:input type="text" class="form-control" path="telefon"
 								name="telefon" placeholder="Telefon kontaktowy" />
 							<sf:errors path="telefon" cssClass="error" />
 						</div>
-						<label for="email" class="col-sm-2 control-label"
-							style="width: 15%;">Email</label>
-						<div class="col-sm-4" style="width: 35%;">
+						<label for="email" class="col-md-1 control-label"
+							>Email (login)</label>
+						<div class="col-md-3" >
 							<sf:input type="text" class="form-control" path="email"
 								name="email" placeholder="Email" />
 							<sf:errors path="email" cssClass="error" />
 						</div>
 					</div>
 
-					<div class="form-group">
-						<label for="haslo" class="col-sm-1 control-label"
-							style="width: 15%;">Hasło</label>
-						<div class="col-sm-4" style="width: 35%;">
+					<div class="form-group col-md-11">
+						<label for="haslo" class="col-md-1 control-label col-md-offset-2"
+							>Hasło</label>
+						<div class="col-md-3" >
 							<sf:input type="text" class="form-control" name="haslo"
 								placeholder="Hasło" path="haslo" />
 							<sf:errors path="haslo" cssClass="error" />
@@ -77,7 +77,7 @@
 						value="telemarketer" />
 					<sf:input type="hidden" path="przelozonyId" name="przelozonyId"
 						value="${pracownikId}" />
-					<div>
+					<div class="col-md-7 col-md-offset-2">
 						<button name="zapisz" type="submit" class="btn btn-success">
 							<i class="fa fa-floppy-o"></i> Zapisz
 						</button>
